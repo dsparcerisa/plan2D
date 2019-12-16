@@ -29,8 +29,6 @@ tbl = readtable("/Users/Miguel/Documents/GitHub/plan2D/TOPAS/10MeV/Fluence.csv",
 tbl2 = readtable("/Users/Miguel/Documents/GitHub/plan2D/TOPAS/10MeV/EnergyDep.csv", opts);
 
 %% Convert to output type
-R = tbl.A;
-Z = tbl.C;
 flu = tbl.D;
 Edep = tbl2.D;
 
