@@ -47,19 +47,36 @@ Edep = reshape(Edep, [NZ NR]);
 Sflu=[];
 SEdep=[];
 
+%Choose the Z range for the Sigma interpolation
+a=126;
+b=2000;
 %Sigma for the fluence
 
-for i=300:800;
+for i=a:b;
     F1 = fit(Rvalues', flu(i,:)', 'gauss1');
     ss=F1.c1;
     Sflu=[Sflu,ss];
 end
+pflu=polyfit(Zvalues(a:b),Sflu,2);
+SfluInterp=polyval(pflu,Zvalues);
+figure
+plot(Zvalues,SfluInterp)
+ylabel('Sigma (cm)')
+xlabel('Z (cm)')
+title('Fluence')
 
 %Sigma for the Edep
 
-for i=300:800;
+for i=a:b;
     F2 = fit(Rvalues', Edep(i,:)', 'gauss1');
     sse=F2.c1;
     SEdep=[SEdep,sse];
 end
+pEdep=polyfit(Zvalues(a:b),SEdep,2);
+SEdepInterp=polyval(pEdep,Zvalues);
+figure
+plot(Zvalues,SEdepInterp)
+ylabel('Sigma (cm)')
+xlabel('Z (cm)')
+title('Energy deposition')
 
