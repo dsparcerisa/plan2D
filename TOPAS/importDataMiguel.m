@@ -25,8 +25,8 @@ opts.ExtraColumnsRule = "ignore";
 opts.EmptyLineRule = "read";
 
 % Import the data
-tbl = readtable("/Users/Miguel/Documents/GitHub/plan2D/TOPAS/10MeV/Fluence.csv", opts);
-tbl2 = readtable("/Users/Miguel/Documents/GitHub/plan2D/TOPAS/10MeV/EnergyDep.csv", opts);
+tbl = readtable("/Users/Miguel/Documents/GitHub/plan2D/TOPAS/1MeV/Fluence.csv", opts);
+tbl2 = readtable("/Users/Miguel/Documents/GitHub/plan2D/TOPAS/1MeV/EnergyDep.csv", opts);
 
 %% Convert to output type
 flu = tbl.D;
@@ -46,7 +46,7 @@ Sflu=[];
 SEdep=[];
 
 %Choose the Z range for the Sigma interpolation
-a=126;
+a=125;
 b=2000;
 %Sigma for the fluence
 
