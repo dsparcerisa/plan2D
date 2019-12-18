@@ -25,8 +25,8 @@ opts.ExtraColumnsRule = "ignore";
 opts.EmptyLineRule = "read";
 
 % Import the data
-tbl = readtable("10MeV/Fluence.csv", opts);
-tbl2 = readtable("10MeV/EnergyDep.csv", opts);
+tbl = readtable(fullfile('10MeV','Fluence.csv'), opts);
+tbl2 = readtable(fullfile('10MeV', 'EnergyDep.csv'), opts);
 
 %% Convert to output type
 flu = tbl.D;
@@ -65,7 +65,7 @@ title('Fluence')
 
 %Sigma for the Edep
 
-for i=a:b;
+for i=a:b
     F2 = fit(Rvalues', Edep(i,:)', 'gauss1');
     sse=F2.c1;
     SEdep=[SEdep,sse];
