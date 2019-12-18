@@ -24,7 +24,7 @@ opts.VariableTypes = ["double", "double", "double", "double"];
 opts.ExtraColumnsRule = "ignore";
 opts.EmptyLineRule = "read";
 
-% Import the data
+% Import the dat
 tbl = readtable(fullfile('10MeV','Fluence.csv'), opts);
 tbl2 = readtable(fullfile('10MeV', 'EnergyDep.csv'), opts);
 
@@ -51,13 +51,13 @@ maxFitIgnored = 0;
 for i=1:NZ
     try
         F1 = fit(Rvalues', flu(i,:)', 'gauss1');
-        Sflu(i) = F1.c1;        
+        Sflu(i) = F1.c1 / sqrt(2);        
     catch
         maxFitIgnored = i;
     end
     i
 end
-maxFitIgnored = maxFitIgnored + 5;
+maxFitIgnored = maxFitIgnored + 15;
 Sflu(1:maxFitIgnored) = dR;
 fprintf('Ignoring fits at positions Z <= %f... \n', Zvalues(maxFitIgnored));
 
