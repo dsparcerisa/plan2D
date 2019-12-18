@@ -32,6 +32,7 @@ tbl2 = readtable(fullfile('10MeV', 'EnergyDep.csv'), opts);
 flu = tbl.D;
 Edep = tbl2.D;
 
+%%
 NR = 100;
 NZ = 2000;
 dR = 0.01;
@@ -42,28 +43,38 @@ Zvalues = dZ*(1:NZ) - dZ/2;
 flu = reshape(flu, [NZ NR]);
 Edep = reshape(Edep, [NZ NR]);
 
-Sflu=[];
-SEdep=[];
-
 %Choose the Z range for the Sigma interpolation
-a=126;
-b=2000;
-%Sigma for the fluence
-
-for i=a:b;
-    F1 = fit(Rvalues', flu(i,:)', 'gauss1');
-    ss=F1.c1;
-    Sflu=[Sflu,ss];
+%% Fit
+Sflu = nan(1, NZ);
+SEdep = nan(1, NZ);
+maxFitIgnored = 0;
+for i=1:NZ
+    try
+        F1 = fit(Rvalues', flu(i,:)', 'gauss1');
+        Sflu(i) = F1.c1;        
+    catch
+        maxFitIgnored = i;
+    end
+    i
 end
-pflu=polyfit(Zvalues(a:b),Sflu,2);
+maxFitIgnored = maxFitIgnored + 5;
+Sflu(1:maxFitIgnored) = dR;
+fprintf('Ignoring fits at positions Z <= %f... \n', Zvalues(maxFitIgnored));
+
+% pflu=polyfit(Zvalues,Sflu,2); %% polyfit no permite restringir valores
+F = fit(Zvalues', Sflu', 'poly2', 'Lower', [0 0 0]);
+pflu = coeffvalues(F);
 SfluInterp=polyval(pflu,Zvalues);
 figure
-plot(Zvalues,SfluInterp)
+plot(Zvalues, Sflu, 'r.')
+hold on
+plot(Zvalues,SfluInterp, 'b-')
+
 ylabel('Sigma (cm)')
 xlabel('Z (cm)')
 title('Fluence')
 
-%Sigma for the Edep
+%% Sigma for the Edep
 
 for i=a:b
     F2 = fit(Rvalues', Edep(i,:)', 'gauss1');
