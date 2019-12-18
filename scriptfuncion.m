@@ -1,3 +1,4 @@
-E0 = 3; %MeV
-Z = [0:0.1:10]; %distancia de 0 a 10 cm
-[energyW, energyA, stoppingPowerAir, stoppingPowerWater] = energyStoppingPower(E0,Z);
+clear all
+E0 = 2; %MeV
+Z = [0:0.1:20]; %distancia de 0 a 10 cm
+[energyA, stoppingPowerAir, stoppingPowerWater] = energyStoppingPower(E0,Z);
