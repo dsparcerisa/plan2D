@@ -25,8 +25,8 @@ opts.ExtraColumnsRule = "ignore";
 opts.EmptyLineRule = "read";
 
 % Import the data
-tbl = readtable("/Users/Miguel/Documents/GitHub/plan2D/TOPAS/10MeV/Fluence.csv", opts);
-tbl2 = readtable("/Users/Miguel/Documents/GitHub/plan2D/TOPAS/10MeV/EnergyDep.csv", opts);
+tbl = readtable("10MeV/Fluence.csv", opts);
+tbl2 = readtable("10MeV/EnergyDep.csv", opts);
 
 %% Convert to output type
 flu = tbl.D;
