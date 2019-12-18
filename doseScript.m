@@ -15,7 +15,7 @@ N = 10^6; %número de protones
 Cp = 1.6*10^(-19); %carga de cada protón en C
 C = N*Cp; %carga total
 
-fluency = eye(5); 
+fluency = eye(2); 
 dose = (energyW*N*fluency)/(rho_W*Z); %J/kg = Gy bien de unidades pero mal de dimensiones
 
 
