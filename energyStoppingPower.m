@@ -31,21 +31,21 @@ for i=2:numel(Z) %hasta el número de elementos de Z
     stoppingPowerWater_Z(i) = interp1(energy_Air,stoppingPower_Water, energiesAir_Z(i-1)); %energía negativas
 end
 
-figure(1)
-plot(Z,stoppingPowerAir_Z);
-xlabel('z (cm)');
-ylabel('Stopping Power in Air (MeV/cm)');
-
-figure(2)
-plot(Z,energiesAir_Z);
-xlabel('z (cm)');
-ylabel('Energy (MeV)');
-title('Energy (Air)');
-
-figure(3)
-plot(Z,stoppingPowerWater_Z);
-xlabel('z (cm)');
-ylabel('Stopping Power in Water (MeV/cm)');
+% figure(1)
+% plot(Z,stoppingPowerAir_Z);
+% xlabel('z (cm)');
+% ylabel('Stopping Power in Air (MeV/cm)');
+% 
+% figure(2)
+% plot(Z,energiesAir_Z);
+% xlabel('z (cm)');
+% ylabel('Energy (MeV)');
+% title('Energy (Air)');
+% 
+% figure(3)
+% plot(Z,stoppingPowerWater_Z);
+% xlabel('z (cm)');
+% ylabel('Stopping Power in Water (MeV/cm)');
 
 stoppingPowerAir = stoppingPowerAir_Z;
 stoppingPowerWater = stoppingPowerWater_Z;
