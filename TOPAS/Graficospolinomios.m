@@ -10,8 +10,8 @@ for i=1:10;
     hold on
 end
 title('Fluence');
-xlabel('Sigma (cm)');
-ylabel('Z(cm)');
+xlabel('Z(cm)');
+ylabel('Sigma(cm)');
 legend('1MeV','2MeV','3MeV','4MeV','5MeV','6MeV','7MeV','8MeV','9MeV','10MeV');
 figure
 for i=1:10;
@@ -20,8 +20,8 @@ for i=1:10;
     hold on
 end
 title('Energy Deposited');
-xlabel('Sigma (cm)');
-ylabel('Z(cm)');
+xlabel('Z(cm)');
+ylabel('Sigma(cm)');
 legend('1MeV','2MeV','3MeV','4MeV','5MeV','6MeV','7MeV','8MeV','9MeV','10MeV');
 
 
