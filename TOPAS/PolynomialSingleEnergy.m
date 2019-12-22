@@ -103,6 +103,6 @@ plot(Zvalues, SEdep, 'r.')
 ylabel('Sigma (cm)')
 xlabel('Z (cm)')
 title('Energy deposition')
-
+%
 pflu
 pEdep
