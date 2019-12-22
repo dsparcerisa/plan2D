@@ -9,12 +9,14 @@ Sigmaflu=polyval(pflu,Z);
 SigmaEdep=polyval(pEdep,Z);
 
 close all
+
 NX=100;
 dX=0.01;
 NY=100;
 dY=0.01;
 Xvalues = dX*(1:NX) - dX/2;
 Yvalues = dY*(1:NY) - dY/2;
+
 FLUZ=nan(100,100);
 EDEPZ=nan(100,100);
 for i=1:NX;
@@ -29,6 +31,12 @@ for i=1:NX;
 end
 figure
 imagesc(FLUZ);
+title('Fluence');
+xlabel('X(cm)');
+ylabel('Y(cm)');
 
 figure
 imagesc(EDEPZ)
+title('Energydeposited');
+xlabel('X(cm)');
+ylabel('Y(cm)');
