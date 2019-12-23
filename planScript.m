@@ -1,14 +1,14 @@
 %LECTURA
 parametresTable = readtable('plan.xlsx','Range','A1:E2'); %Lee la primera fila del plan
-XYQtable = readtable('plan.xlsx','Range','A3:C9'); %Lee el resto de filas del plan
+xyqTable = readtable('plan.xlsx','Range','A3:C9'); %Lee el resto de filas del plan
 
- X = XYQtable(:,1);
- Y = XYQtable(:,2);
- Q = XYQtable(:,3);
+ X = xyqTable(:,1);
+ Y = xyqTable(:,2);
+ Q = xyqTable(:,3);
  
-%ESCRITURA
+%ESCRITURA,se generan los datos del plan en formato texto separado por comas
 writetable(parametresTable,'pTable.txt'); type pTable.txt %para visualizar en command window pTable
-writetable(XYQtable, 'xqyTable.txt'); type xqyTable.txt
+writetable(xyqTable, 'XQYtable.txt'); type XQYtable.txt
 
 
  
