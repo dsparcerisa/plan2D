@@ -1,7 +1,7 @@
 PFLU=[PolynomialFluence.E,PolynomialFluence.Afluence,PolynomialFluence.Bfluence,PolynomialFluence.Cfluence];
 PEDEP=[PolynomialEnergyDeposited.E,PolynomialEnergyDeposited.AEdep,PolynomialEnergyDeposited.BEdep,PolynomialEnergyDeposited.CEdep];
 
-E=10; %Elegir energía
+E=10; %Elegir energÃŒa
 pflu=PFLU(E,2:4);
 pEdep=PEDEP(E,2:4);
 Z=30; %Elegir plano
