@@ -1,10 +1,16 @@
 PFLU=[PolynomialFluence.E,PolynomialFluence.Afluence,PolynomialFluence.Bfluence,PolynomialFluence.Cfluence];
 PEDEP=[PolynomialEnergyDeposited.E,PolynomialEnergyDeposited.AEdep,PolynomialEnergyDeposited.BEdep,PolynomialEnergyDeposited.CEdep];
 
-E=10; %Elegir energÌa
+E=1; %Elegir energia
 pflu=PFLU(E,2:4);
 pEdep=PEDEP(E,2:4);
-Z=30; %Elegir plano
+%Elegir plano
+Z=2; 
+dZ=0.02;
+ZAll=dZ*NZAll-dZ/2;
+if Z>ZAll(E)
+    disp('Z greater than the range for this energy')
+else
 Sigmaflu=polyval(pflu,Z);
 SigmaEdep=polyval(pEdep,Z);
 
@@ -31,4 +37,5 @@ imagesc(EDEPZ)
 title('Energydeposited');
 xlabel('X(cm)');
 ylabel('Y(cm)');
+end
 
