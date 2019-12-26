@@ -16,19 +16,10 @@ NY=100;
 dY=0.01;
 Xvalues = dX*(1:NX) - dX/2;
 Yvalues = dY*(1:NY) - dY/2;
+[X,Y]=meshgrid(Xvalues,Yvalues);
 
-FLUZ=nan(100,100);
-EDEPZ=nan(100,100);
-for i=1:NX;
-    for j=1:NY;
-        FLUZ(i,j)=exp(-((Xvalues(i)-0.5)^2/(sqrt(2)*Sigmaflu)^2)-((Yvalues(j)-0.5)^2/(sqrt(2)*Sigmaflu)^2));
-    end
-end
-for i=1:NX;
-    for j=1:NY;
-        EDEPZ(i,j)=exp(-((Xvalues(i)-0.5)^2/(sqrt(2)*SigmaEdep)^2)-((Yvalues(j)-0.5)^2/(sqrt(2)*SigmaEdep)^2));
-    end
-end
+FLUZ=exp(-((X-0.5).^2/(sqrt(2)*Sigmaflu)^2)-((Y-0.5).^2/(sqrt(2)*Sigmaflu)^2));
+EDEPZ=exp(-((X-0.5).^2/(sqrt(2)*SigmaEdep)^2)-((Y-0.5).^2/(sqrt(2)*SigmaEdep)^2));
 figure
 imagesc(FLUZ);
 title('Fluence');
@@ -40,3 +31,4 @@ imagesc(EDEPZ)
 title('Energydeposited');
 xlabel('X(cm)');
 ylabel('Y(cm)');
+
