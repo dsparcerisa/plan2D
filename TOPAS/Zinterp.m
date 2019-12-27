@@ -1,18 +1,31 @@
 PFLU=[PolynomialFluence.E,PolynomialFluence.Afluence,PolynomialFluence.Bfluence,PolynomialFluence.Cfluence];
 PEDEP=[PolynomialEnergyDeposited.E,PolynomialEnergyDeposited.AEdep,PolynomialEnergyDeposited.BEdep,PolynomialEnergyDeposited.CEdep];
+%Elegir energia
+E=7.75; 
+%polinomios interpolado para la energia E
+Ainterpflu=interp1(PFLU(:,1),PFLU(:,2),E);
+Binterpflu=interp1(PFLU(:,1),PFLU(:,3),E);
+Cinterpflu=interp1(PFLU(:,1),PFLU(:,4),E);
+pinterpflu=[Ainterpflu,Binterpflu,Cinterpflu];
 
-E=1; %Elegir energia
-pflu=PFLU(E,2:4);
-pEdep=PEDEP(E,2:4);
+AinterpEdep=interp1(PEDEP(:,1),PEDEP(:,2),E);
+BinterpEdep=interp1(PEDEP(:,1),PEDEP(:,3),E);
+CinterpEdep=interp1(PEDEP(:,1),PEDEP(:,4),E);
+pinterpEdep=[AinterpEdep,BinterpEdep,CinterpEdep];
 %Elegir plano
-Z=2; 
+Z=500; 
 dZ=0.02;
-ZAll=dZ*NZAll-dZ/2;
-if Z>ZAll(E)
+
+Zrange=dZ*NZAll-dZ/2;
+Einterp=[round(E-0.5),round(E+0.5)];
+Zrangeinterp=[Zrange(Einterp(1)),Zrange(Einterp(2))];
+ZrangeE=interp1(Einterp,Zrangeinterp,E);
+
+if Z>ZrangeE
     disp('Z greater than the range for this energy')
 else
-Sigmaflu=polyval(pflu,Z);
-SigmaEdep=polyval(pEdep,Z);
+Sigmaflu=polyval(pinterpflu,Z);
+SigmaEdep=polyval(pinterpEdep,Z);
 
 close all
 
