@@ -7,7 +7,7 @@ parametersTable.Properties.VariableNames{'E_MeV_'} = 'E(MeV)';
 parametersTable.Properties.VariableNames{'Z_cm_'} = 'Z(cm)';
 parametersTable.Properties.VariableNames{'I_nA_'} = 'I(nA)';
 
-xyqTable = planTable(3:8,1:3); 
+xyqTable = planTable(3:8,1:3); %había pensado en ampliar el rango de las filas para que no hubiese que cambiar nada cuando variase el número de puntos, pero me salen errores
 xyqTable.Properties.VariableNames{'E_MeV_'} = 'X(cm)';
 xyqTable.Properties.VariableNames{'Z_cm_'} = 'Y(cm)';
 xyqTable.Properties.VariableNames{'I_nA_'} = 'Q(pC)';
