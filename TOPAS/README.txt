@@ -18,7 +18,7 @@ Aquí adjunto las descripciones de cada script:
 
 	tablepolinomia.m: Script que calcula las tablas de polinomios.
 
-	Zinterp.m: Para una energía de las tabuladas se obtiene la distribución XY de 		energía depositada y fluencia en un plano Z
+	Zinterp.m: Para una energía de las tabuladas se obtiene la distribución XY de 		energía depositada, fluencia y dosis en un plano Z
 
 	Graficospolinomios.m: Representa los polinomios interpolados a todas las energías
 	
