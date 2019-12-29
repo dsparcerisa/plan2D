@@ -85,7 +85,7 @@ tblEdep10 = readtable(fullfile('10MeV', 'EnergyDep.csv'), opts);
 FLU10=tblFlu10.D;
 EDEP10=tblEdep10.D;
 
-%FLUENCE AND EDEP matrix
+%FLUENCE AND EDEP arrays
 
 
 FLU=[FLU1,FLU2,FLU3,FLU4,FLU5,FLU6,FLU7,FLU8,FLU9,FLU10];
