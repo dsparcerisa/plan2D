@@ -1,3 +1,7 @@
+%Import the Fluence, the Edep and the interpolated polynomials for the simulated energies if it has not
+%been done yet
+
+%tablepolinomia
 PFLU=[PolynomialFluence.E,PolynomialFluence.Afluence,PolynomialFluence.Bfluence,PolynomialFluence.Cfluence];
 PEDEP=[PolynomialEnergyDeposited.E,PolynomialEnergyDeposited.AEdep,PolynomialEnergyDeposited.BEdep,PolynomialEnergyDeposited.CEdep];
 NZ=2000;
