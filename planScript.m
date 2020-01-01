@@ -1,28 +1,12 @@
 
 clear all
 %LECTURA 
-planTable = readtable('plan.csv'); %csvread no me permite leer los valores no numéricos
-parametersTable = planTable(1,1:5);
-parametersTable.Properties.VariableNames{'E_MeV_'} = 'E(MeV)';
-parametersTable.Properties.VariableNames{'Z_cm_'} = 'Z(cm)';
-parametersTable.Properties.VariableNames{'I_nA_'} = 'I(nA)';
+planTable = readtable('plan.csv'); 
+[parameters_Table,xyqMatrix, xyq_Table] = readPlan(planTable);
+%pongo como parámetro de salida xyqMatrix también porque para poder unir las dos tablas en la función writeTable (concretamente en dlmwrite), necesito el formato matriz
 
-xyqTable = planTable(3:8,1:3); %había pensado en ampliar el rango de las filas para que no hubiese que cambiar nada cuando variase el número de puntos, pero me salen errores
-xyqTable.Properties.VariableNames{'E_MeV_'} = 'X(cm)';
-xyqTable.Properties.VariableNames{'Z_cm_'} = 'Y(cm)';
-xyqTable.Properties.VariableNames{'I_nA_'} = 'Q(pC)';
-numericXYQtable = table2array(xyqTable);
-
-x = str2double(numericXYQtable(:,1));
-y = str2double(numericXYQtable(:,2));
-q = str2double(numericXYQtable(:,3));
-xyqMatrix = [x,y,q]; 
-
-%ESCRITURA
-writetable (parametersTable, 'outputPlan.csv'); 
-header = {'X','Y','Q'};
-dlmwrite('outputPlan.csv',header,'-append');
-dlmwrite('outputPlan.csv',xyqMatrix,'-append');
+%ESCRITURA, la función writePlan devuelve un fichero csv
+writePlan(parameters_Table,xyqMatrix);
 
 
 
