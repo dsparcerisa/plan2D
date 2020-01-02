@@ -273,12 +273,15 @@ classdef CartesianGrid2D < matlab.mixin.Copyable
         end % plotSlice        
         
         % Test minima and maxima        
-        function passMinMaxTests(this)
+        function res = passMinMaxTests(this)
+            res = false;
             if ( abs(this.maxX - (this.minX + this.dx*double(this.NX-1))) > 1e-6 ) || ...
                     ( abs(this.maxY - (this.minY + this.dy*double(this.NY-1))) > 1e-6 ) 
                 error('Minima/maxima tests not passed.\n\tDEBUG INFO:\n\tTest X: %f\n\tTest Y: %f\n', ...
                     ( abs(this.maxX - (this.minX + this.dx*double(this.NX-1))) ), ...
                     ( abs(this.maxY - (this.minY + this.dy*double(this.NY-1))) ) )                            
+            else
+                res = true;
             end
         end % passMinMaxTests
         
