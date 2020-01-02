@@ -13,7 +13,7 @@ classdef Cartesian2DGridBlur
         sigma {mustBeNumeric}
     end
     methods
-        function obj = Cartesian2DGridBlur(varargin)
+        function obj = Cartesian2DGridBlur(varargin) %Cartesian2DGridBlur(minX,maxX,minY,maxY,dx,dy,NX,NY,data,Z,sigma)
             if nargin == 11
                 obj.minX= varargin{1};
                 obj.maxX= varargin{2};
@@ -28,13 +28,26 @@ classdef Cartesian2DGridBlur
                 obj.sigma=varargin{11};
             end
         end
-        function dataZ= blur(obj)
-             dataZ= imgaussfilt([obj.data],[obj.Z]);
+        function datablurred1= blur1(obj)
+             datablurred1= imgaussfilt([obj.data],[obj.sigma]);
              figure
-             imagesc(dataZ);
+             imagesc(datablurred1);
              title('Fluence in Z');
              xlabel('X(cm)');
              ylabel('Y(cm)');
+        end
+        function datablurred2=blur2(obj)
+             Xvalues = [obj.dx]*(1:[obj.NX]) - [obj.dx]/2;
+             Yvalues = [obj.dy]*(1:[obj.NY]) - [obj.dy]/2;
+             [X,Y]=meshgrid(Xvalues,Yvalues);
+             X0=[obj.NX]*[obj.dx]/2-[obj.dx]/2;
+             Y0=[obj.NY]*[obj.dy]/2-[obj.dy]/2;             
+             datablurred2=exp(-((X-X0).^2/(sqrt(2)*[obj.sigma])^2)-((Y-Y0).^2/(sqrt(2)*[obj.sigma])^2));
+             figure
+             imagesc(datablurred2);
+             title('Fluence in Z');
+             xlabel('X(cm)');
+             ylabel('Y(cm)');             
         end
     end
 end
