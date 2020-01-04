@@ -24,10 +24,10 @@ opts.ExtraColumnsRule = "ignore";
 opts.EmptyLineRule = "read";
 
 % CHOOSE DESIRED ENERGY
-tblFlu = readtable(fullfile('1MeV','Fluence.csv'), opts);
-tblEdep = readtable(fullfile('1MeV', 'EnergyDep.csv'), opts);
+tblFlu = readtable(fullfile('3MeV','Fluence.csv'), opts);
+tblEdep = readtable(fullfile('3MeV', 'EnergyDep.csv'), opts);
 
-clear tblEdep tbleFlu opts
+close all
 
 flu=tblFlu.D;
 Edep=tblEdep.D;
@@ -49,22 +49,29 @@ DoseZ=sum(Dose.*A,2)/Atot; %Total Dose per plane
 
 clear rho A Atot
 
-% Calculate Range
-sumEdep=sum(Edep,2);
-NZ=Range(sumEdep);
+%Fitting Bin Range
+NZfluMin=35;
+NZEdepMin=35;
+NZfluMax=90;
+NZEdepMax=70;
 
-flu=flu(1:NZ,:);
-Edep=Edep(1:NZ,:);
+% Calculate Range
+sumflu=sum(flu,2);
+sumEdep=sum(Edep,2);
+NZflu=Range(sumflu)-NZfluMax;
+NZEdep=Range(sumEdep)-NZEdepMax;
+flu=flu(1:NZflu,:);
+Edep=Edep(1:NZEdep,:);
 Dose=Dose(1:NZ,:);
 
 Rvalues = dR*(1:NR) - dR/2;
-Zvalues = dZ*(1:NZ) - dZ/2;
-
+Zvaluesflu = dZ*(1:NZflu) - dZ/2;
+ZvaluesEdep = dZ*(1:NZEdep) - dZ/2;
 
 %% Sigma for the Fluence
-Sflu = nan(1, NZ);
+Sflu = nan(1, NZflu);
 maxFitIgnored = 0;
-for i=1:NZ
+for i=1:NZflu
     try
         F1 = fit(Rvalues', flu(i,:)', 'gauss1');
         Sflu(i) = F1.c1 / sqrt(2);        
@@ -72,18 +79,18 @@ for i=1:NZ
         maxFitIgnored = i;
     end
 end
-maxFitIgnored = maxFitIgnored + 15;
+maxFitIgnored = maxFitIgnored +NZfluMin;
 Sflu(1:maxFitIgnored) = dR;
-fprintf('Ignoring fits for Fluence at positions Z <= %f... \n', Zvalues(maxFitIgnored));
+fprintf('Polynomial Fluence: Fittingin the range %4.2f <= Z < %4.2f\n', Zvaluesflu(maxFitIgnored), Zvaluesflu(length(Zvaluesflu)));
 
 % pflu=polyfit(Zvalues,Sflu,2); %% polyfit no permite restringir valores
-F = fit(Zvalues', Sflu', 'poly2', 'Lower', [0 0 0]);
+F = fit(Zvaluesflu(maxFitIgnored+1:length(Zvaluesflu))', Sflu(maxFitIgnored+1:length(Sflu))', 'poly2', 'Lower', [0 0 0]);
 pflu = coeffvalues(F);
 
 %% Sigma for the Edep
-SEdep = nan(1, NZ);
+SEdep = nan(1, NZEdep);
 maxFitIgnored = 0;
-for i=1:NZ
+for i=1:NZEdep
     try
         F1 = fit(Rvalues', Edep(i,:)', 'gauss1');
         SEdep(i) = F1.c1 / sqrt(2);        
@@ -91,37 +98,37 @@ for i=1:NZ
         maxFitIgnored = i;
     end
 end
-maxFitIgnored = maxFitIgnored + 15;
+maxFitIgnored = maxFitIgnored + NZEdepMin;
 SEdep(1:maxFitIgnored) = dR;
-fprintf('Ignoring fits for Edep at positions Z <= %f... \n', Zvalues(maxFitIgnored));
+fprintf('Polynomial Edep: Fitting in the range %4.2f <= Z < %4.2f\n', ZvaluesEdep(maxFitIgnored), ZvaluesEdep(length(ZvaluesEdep)));
 
-F=fit(Zvalues',SEdep','poly2', 'Lower', [0 0 0]);
+F=fit(ZvaluesEdep(maxFitIgnored+1:length(ZvaluesEdep))',SEdep(maxFitIgnored+1:length(SEdep))','poly2', 'Lower', [0 0 0]);
 pEdep = coeffvalues(F);
 
 clear F F1 NR NZ dR dZ
 
 %Figures
-SfluInterp=polyval(pflu,Zvalues);
+SfluInterp=polyval(pflu,Zvaluesflu);
 figure
-plot(Zvalues, Sflu, 'r.')
+plot(Zvaluesflu, Sflu, 'r.')
 hold on
-plot(Zvalues,SfluInterp, 'b-')
+plot(Zvaluesflu,SfluInterp, 'b-')
 
 ylabel('Sigma (cm)')
 xlabel('Z (cm)')
 title('Fluence')
 
-SEdepInterp=polyval(pEdep,Zvalues);
+SEdepInterp=polyval(pEdep,ZvaluesEdep);
 figure
-plot(Zvalues,SEdepInterp)
+plot(ZvaluesEdep,SEdepInterp)
 hold on
-plot(Zvalues, SEdep, 'r.')
+plot(ZvaluesEdep, SEdep, 'r.')
 ylabel('Sigma (cm)')
 xlabel('Z (cm)')
 title('Energy deposition')
 
-
-
 pflu
 pEdep
+
+P=[pflu;pEdep];
 
