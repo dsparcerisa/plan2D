@@ -1,10 +1,7 @@
-function [Sigmaflu,SigmaEdep]=SigmaZE(Z,E)
+function [Sigmaflu,SigmaEdep]=SigmaZE(tblflu,tblEdep,Z,E)
 
-%Set the tables of the polynomials into arrays
-load('PolynomialEnergyDeposited.mat')
-load('PolynomialFluence.mat')
-PFLU=[PolynomialFluence.E,PolynomialFluence.Afluence,PolynomialFluence.Bfluence,PolynomialFluence.Cfluence];
-PEDEP=[PolynomialEnergyDeposited.E,PolynomialEnergyDeposited.AEdep,PolynomialEnergyDeposited.BEdep,PolynomialEnergyDeposited.CEdep];
+PFLU=[tblflu.E,tblflu.Afluence,tblflu.Bfluence,tblflu.Cfluence];
+PEDEP=[tblEdep.E,tblEdep.AEdep,tblEdep.BEdep,tblEdep.CEdep];
 
 %Interpolated polynomials for E
 Ainterpflu=interp1(PFLU(:,1),PFLU(:,2),E);
