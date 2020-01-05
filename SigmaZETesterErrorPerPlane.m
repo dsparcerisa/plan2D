@@ -1,6 +1,7 @@
 %Set energy and range to test the interpolation polynomial error per plane
 E=9;
-Z=1:20;
+Z=1:30;
+
 Errorflu=nan(1,20);
 ErrorEdep=nan(1,20);
 for i=1:length(Z);
@@ -8,6 +9,5 @@ for i=1:length(Z);
     Errorflu(i)=Sigmaflu(3);
     ErrorEdep(i)=SigmaEdep(3);
 end
-
-Errorflu=[Z;Errorflu]
-ErrorEdep=[Z;ErrorEdep]
+varNames={'Z','ErrorFluence','ErrorEnergyDep'};
+tblErrorPerPlane=table(Z',Errorflu',ErrorEdep','VariableNames',varNames)
