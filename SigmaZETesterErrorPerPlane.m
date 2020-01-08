@@ -1,4 +1,10 @@
+clear all
+
+load('PolynomialFluence.mat')
+load('PolynomialEnergyDeposited.mat')
+
 %Set energy and range to test the interpolation polynomial error per plane
+
 E=9;
 Z=1:30;
 
