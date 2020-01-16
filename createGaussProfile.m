@@ -7,8 +7,8 @@ beamProfile = createEmptyCG2D(dx,dy, sizeX, sizeY);
 Xvalues = beamProfile.getAxisValues('X');
 Yvalues = beamProfile.getAxisValues('Y');
 [X,Y]=meshgrid(Xvalues,Yvalues);
-X0=(Xvalues(length(Xvalues)/2));
-Y0=(Yvalues(length(Yvalues)/2));             
+X0 = (beamProfile.maxX + beamProfile.minX) / 2;
+Y0 = (beamProfile.maxY + beamProfile.minY) / 2;          
 beamProfile.data = exp(-((X-X0).^2/(sqrt(2)*sigmaX)^2)-((Y-Y0).^2/(sqrt(2)*sigmaY)^2));
 beamProfile.data = beamProfile.data / sum(beamProfile.data(:));
 end
