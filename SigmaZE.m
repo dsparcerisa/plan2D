@@ -1,4 +1,4 @@
-function [sigma1, sigma2] = SigmaZE(PFLU,Z,E)
+function sigma = SigmaZE(PFLU, Z, E)
 %PFLU and must be a 10x3 matrix where the first column is an array
 %containing the energies. The second and third columns are the
 %coefficients of the sigma(Z) polynomial for each energy.
@@ -9,8 +9,7 @@ function [sigma1, sigma2] = SigmaZE(PFLU,Z,E)
 tableIndex = find(PFLU(:,1)==E);
 if ~isempty(tableIndex)
     fitPoly = [PFLU(tableIndex,2) PFLU(tableIndex,3) 0];
-    sigma1 = polyval(fitPoly,Z);
-    sigma2 = polyval(fitPoly,Z);
+    sigma = polyval(fitPoly,Z);
     
 % Si la energía no está en la tabla
 else
@@ -21,20 +20,8 @@ else
     Binterpflu=interp1(PFLU(:,1),PFLU(:,3),E);
     fitPoly = [Ainterpflu,Binterpflu,0];
     
-    %Caluclation of Sigma in the Z plane
-    sigma1 = polyval(fitPoly,Z);
-    
-    % Sigma2: Calcular según E anterior y posterior e interpolar la media
-    Elow = floor(E);
-    Ehigh = ceil(E);
-    tableIndexLow = find(PFLU(:,1)==Elow);
-    fitPolyLow = [PFLU(tableIndexLow,2) PFLU(tableIndexLow,3) 0];    
-    fitPolyHigh = [PFLU(tableIndexLow+1,2) PFLU(tableIndexLow+1,3) 0];    
-    
-    sigmaLow = polyval(fitPolyLow, Z);
-    sigmaHigh = polyval(fitPolyHigh, Z);
-    
-    sigma2 = interp1([Elow Ehigh], [sigmaLow sigmaHigh], E);
+    %Calculation of Sigma in the Z plane
+    sigma = polyval(fitPoly,Z);    
     
 end
 
