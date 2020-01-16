@@ -7,23 +7,21 @@ function sigma = getSigma(PFLU, E0, Z)
 % Z entre [0:30]
 % E entre [1:10]
 
+E = (1:10)';
 % Si la energía está directamente en la tabla
 tableIndex = find(PFLU(:,1)==E0);
 if ~isempty(tableIndex)
-    fitPoly = [PFLU(tableIndex,2) PFLU(tableIndex,3) 0];
-    sigma = polyval(fitPoly,Z);
+    sigma = PFLU(tableIndex,1).*(Z.^2) + PFLU(tableIndex,2).*Z;
     
 % Si la energía no está en la tabla
 else
    
     % Sigma1: Interpolar polinomio y luego calcular E0
     %Interpolated polynomials for E0
-    Ainterpflu=interp1(PFLU(:,1),PFLU(:,2),E0);
-    Binterpflu=interp1(PFLU(:,1),PFLU(:,3),E0);
-    fitPoly = [Ainterpflu,Binterpflu,0];
-    
-    %Calculation of Sigma in the Z plane
-    sigma = polyval(fitPoly,Z);    
+    Ainterpflu=interp1(E,PFLU(:,1),E0);
+    Binterpflu=interp1(E,PFLU(:,2),E0);
+
+    sigma = Ainterpflu.*(Z.^2) + Binterpflu.*Z;
     
 end
 end
