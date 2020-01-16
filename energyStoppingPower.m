@@ -1,6 +1,11 @@
-function [energyA, stoppingPowerAir, stoppingPowerWater] = energyStoppingPower(E0,Z, airTable, waterTable)
+function [energyA, stoppingPowerAir, stoppingPowerWater] = energyStoppingPower(E0, Z)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
+
+airTable = csvread('air10MeV.csv');
+airTable = airTable(:, 1:2);
+waterTable = csvread('water10MeV.csv');
+airTable = airTable(:, 1:2);
 
 energy_Air = airTable(:,1); %Energía en MeV
 stoppingPower_Air = airTable(:,2); %Poder de frenado en MeV cm2/g
