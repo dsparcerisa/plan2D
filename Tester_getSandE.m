@@ -1,1 +1,0 @@
-[sigma_XY, Sw_z] = getSandE(E0, z, dz)
