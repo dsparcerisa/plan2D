@@ -5,5 +5,6 @@ function NZ = convFluence(N0, sigma)
 % with sigma in cm.
 NZ = CartesianGrid2D(N0); 
 NZ.data = imgaussfilt(N0.data, sigma/N0.dx);
+NZ.data = NZ.data / sum(NZ.data(:)); % Renormalizar
 end
 
