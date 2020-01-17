@@ -181,6 +181,13 @@ classdef CartesianGrid2D < matlab.mixin.Copyable
             this.passMinMaxTests;                        
         end % rebin
                 
+        function shift(this, shiftVector)
+            this.minX = this.minX + shiftVector(1);
+            this.maxX = this.maxX + shiftVector(1);
+            this.minY = this.minY + shiftVector(2);
+            this.maxY = this.maxY + shiftVector(2);           
+        end
+       
         % resize(newSize) has size newSize ([cropping]) and original dx dy.
         
         function resize(this,newSize)
