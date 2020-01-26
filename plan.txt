@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Â Plan de ejemplo
 # formato L1: E (MeV), Z (cm), I (nA), codFiltro, numSpots
 3, 7, 1, PP25, 4
@@ -6,3 +7,13 @@
 0, 0.2, 0.5
 0.2, 0, 0.5
 0.2, 0.2, 1.0
+=======
+# Mari Carmen
+# E (MeV), Z (cm), I (nA), codFiltro, numSpots
+3, 7, 1, PP100, 4
+# X (cm), Y (cm), Q (pC)
+0, 0, 1
+0, 0.2, 1
+0.2, 0, 1
+0.2, 0.2, 1
+>>>>>>> master
