@@ -1,7 +1,13 @@
-<<<<<<< HEAD
+%<<<<<<< HEAD
 function [parameters_Table, xyqMatrix, xyq_Table] = readPlan(planTable)
 %El plan se va a leer en dos partes debido a sus dimensiones
 %A continuación se lee la primera fila del plan
+try parametersTable = planTable(1,1:5);
+    disp('Todo bien');
+catch
+    disp('Ha habido un error en el tamaño o formato del plan');
+    return
+end
 parametersTable = planTable(1,1:5);
 
 energy = parametersTable(:,1);
@@ -32,6 +38,15 @@ xyqTable = planTable(3:end,1:3);
 numericXYQtable = table2array(xyqTable);
 
 x = str2double(numericXYQtable(:,1));
+%Comprobación de que el número de spots de la cabezera coincida con el número de spots de la lista
+%No usé bloque try catch porque no sabía cómo poner la condición dentro de él
+ A = size(x); B = A(1);
+  if B==numSpots
+      disp('Todo bien');
+  elseif B~=numSpots
+      disp('número de spots de la cabecera no coincide con el número de filas de X, Y, Q');
+      return
+  end
 y = str2double(numericXYQtable(:,2));
 q = str2double(numericXYQtable(:,3));
 xyq_Table = table(x,y,q);
@@ -39,7 +54,7 @@ xyq_Table.Properties.VariableNames{'x'} = 'X_cm';
 xyq_Table.Properties.VariableNames{'y'} = 'Y_cm';
 xyq_Table.Properties.VariableNames{'q'} = 'Q_pC';
 xyqMatrix = [x,y,q];
-=======
+%=======
 function plan = readPlan(planFile)
 %% Read name
 
@@ -104,6 +119,7 @@ plan.Y = dataTable.Ycm;
 plan.Q = dataTable.QpC;
 plan.name = tline;
 
->>>>>>> master
+%>>>>>>> master
+end
 end
 
