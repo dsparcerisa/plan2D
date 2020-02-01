@@ -12,11 +12,11 @@ E0 = 3;
 z = 10;
 dz = 0.001;
 dxy = 0.01;
-Nprot = 1e7;
+Nprot = 6.25e7; % 1 pC
 targetTh = 0.001; % 10 um = 10^-5 m = 10^-3 cm
 targetSPR = 1;
-sizeX = 1;
-sizeY = 1;
+sizeX = 11;
+sizeY = 11;
 N0 = createEmptyCG2D(dxy, sizeX, sizeY);
 squareHalfSize = 0.005;
 N0.data( (N0.getXindex(-squareHalfSize)):(N0.getXindex(squareHalfSize)), (N0.getYindex(-squareHalfSize)):(N0.getYindex(squareHalfSize))) = 1;
