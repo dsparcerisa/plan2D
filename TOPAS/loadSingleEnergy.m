@@ -1,4 +1,4 @@
-function [Sflu, SEdep] = loadSingleEnergy(energy)
+function [Sflu, SEdep, DoseZ] = loadSingleEnergy(energy)
 % Creates polinomial fit for sigma based on fluence and deposited energy
 % in files within folder
 
