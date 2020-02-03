@@ -1,11 +1,20 @@
-function [plan, totTime, doseRate] = createStdIrrPlan( plateDose, doseSlice_1pC, I_muestra, deltaXY, miniSpotsPerSpot)
-% creates a (standard rate) plan spreading the for each of the wanted Slots 
+function [plan, totTime, doseRate] = createFlashIrrPlan( plateDose, doseSlice_1pC, I_muestra, deltaXY, miniSpotsPerSpot, shotTime_ms)
+% creates a (FLASH rate) plan spreading the for each of the wanted Slots 
 % from a given doseSlice calculated for 1 pC
 
-well2wellDist_cm = 0.899;
+if all(size(plateDose) == [8 12])
+    well2wellDist_cm = 0.899;
+    NX = 12; NY = 8;
+elseif all(size(plateDose) == [4 2])
+    well2wellDist_cm = 1.125;
+    NX = 2; NY = 4;
+else
+    error('plateDose definido de un tamaño desconocido');
+end
+
+% Usamos el mismo well para la cubeta
 wellDiam = 6.35; % mm
 wellRadius_cm = 0.1 * wellDiam / 2;
-
 
 % Shoot and create a 3x3 / 2x3x2 / 2x2 slice and compare with well to get the pC2Gy
 % factor:
@@ -58,15 +67,15 @@ for i=1:miniSpotsPerSpot
     doseSliceInWell = doseSliceInWell + doseSliceMoveable;
 end
 
+%% Enfocamos para un pocillo también en las microcubetas
 well0 = getWell(CartesianGrid2D(doseSlice_1pC), wellRadius_cm, [0 0]);
-
 wellDoses = getStats(well0, doseSliceInWell);
 meanWellDose_1pC = mean(wellDoses);
 doseRate = meanWellDose_1pC * I_muestra * 1000;
 
 % Positions in reference with the center of the first spot
-Xpos = well2wellDist_cm*(0:(-1):(-11));
-Ypos = well2wellDist_cm*(0:7);
+Xpos = well2wellDist_cm*(0:(-1):(-(NX-1)));
+Ypos = well2wellDist_cm*(0:(NY-1));
 [x,y] = meshgrid(Xpos, Ypos);
 
 % total number of spots
@@ -96,20 +105,25 @@ for i=1:numel(plateDose)
     
 end
 
-% Calcular t_s
-plan.t_s = 0.001 * plan.Q / I_muestra;
+% Calcular # shots
+Qshot_pC = shotTime_ms * I_muestra;
+plan.NShots = round(plan.Q / Qshot_pC);
+plan.Q = Qshot_pC * plan.NShots;
+meanWellDose_1shot = Qshot_pC * meanWellDose_1pC
 
-% Calculate TOTAL IRRADIATION TIME
-% NORMAL (3x3)
-% 10*totalWells + T_irr + T_between wells (Asumimos 1.2 + 0.66*x)
+%% Calculate irradiation time for Flash
+
+% % Calculate TOTAL IRRADIATION TIME
+% % NORMAL (3x3)
+% % T_irr + T_between wells (Asumimos 1.2 + 0.66*x)
 distanceX = abs(diff(plan.X));
 distanceY = abs(diff(plan.Y));
 if miniSpotsPerSpot==1
-    distance = sum(distanceX) + sum(distanceY)
+     distance = sum(distanceX) + sum(distanceY);
 else
-    distance = sum(distanceX(distanceX>deltaXY)) + sum(distanceY(distanceY>deltaXY));
+     distance = sum(distanceX(distanceX>deltaXY)) + sum(distanceY(distanceY>deltaXY));
 end
-irrTime = sum(plan.t_s);
+irrTime = 0.32 * sum(plan.NShots);
 
 if miniSpotsPerSpot==9
     innerMovementTime = 10*totalWells;
@@ -123,7 +137,7 @@ else
     error('miniSpots per Spot undefined');
 end
 
-outerMovementTime = 1.2 * 0.66*distance
+outerMovementTime = 1.2 * 0.66*distance;
 totTime = innerMovementTime + irrTime + outerMovementTime;
 
 end

@@ -1,10 +1,19 @@
 clear all; close all
 
-%% Create dose plate
+%% Plate
 plateDose = nan(8, 12);
-plateDose(2,:) = [nan 1 nan nan nan   4 nan nan nan  12 nan nan];
-plateDose(6,:) = [nan nan nan   2 nan nan nan  8 nan  nan nan nan];
+plateDose(2,:) = [nan nan nan nan 2 nan nan 8  nan nan nan nan];
+plateDose(5,:) = [nan   1 nan nan 4 nan nan 12 nan nan nan nan];
+NX = 12; NY = 8;
+well2wellDist_cm = 0.899;
 showPlate(plateDose)
+title('CONV');
+
+%% Microcubeta
+% plateDose = [nan 1; 2 4; 6 8; 10 12];
+% showPlate(plateDose)
+% NX = 2; NY = 4;
+% well2wellDist_cm = 1.125;
 
 %% Create dose slice
 E0 = 3;
@@ -50,7 +59,6 @@ dose.plotSlice
 set(gca, 'Ydir', 'reverse', 'Xdir', 'reverse')
 
 %% Calculate mean doses in all wells 
-well2wellDist_cm = 0.899;
 wellDiam = 6.35; % mm
 wellRadius_cm = 0.1 * wellDiam / 2;
 
@@ -58,8 +66,8 @@ Nwells = sum(~isnan(plateDose(:)));
 wells = {};
 
 % Positions in reference with the center of the first spot
-Xpos = well2wellDist_cm*(0:(-1):(-11));
-Ypos = well2wellDist_cm*(0:7);
+Xpos = well2wellDist_cm*(0:(-1):(-(NX-1)));
+Ypos = well2wellDist_cm*(0:(NY-1));
 [x,y] = meshgrid(Xpos, Ypos);
 
 Xwells = x(~isnan(plateDose(:)));
@@ -80,5 +88,5 @@ stdWellDoses
 
 %% Estimate what the EBT3 will look like
 dose.data(isnan(dose.data))=0;
-simRC = simulateRC(dose.data+randn(size(dose.data))*0.3);
+simRC = simulateRC(flip((dose.data)'+randn(size((dose.data)'))*0.3,2));
 imshow(simRC)

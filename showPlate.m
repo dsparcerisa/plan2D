@@ -1,11 +1,13 @@
 function showPlate(plate)
 figure
-[x,y] = meshgrid(1:12, 1:8);
+NX = size(plate, 1);
+NY = size(plate, 2);
+[x,y] = meshgrid(1:NY, 1:NX);
 scatter(x(:), y(:), 300, plate(:), 'filled')
 set(gca, 'Ydir', 'reverse')
 hold on
 scatter(x(:), y(:), 600)
-axis([0 13 0 9]);
+axis([0 (NY+1) 0 (NX+1)]);
 colorbar
 end
 
