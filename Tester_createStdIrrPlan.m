@@ -44,6 +44,8 @@ PP_factor = (10/250)^2; % PRUEBA
 I_muestra = I_FC1 * I_factor * PP_factor; % nA
 
 [plan, totIrrTime, doseRate] = createStdIrrPlan( plateDose, doseSlice, I_muestra, deltaXY, 4 );
+plan.mode = 'CONV';
+plan.Z = z*ones(size(plan.X))
 fprintf('Total irradiation time in min: %f\n', totIrrTime/60);
 fprintf('Dose rate: %f Gy/s\n', doseRate);
 
