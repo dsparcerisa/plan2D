@@ -1,35 +1,81 @@
-function irradiatePlan(COMstage, COMshutter, plan, vector2startPoint, app)
-% void irradiatePlan(app)
+function irradiatePlan(COMstage, COMshutter, thePlan, vector2startPoint, stageLimits, airDepthAtPos0, app)
+% void irradiatePlan(COMstage, COMshutter, plan, vector2startPoint, stageLimits, airDepthAtPos0, app)
 % Launches plan irradiation
-% TODO: outputLOG!!!!!
 if (exist('app'))
     app.logLine('Starting plan irradiation...');
+else
+    disp('Starting plan irradiation...');
 end
+
+%% Comprobar que el plan es válido antes de irradiar
+if planIsInvalid(thePlan, stageLimits)
+    error('Plan is invalid. Cannot irradiate');
+end
+
+%% Create log file
+logFileName = datestr(now,'irrLog_yyyy_mm_dd_HH_MM_SS.log');
+logFile = fopen(fullfile('logs',logFileName),'w');
+
+fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') 'Starting plan irradiation...' '\n']);
+fprintf(logFile, '\tPlan name: %s\n', thePlan.name);
+fprintf(logFile, '\tPlan type: %s\n', thePlan.mode);
+if strcmp(thePlan.mode, 'FLASH')
+    fprintf(logFile, '\tExpected slit time: %s\n', thePlan.tRendija);
+else
+    fprintf(logFile, '\tPepperPot code: %s\n', thePlan.codFiltro);
+end
+
+fprintf(logFile, '\tAir depth at stage position Z=0: %3.2f cm\n', airDepthAtPos0);
+fprintf(logFile, '\tAbsolut shift from X to (0,0) well: [%3.3f %3.3f %3.3f]\n', vector2startPoint(1), vector2startPoint(2), vector2startPoint(3));
+
+%% Input intensity at FC1
+I_nA = input('Input currrent intensity at FC1 (nA): ');
+fprintf(logFile, '\tCurrent intensity: %3.2f nA (planned for %3.2f nA)\n\n', I_nA, thePlan.I);
 
 %% Irradiate plan
-tic
-for i=1:numel(plan.X)
-    absPos = [plan.X(i) plan.Y(i) plan.Z(i)] + vector2startPoint
-    finished = stageControl_moveToAbsPos(COMstage, absPos);
+for i=1:numel(thePlan.X)
     
-    if strcmp(plan.mode, 'FLASH')
-        Shutter(COMshutter, 'f', plan.Nshots(i));
-    elseif strcmp(plan.mode, 'CONV')
-        Configure_shutter(COMshutter, 't', plan.t_s(i))
-        %pause(1);
-        Shutter(COMshutter,'n',1);
-    else
-        error('Unrecognized plan type (%s)', plan.mode);
-    end
-    
+    absPos = [thePlan.X(i) thePlan.Y(i) thePlan.Z(i)] + vector2startPoint;
+    msg = sprintf('Moving to: [%3.3f %3.3f %3.3f]', absPos(1), absPos(2), absPos(3));
+    fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
+    %%finished = stageControl_moveToAbsPos(COMstage, absPos);
+    msg = sprintf('Arrived at: [%3.3f %3.3f %3.3f]', absPos(1), absPos(2), absPos(3));
+    fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
 
+    if strcmp(thePlan.mode, 'FLASH')
+        msg = sprintf('Deliver: %i FLASH shots', thePlan.Nshots(i));    
+        fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
     
-    fprintf('Irradiated spot %i\n', i);
+        %%Shutter(COMshutter, 'f', plan.Nshots(i));
+        msg = sprintf('Finished.\n');       
+        fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
+ 
+    elseif strcmp(thePlan.mode, 'CONV')
+        %%Configure_shutter(COMshutter, 't', plan.t_s(i))
+        msg = sprintf('Open shutter for %3.3fs', thePlan.t_s(i));  
+        fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
+
+        %%Shutter(COMshutter,'n',1);
+        msg = sprintf('Shutter closed.\n');       
+        fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
+        
+    else
+        error('Unrecognized plan type (%s)', thePlan.mode);
+    end
+       
+    fprintf('Irradiated spot %i / %i\n', i, thePlan.numSpots);
 end
-toc
+
+
+%% Close log file and end
+msg = sprintf('Plan irradiation finished.');       
+fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
+fclose(logFile);
 
 if (exist('app'))
     app.logLine('Plan irradiation finished.');
+else
+    disp('Plan irradiation finished.');
 end
 
 end
