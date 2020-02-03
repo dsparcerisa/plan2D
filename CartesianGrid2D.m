@@ -407,7 +407,7 @@ classdef CartesianGrid2D < matlab.mixin.Copyable
             % Obtain indexes
             [linData, positions] = this.getLinear(freeAxis, value);
             if nargin==3 || isempty(format) 
-                plot(positions,linData)
+                plot(positions,linData);
             else
                 plot(positions,linData, format);
             end
