@@ -107,8 +107,8 @@ end
 
 % Calcular # shots
 Qshot_pC = shotTime_ms * I_muestra;
-plan.NShots = round(plan.Q / Qshot_pC);
-plan.Q = Qshot_pC * plan.NShots;
+plan.Nshots = round(plan.Q / Qshot_pC);
+plan.Q = Qshot_pC * double(plan.Nshots);
 meanWellDose_1shot = Qshot_pC * meanWellDose_1pC
 
 %% Calculate irradiation time for Flash
@@ -123,7 +123,7 @@ if miniSpotsPerSpot==1
 else
      distance = sum(distanceX(distanceX>deltaXY)) + sum(distanceY(distanceY>deltaXY));
 end
-irrTime = 0.32 * sum(plan.NShots);
+irrTime = 0.32 * sum(plan.Nshots);
 
 if miniSpotsPerSpot==9
     innerMovementTime = 10*totalWells;

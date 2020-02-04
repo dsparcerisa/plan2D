@@ -30,7 +30,7 @@ fprintf(logFile, '\tAbsolut shift from X to (0,0) well: [%3.3f %3.3f %3.3f]\n', 
 
 %% Input intensity at FC1
 I_nA = input('Input currrent intensity at FC1 (nA): ');
-fprintf(logFile, '\tCurrent intensity: %3.2f nA (planned for %3.2f nA)\n\n', I_nA, thePlan.I);
+fprintf(logFile, '\tCurrent intensity: %3.3f nA (planned for %3.3f nA)\n\n', I_nA, thePlan.I);
 
 %% Irradiate plan
 for i=1:numel(thePlan.X)

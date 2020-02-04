@@ -9,6 +9,9 @@ plateDose(5,:) = [nan 5 nan nan 6 nan nan 7 nan nan 8 nan];
 plateDose(8,:) = [nan 9 nan nan 10 nan nan 11 nan nan 12 nan];
 showPlate(plateDose)
 
+%% Alinear en posición 0 y medir la distancia (ANOTAR!)
+beamExit2RCDistance = input('Measure distance between beam exit RC (cm): ');
+
 %% Create dose slice
 E0 = 3;
 z = 11;
@@ -33,7 +36,7 @@ doseSigma = F.c1 / sqrt(2);
 %% Calculate dose
 deltaXY = doseSigma * 2;
 I_FC1 = 0.050; % 50 pA
-I_factor = 0.81;
+I_factor = 0.86;
 PP_factor = 1; % (10/250)^2; % PRUEBA
 I_muestra = I_FC1 * I_factor * PP_factor; % nA
 
@@ -42,12 +45,15 @@ fprintf('Total irradiation time in min: %f\n', totIrrTime/60);
 fprintf('Dose rate: %f Gy/s\n', doseRate);
 
 %%
+plan.mode = 'CONV';
+plan.codFiltro = '1';
 plan.E = E0;
-plan.Z = z+0.1;
+plan.Z = -z*ones(size(plan.X));
+plan.I = I_FC1;
 scatter(plan.X(:), plan.Y(:), 100, plan.Q(:))
 set(gca, 'XDir', 'reverse', 'YDir', 'reverse');
 
-dose = getDoseFromPlan(CartesianGrid2D(N0), plan, dz, targetTh, targetSPR, N0);
+dose = getDoseFromPlan(CartesianGrid2D(N0), plan, dz, targetTh, targetSPR, N0, I_factor, 0);
 figure;
 dose.plotSlice
 set(gca, 'Ydir', 'reverse', 'Xdir', 'reverse')
@@ -83,5 +89,5 @@ stdWellDoses
 
 %% Estimate what the EBT3 will look like
 dose.data(isnan(dose.data))=0;
-simRC = simulateRC(dose.data+randn(size(dose.data))*0.3);
+simRC = simulateRC(dose.data'+randn(size(dose.data'))*0.3);
 imshow(simRC)
