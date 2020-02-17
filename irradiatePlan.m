@@ -23,6 +23,8 @@ logFile = fopen(fullfile('logs',logFileName),'w');
 
 fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') 'Starting plan irradiation...' '\n']);
 fprintf(logFile, '\tPlan name: %s\n', thePlan.name);
+comment = input('Enter plan description text for log: ');
+fprintf(logFile, '\tPlan comment: %s\n', comment);
 fprintf(logFile, '\tPlan type: %s\n', thePlan.mode);
 if strcmp(thePlan.mode, 'FLASH')
     fprintf(logFile, '\tExpected slit time: %s\n', thePlan.tRendija);
