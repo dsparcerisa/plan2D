@@ -1,6 +1,8 @@
 function dose = getDoseFromPlan(doseCanvas, plan, dz, targetTh, targetSPR, N0, factorImuestra, airDepthAtPos0)
 % CG2D dose = getDoseFromPlan(doseCanvas, plan, dz, targetTh, targetSPR, N0, factorImuestra, airDepthAtPos0)
 
+thickTarget = false;
+
 if strcmp(plan.mode, 'FLASH')
     plan.Q = plan.I * factorImuestra * plan.tRendija * double(plan.Nshots);
     %sigmaPoly = [0.0097 0.24 0]; % sin PP settings 5 feb
@@ -14,14 +16,11 @@ elseif strcmp(plan.mode, 'CONV')
     elseif strcmp(plan.codFiltro, '1')
         factorPP = 1;
         % sigmaPoly = [0.0097 0.24 0]; sin PP settings 5 feb
-        sigmaPoly = [0.0086 0.23 0]; % settings 6 feb (tras corregir la z)
-    
+        sigmaPoly = [0.0086 0.23 0]; % settings 6 feb (tras corregir la z)    
     elseif strcmp(plan.codFiltro, 'PP2capas')
         factorPP = 1/25; % Tentativo
         %sigmaPoly = [0 0.26 0.63]; % con PP settings 5 feb
-        sigmaPoly = [0 0.24 0.76]; % con PP settings 6 feb
-        
-    else
+        sigmaPoly = [0 0.24 0.76]; % con PP settings 6 feb        
         error('Pepperpot %s not recognized', plan.codFiltro);
     end
 

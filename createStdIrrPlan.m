@@ -1,15 +1,19 @@
-function [plan, totTime, doseRate] = createStdIrrPlan( plateDose, doseSlice_1pC, I_muestra, deltaXY, miniSpotsPerSpot)
+function [plan, totTime, doseRate] = createStdIrrPlan( plateDose, doseSlice_1pC, I_muestra, deltaXY, miniSpotsPerSpot, well2wellDist_cm)
 % creates a (standard rate) plan spreading the for each of the wanted Slots 
 % from a given doseSlice calculated for 1 pC
 
-if all(size(plateDose) == [8 12])
-    well2wellDist_cm = 0.899;
-    NX = 12; NY = 8;
-elseif all(size(plateDose) == [4 2])
-    well2wellDist_cm = 1.125;
+if exist('well2wellDist_cm')
     NX = 2; NY = 4;
 else
-    error('plateDose definido de un tamaño desconocido');
+    if all(size(plateDose) == [8 12])
+        well2wellDist_cm = 0.899;
+        NX = 12; NY = 8;
+    elseif all(size(plateDose) == [4 2])
+       well2wellDist_cm = 1.125;
+        NX = 2; NY = 4;
+    else
+        error('plateDose definido de un tamaño desconocido');
+    end
 end
 
 wellDiam = 6.35; % mm
