@@ -75,7 +75,7 @@ doseRate = meanWellDose_1pC * I_muestra * 1000;
 
 % Positions in reference with the center of the first spot
 Xpos = well2wellDist_cm*(0:(-1):(-(NX-1)));
-Ypos = well2wellDist_cm*(0:(NY-1));
+Ypos = well2wellDist_cm*(0:(-1):(-(NY-1)));
 [x,y] = meshgrid(Xpos, Ypos);
 
 % total number of spots

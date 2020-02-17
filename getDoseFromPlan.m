@@ -3,14 +3,24 @@ function dose = getDoseFromPlan(doseCanvas, plan, dz, targetTh, targetSPR, N0, f
 
 if strcmp(plan.mode, 'FLASH')
     plan.Q = plan.I * factorImuestra * plan.tRendija * double(plan.Nshots);
-elseif strcmp(plan.mode, 'CONV')
-    
+    %sigmaPoly = [0.0097 0.24 0]; % sin PP settings 5 feb
+    sigmaPoly = [0.0086 0.23 0]; % settings 6 feb (tras corregir la z)
+
+elseif strcmp(plan.mode, 'CONV')    
     if strcmp(plan.codFiltro, 'PP100')
         factorPP = 6.7e-4;
     elseif strcmp(plan.codFiltro, 'PP25')
         factorPP = 8.8e-5;      
     elseif strcmp(plan.codFiltro, '1')
         factorPP = 1;
+        % sigmaPoly = [0.0097 0.24 0]; sin PP settings 5 feb
+        sigmaPoly = [0.0086 0.23 0]; % settings 6 feb (tras corregir la z)
+    
+    elseif strcmp(plan.codFiltro, 'PP2capas')
+        factorPP = 1/25; % Tentativo
+        %sigmaPoly = [0 0.26 0.63]; % con PP settings 5 feb
+        sigmaPoly = [0 0.24 0.76]; % con PP settings 6 feb
+        
     else
         error('Pepperpot %s not recognized', plan.codFiltro);
     end
@@ -28,11 +38,18 @@ doseCanvas.data(:) = 0;
 limits = [doseCanvas.minX doseCanvas.maxX doseCanvas.minY doseCanvas.maxY];
 
 depths = airDepthAtPos0 - plan.Z;
-doseKernel = getDoseMap(plan.E, depths(1), dz, pC2pNumber, targetTh, targetSPR, N0);
-
+if exist('sigmaPoly')
+    doseKernel = getDoseMap(plan.E, depths(1), dz, pC2pNumber, targetTh, targetSPR, N0, sigmaPoly);
+else
+    doseKernel = getDoseMap(plan.E, depths(1), dz, pC2pNumber, targetTh, targetSPR, N0);
+end
 for i=1:plan.numSpots
     if i>1 && depths(i)~=depths(i-1)        
-        doseKernel = getDoseMap(plan.E, depths(i), dz, pC2pNumber, targetTh, targetSPR, N0);
+        if exist('sigmaPoly')
+            doseKernel = getDoseMap(plan.E, depths(i), dz, pC2pNumber, targetTh, targetSPR, N0, sigmaPoly);
+        else
+            doseKernel = getDoseMap(plan.E, depths(i), dz, pC2pNumber, targetTh, targetSPR, N0);
+        end
     end
     Di = doseKernel.copy;
     Di.data = plan.Q(i) * Di.data;

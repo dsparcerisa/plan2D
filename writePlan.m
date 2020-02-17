@@ -10,7 +10,7 @@ fprintf(ID, '%s\n', plan.mode);
 if strcmp(plan.mode,'FLASH')
     % Write header
     fprintf(ID, '# E (MeV), I (nA), t_rendija (ms), numSpots\n');
-    fprintf(ID, '%3.2f, %3.2f, %3.3f, %u\n', plan.E, plan.I, plan.tRendija, plan.numSpots);
+    fprintf(ID, '%3.2f, %3.3f, %3.3f, %u\n', plan.E, plan.I, plan.tRendija, plan.numSpots);
     
     % Write table
     fprintf(ID, '# X (cm), Y (cm), Z (cm), #shots\n');
@@ -22,7 +22,7 @@ elseif strcmp(plan.mode,'CONV')
     
     % Write header
     fprintf(ID, '# E (MeV), I (nA), codFiltro, numSpots\n');
-    fprintf(ID, '%3.2f, %3.2f, %s, %u\n', plan.E, plan.I, plan.codFiltro, plan.numSpots);
+    fprintf(ID, '%3.2f, %3.3f, %s, %u\n', plan.E, plan.I, plan.codFiltro, plan.numSpots);
     
     % Write table
     fprintf(ID, '# X (cm), Y (cm), Z (cm), t(s)\n');

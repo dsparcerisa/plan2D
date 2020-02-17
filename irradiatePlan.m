@@ -8,7 +8,12 @@ else
 end
 
 %% Comprobar que el plan es válido antes de irradiar
-if planIsInvalid(thePlan, stageLimits)
+planValid = thePlan;
+planValid.X = planValid.X + vector2startPoint(1);
+planValid.Y = planValid.Y + vector2startPoint(2);
+planValid.Z = planValid.Z + vector2startPoint(3);
+
+if planIsInvalid(planValid, stageLimits)
     error('Plan is invalid. Cannot irradiate');
 end
 
@@ -32,13 +37,18 @@ fprintf(logFile, '\tAbsolut shift from X to (0,0) well: [%3.3f %3.3f %3.3f]\n', 
 I_nA = input('Input currrent intensity at FC1 (nA): ');
 fprintf(logFile, '\tCurrent intensity: %3.3f nA (planned for %3.3f nA)\n\n', I_nA, thePlan.I);
 
+absPos = [thePlan.X(1) thePlan.Y(1) thePlan.Z(1)] + vector2startPoint;
+msg = sprintf('Moving to: [%3.3f %3.3f %3.3f]', absPos(1), absPos(2), absPos(3));
+    fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
+    finished = stageControl_moveToAbsPos(COMstage, absPos);
+    
 %% Irradiate plan
 for i=1:numel(thePlan.X)
     
     absPos = [thePlan.X(i) thePlan.Y(i) thePlan.Z(i)] + vector2startPoint;
     msg = sprintf('Moving to: [%3.3f %3.3f %3.3f]', absPos(1), absPos(2), absPos(3));
     fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
-    %%finished = stageControl_moveToAbsPos(COMstage, absPos);
+    finished = stageControl_moveToAbsPos(COMstage, absPos);
     msg = sprintf('Arrived at: [%3.3f %3.3f %3.3f]', absPos(1), absPos(2), absPos(3));
     fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
 
@@ -46,16 +56,16 @@ for i=1:numel(thePlan.X)
         msg = sprintf('Deliver: %i FLASH shots', thePlan.Nshots(i));    
         fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
     
-        %%Shutter(COMshutter, 'f', plan.Nshots(i));
+        Shutter(COMshutter, 'f', thePlan.Nshots(i));
         msg = sprintf('Finished.\n');       
         fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
  
     elseif strcmp(thePlan.mode, 'CONV')
-        %%Configure_shutter(COMshutter, 't', plan.t_s(i))
+        Configure_shutter(COMshutter, 't', thePlan.t_s(i))
         msg = sprintf('Open shutter for %3.3fs', thePlan.t_s(i));  
         fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
 
-        %%Shutter(COMshutter,'n',1);
+        Shutter(COMshutter,'n',1);
         msg = sprintf('Shutter closed.\n');       
         fprintf(logFile, [datestr(now,'[HH:MM:SS.FFF] ') msg '\n']);
         

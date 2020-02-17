@@ -63,19 +63,21 @@ doseSliceInWell = CartesianGrid2D(doseSlice_1pC);
 for i=1:miniSpotsPerSpot    
     doseSliceMoveable = doseSlice_1pC.copy;
     doseSliceMoveable.shift(deltaMatrix(i, :));
+    doseSliceMoveable.data(isnan(doseSliceMoveable.data))=0;
     doseSliceMoveable.data = doseSliceMoveable.data * relWeight(i);
     doseSliceInWell = doseSliceInWell + doseSliceMoveable;
+    doseSliceInWell.data(isnan(doseSliceInWell.data))=0;
 end
 
 well0 = getWell(CartesianGrid2D(doseSlice_1pC), wellRadius_cm, [0 0]);
 
 wellDoses = getStats(well0, doseSliceInWell);
-meanWellDose_1pC = mean(wellDoses);
+meanWellDose_1pC = mean(wellDoses)
 doseRate = meanWellDose_1pC * I_muestra * 1000;
 
 % Positions in reference with the center of the first spot
 Xpos = well2wellDist_cm*(0:(-1):(-(NX-1)));
-Ypos = well2wellDist_cm*(0:(NY-1));
+Ypos = well2wellDist_cm*(0:(-1):(-(NY-1)));
 [x,y] = meshgrid(Xpos, Ypos);
 
 % total number of spots
