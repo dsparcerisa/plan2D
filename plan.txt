@@ -1,4 +1,5 @@
 # Mari Carmen
+CONV
 # E (MeV), Z (cm), I (nA), codFiltro, numSpots
 3, 7, 1, PP100, 4
 # X (cm), Y (cm), Q (pC)
