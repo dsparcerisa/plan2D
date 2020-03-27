@@ -11,7 +11,7 @@ ZValues = ZMaxValues - dZ/2;
 [SDose] = loadDose(8);
 %% Fit and plot  
     allSteps = 1:NZ;
-    modelFun = @(b,x) b(1)*x.^2 + b(2)*x;
+    modelFun = @(b,x) b(1)*x.^2 + b(2)*x + b(3);
 
 
     minVal = find(~isnan(SDose),1);
@@ -25,8 +25,8 @@ ZValues = ZMaxValues - dZ/2;
     % Fit
     X = (ZValues(minVal:maxVal))';
     Y = (SDose(minVal:maxVal))';
-    F = fit(X, Y, 'poly2', 'Lower', [0 0 0], 'Upper', [Inf Inf 0]);
-    polyF = [F.p1 F.p2];
+    F = fit(X, Y, 'poly2');
+    polyF = [F.p1 F.p2 F.p3];
     nlm = fitnlm(X,Y,modelFun,polyF,'Weight',w(minVal:maxVal));
     polyW = nlm.Coefficients.Estimate';
     polyDose = polyW;
