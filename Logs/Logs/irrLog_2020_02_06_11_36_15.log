@@ -1,0 +1,30 @@
+[11:36:15.269] Starting plan irradiation...
+	Plan name: Plan de commissioning para FLASH
+	Plan type: FLASH
+	Expected slit time: 4.500000e-01
+	Air depth at stage position Z=0: 4.40 cm
+	Absolut shift from X to (0,0) well: [-4.944 -3.147 0.000]
+	Current intensity: 6.500 nA (planned for 8.000 nA)
+
+[11:36:21.707] Moving to: [-1.944 -1.147 0.000]
+[11:36:34.573] Moving to: [-1.944 -1.147 0.000]
+[11:36:35.057] Arrived at: [-1.944 -1.147 0.000]
+[11:36:35.057] Deliver: 2 FLASH shots
+[11:36:35.726] Finished.
+
+[11:36:35.727] Moving to: [-1.944 -3.147 -1.500]
+[11:36:39.161] Arrived at: [-1.944 -3.147 -1.500]
+[11:36:39.161] Deliver: 2 FLASH shots
+[11:36:39.810] Finished.
+
+[11:36:39.810] Moving to: [-1.944 -5.146 -3.000]
+[11:36:43.248] Arrived at: [-1.944 -5.146 -3.000]
+[11:36:43.248] Deliver: 2 FLASH shots
+[11:36:43.896] Finished.
+
+[11:36:43.897] Moving to: [-3.944 -1.147 -4.500]
+[11:36:50.048] Arrived at: [-3.944 -1.147 -4.500]
+[11:36:50.048] Deliver: 2 FLASH shots
+[11:36:50.710] Finished.
+
+[11:36:50.710] Moving to: [-3.944 -3.147 -6.000]

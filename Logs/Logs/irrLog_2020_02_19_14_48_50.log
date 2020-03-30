@@ -1,0 +1,51 @@
+[14:48:50.499] Starting plan irradiation...
+	Plan name: Gelatina manual
+	Plan comment: Gel 2
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 5.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 7.120 nA (planned for 7.000 nA)
+
+[14:49:03.741] Moving to: [0.000 -0.300 0.000]
+[14:49:07.385] Moving to: [0.000 -0.300 0.000]
+[14:49:07.623] Arrived at: [0.000 -0.300 0.000]
+[14:49:08.718] Open shutter for 0.020s
+[14:49:08.787] Shutter closed.
+
+[14:49:08.792] Moving to: [0.000 -1.500 0.000]
+[14:49:10.090] Arrived at: [0.000 -1.500 0.000]
+[14:49:11.159] Open shutter for 0.040s
+[14:49:11.262] Shutter closed.
+
+[14:49:11.263] Moving to: [-1.000 -0.300 0.000]
+[14:49:13.505] Arrived at: [-1.000 -0.300 0.000]
+[14:49:14.587] Open shutter for 0.060s
+[14:49:14.709] Shutter closed.
+
+[14:49:14.709] Moving to: [-1.000 -1.500 0.000]
+[14:49:16.010] Arrived at: [-1.000 -1.500 0.000]
+[14:49:17.085] Open shutter for 0.080s
+[14:49:17.228] Shutter closed.
+
+[14:49:17.228] Moving to: [-2.000 -0.300 0.000]
+[14:49:19.487] Arrived at: [-2.000 -0.300 0.000]
+[14:49:20.467] Open shutter for 0.100s
+[14:49:20.635] Shutter closed.
+
+[14:49:20.635] Moving to: [-2.000 -1.500 0.000]
+[14:49:21.929] Arrived at: [-2.000 -1.500 0.000]
+[14:49:23.020] Open shutter for 0.120s
+[14:49:23.207] Shutter closed.
+
+[14:49:23.208] Moving to: [-3.000 -0.300 0.000]
+[14:49:25.454] Arrived at: [-3.000 -0.300 0.000]
+[14:49:26.535] Open shutter for 0.140s
+[14:49:26.746] Shutter closed.
+
+[14:49:26.746] Moving to: [-3.000 -1.500 0.000]
+[14:49:28.026] Arrived at: [-3.000 -1.500 0.000]
+[14:49:29.107] Open shutter for 0.160s
+[14:49:29.336] Shutter closed.
+
+[14:49:29.337] Plan irradiation finished.

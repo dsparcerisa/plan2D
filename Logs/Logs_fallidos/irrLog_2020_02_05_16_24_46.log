@@ -1,0 +1,9 @@
+[16:24:46.097] Starting plan irradiation...
+	Plan name: FLASH Placa 3 duplicados
+	Plan type: FLASH
+	Expected slit time: 7.500000e-01
+	Air depth at stage position Z=0: 4.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.000 nA (planned for 1.000 nA)
+
+[16:24:51.475] Moving to: [-1.220 -2.380 -6.000]

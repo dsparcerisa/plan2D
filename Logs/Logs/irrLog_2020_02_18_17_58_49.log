@@ -1,0 +1,31 @@
+[17:58:49.816] Starting plan irradiation...
+	Plan name: Gelatina
+	Plan comment: Activacion tumor bañado en agua 18
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 0.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.360 nA (planned for 0.300 nA)
+
+[17:58:59.788] Moving to: [-0.060 0.060 0.000]
+[17:59:00.679] Moving to: [-0.060 0.060 0.000]
+[17:59:00.921] Arrived at: [-0.060 0.060 0.000]
+[17:59:01.817] Open shutter for 30.000s
+[17:59:31.913] Shutter closed.
+
+[17:59:31.914] Moving to: [-0.060 -0.060 0.000]
+[17:59:32.511] Arrived at: [-0.060 -0.060 0.000]
+[17:59:33.395] Open shutter for 30.000s
+[18:00:03.488] Shutter closed.
+
+[18:00:03.488] Moving to: [0.060 -0.060 0.000]
+[18:00:04.093] Arrived at: [0.060 -0.060 0.000]
+[18:00:04.658] Open shutter for 30.000s
+[18:00:34.755] Shutter closed.
+
+[18:00:34.755] Moving to: [0.060 0.060 0.000]
+[18:00:35.358] Arrived at: [0.060 0.060 0.000]
+[18:00:36.240] Open shutter for 30.000s
+[18:01:06.334] Shutter closed.
+
+[18:01:06.335] Plan irradiation finished.

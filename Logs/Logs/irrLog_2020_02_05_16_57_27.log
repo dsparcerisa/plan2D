@@ -1,0 +1,62 @@
+[16:57:27.024] Starting plan irradiation...
+	Plan name: CONV Placa
+	Plan type: CONV
+	PepperPot code: PP2capas
+	Air depth at stage position Z=0: 4.40 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.000 nA (planned for 0.100 nA)
+
+[16:57:28.840] Moving to: [-1.220 -2.380 -5.600]
+[16:57:31.991] Moving to: [-1.220 -2.380 -5.600]
+[16:57:32.477] Arrived at: [-1.220 -2.380 -5.600]
+[16:57:33.174] Open shutter for 0.741s
+[16:57:33.956] Shutter closed.
+
+[16:57:33.956] Moving to: [-1.220 -3.010 -5.600]
+[16:57:35.201] Arrived at: [-1.220 -3.010 -5.600]
+[16:57:35.882] Open shutter for 0.741s
+[16:57:36.657] Shutter closed.
+
+[16:57:36.658] Moving to: [-0.580 -3.010 -5.600]
+[16:57:38.101] Arrived at: [-0.580 -3.010 -5.600]
+[16:57:38.770] Open shutter for 0.741s
+[16:57:39.530] Shutter closed.
+
+[16:57:39.531] Moving to: [-0.580 -2.380 -5.600]
+[16:57:40.753] Arrived at: [-0.580 -2.380 -5.600]
+[16:57:41.413] Open shutter for 0.741s
+[16:57:42.191] Shutter closed.
+
+[16:57:42.194] Moving to: [-3.010 -0.580 -5.600]
+[16:57:46.144] Arrived at: [-3.010 -0.580 -5.600]
+[16:57:46.807] Open shutter for 1.483s
+[16:57:48.329] Shutter closed.
+
+[16:57:48.330] Moving to: [-3.010 -1.220 -5.600]
+[16:57:49.797] Arrived at: [-3.010 -1.220 -5.600]
+[16:57:50.461] Open shutter for 1.483s
+[16:57:51.970] Shutter closed.
+
+[16:57:51.970] Moving to: [-2.380 -1.220 -5.600]
+[16:57:53.183] Arrived at: [-2.380 -1.220 -5.600]
+[16:57:53.229] Open shutter for 1.483s
+[16:57:54.774] Shutter closed.
+
+[16:57:54.774] Moving to: [-2.380 -0.580 -5.600]
+[16:57:55.998] Arrived at: [-2.380 -0.580 -5.600]
+[16:57:56.664] Open shutter for 1.483s
+[16:57:58.168] Shutter closed.
+
+[16:57:58.168] Moving to: [-3.010 -2.380 -5.600]
+[16:58:00.892] Arrived at: [-3.010 -2.380 -5.600]
+[16:58:00.952] Open shutter for 2.966s
+[16:58:02.475] Shutter closed.
+
+[16:58:02.475] Moving to: [-3.010 -3.010 -5.600]
+[16:58:03.928] Arrived at: [-3.010 -3.010 -5.600]
+[16:58:04.581] Open shutter for 2.966s
+[16:58:07.569] Shutter closed.
+
+[16:58:07.569] Moving to: [-2.380 -3.010 -5.600]
+[16:58:09.022] Arrived at: [-2.380 -3.010 -5.600]
+[16:58:09.071] Open shutter for 2.966s

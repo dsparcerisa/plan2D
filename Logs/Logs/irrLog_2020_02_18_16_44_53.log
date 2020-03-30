@@ -1,0 +1,31 @@
+[16:44:53.518] Starting plan irradiation...
+	Plan name: Gelatina
+	Plan comment: Huevo 3 en Manual
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 0.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.100 nA (planned for 0.300 nA)
+
+[16:45:12.137] Moving to: [-0.240 0.240 0.000]
+[16:45:13.229] Moving to: [-0.240 0.240 0.000]
+[16:45:13.882] Arrived at: [-0.240 0.240 0.000]
+[16:45:14.757] Open shutter for 30.000s
+[16:45:44.852] Shutter closed.
+
+[16:45:44.857] Moving to: [-0.240 -0.240 0.000]
+[16:45:45.527] Arrived at: [-0.240 -0.240 0.000]
+[16:45:46.405] Open shutter for 30.000s
+[16:46:16.487] Shutter closed.
+
+[16:46:16.487] Moving to: [0.240 -0.240 0.000]
+[16:46:17.334] Arrived at: [0.240 -0.240 0.000]
+[16:46:18.216] Open shutter for 30.000s
+[16:46:48.296] Shutter closed.
+
+[16:46:48.296] Moving to: [0.240 0.240 0.000]
+[16:46:49.125] Arrived at: [0.240 0.240 0.000]
+[16:46:50.023] Open shutter for 30.000s
+[16:47:20.118] Shutter closed.
+
+[16:47:20.119] Plan irradiation finished.

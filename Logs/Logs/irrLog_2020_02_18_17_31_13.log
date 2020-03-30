@@ -1,0 +1,31 @@
+[17:31:13.351] Starting plan irradiation...
+	Plan name: Gelatina
+	Plan comment: Plan RC sin difusor
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 0.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.394 nA (planned for 0.300 nA)
+
+[17:31:41.962] Moving to: [-0.240 0.240 0.000]
+[17:31:43.082] Moving to: [-0.240 0.240 0.000]
+[17:31:43.314] Arrived at: [-0.240 0.240 0.000]
+[17:31:44.297] Open shutter for 0.600s
+[17:31:44.962] Shutter closed.
+
+[17:31:44.967] Moving to: [-0.240 -0.240 0.000]
+[17:31:45.796] Arrived at: [-0.240 -0.240 0.000]
+[17:31:46.782] Open shutter for 0.600s
+[17:31:47.448] Shutter closed.
+
+[17:31:47.448] Moving to: [0.240 -0.240 0.000]
+[17:31:48.259] Arrived at: [0.240 -0.240 0.000]
+[17:31:49.239] Open shutter for 0.600s
+[17:31:49.900] Shutter closed.
+
+[17:31:49.901] Moving to: [0.240 0.240 0.000]
+[17:31:50.715] Arrived at: [0.240 0.240 0.000]
+[17:31:51.267] Open shutter for 0.600s
+[17:31:51.954] Shutter closed.
+
+[17:31:51.955] Plan irradiation finished.

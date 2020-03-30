@@ -1,0 +1,31 @@
+[16:04:25.823] Starting plan irradiation...
+	Plan name: Gelatina
+	Plan comment: Prueba H1 sin haz
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 0.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.000 nA (planned for 0.300 nA)
+
+[16:04:33.076] Moving to: [-0.240 0.240 -3.000]
+[16:04:36.455] Moving to: [-0.240 0.240 -3.000]
+[16:04:36.688] Arrived at: [-0.240 0.240 -3.000]
+[16:04:37.566] Open shutter for 30.000s
+[16:05:07.658] Shutter closed.
+
+[16:05:07.663] Moving to: [-0.240 -0.240 -3.000]
+[16:05:08.498] Arrived at: [-0.240 -0.240 -3.000]
+[16:05:09.374] Open shutter for 30.000s
+[16:05:39.455] Shutter closed.
+
+[16:05:39.455] Moving to: [0.240 -0.240 -3.000]
+[16:05:40.275] Arrived at: [0.240 -0.240 -3.000]
+[16:05:41.145] Open shutter for 30.000s
+[16:06:11.238] Shutter closed.
+
+[16:06:11.238] Moving to: [0.240 0.240 -3.000]
+[16:06:12.088] Arrived at: [0.240 0.240 -3.000]
+[16:06:12.968] Open shutter for 30.000s
+[16:06:43.064] Shutter closed.
+
+[16:06:43.065] Plan irradiation finished.

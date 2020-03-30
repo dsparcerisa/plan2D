@@ -1,0 +1,41 @@
+[12:02:37.682] Starting plan irradiation...
+	Plan name: Plan de commissioning para CONV
+	Plan comment: RC de medida a 8 MeV
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 0.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.080 nA (planned for 0.050 nA)
+
+[12:03:04.482] Moving to: [0.600 1.900 0.000]
+[12:03:06.674] Moving to: [0.600 1.900 0.000]
+[12:03:07.585] Arrived at: [0.600 1.900 0.000]
+[12:03:08.068] Open shutter for 0.200s
+[12:03:08.326] Shutter closed.
+
+[12:03:08.326] Moving to: [0.600 -0.100 -1.000]
+[12:03:11.136] Arrived at: [0.600 -0.100 -1.000]
+[12:03:11.622] Open shutter for 0.200s
+[12:03:11.882] Shutter closed.
+
+[12:03:11.883] Moving to: [0.600 -2.200 -2.000]
+[12:03:14.751] Arrived at: [0.600 -2.200 -2.000]
+[12:03:15.236] Open shutter for 0.200s
+[12:03:15.494] Shutter closed.
+
+[12:03:15.494] Moving to: [3.000 1.900 -3.000]
+[12:03:21.590] Arrived at: [3.000 1.900 -3.000]
+[12:03:22.072] Open shutter for 0.200s
+[12:03:22.331] Shutter closed.
+
+[12:03:22.331] Moving to: [3.000 -0.100 -4.000]
+[12:03:25.115] Arrived at: [3.000 -0.100 -4.000]
+[12:03:25.602] Open shutter for 0.200s
+[12:03:25.858] Shutter closed.
+
+[12:03:25.858] Moving to: [3.000 -2.200 -5.000]
+[12:03:28.706] Arrived at: [3.000 -2.200 -5.000]
+[12:03:29.192] Open shutter for 0.200s
+[12:03:29.451] Shutter closed.
+
+[12:03:29.451] Plan irradiation finished.

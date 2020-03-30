@@ -1,0 +1,70 @@
+[13:07:12.692] Starting plan irradiation...
+	Plan name: FLASH Placa 3 duplicados
+	Plan type: FLASH
+	Expected slit time: 4.500000e-01
+	Air depth at stage position Z=0: 4.60 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 6.400 nA (planned for 6.400 nA)
+
+[13:07:18.417] Moving to: [-1.200 -2.400 -5.400]
+[13:07:24.922] Moving to: [-1.200 -2.400 -5.400]
+[13:07:25.169] Arrived at: [-1.200 -2.400 -5.400]
+[13:07:25.169] Deliver: 1 FLASH shots
+[13:07:25.495] Finished.
+
+[13:07:25.496] Moving to: [-1.200 -3.000 -5.400]
+[13:07:26.459] Arrived at: [-1.200 -3.000 -5.400]
+[13:07:26.460] Deliver: 1 FLASH shots
+[13:07:26.782] Finished.
+
+[13:07:26.783] Moving to: [-0.600 -3.000 -5.400]
+[13:07:27.733] Arrived at: [-0.600 -3.000 -5.400]
+[13:07:27.734] Deliver: 1 FLASH shots
+[13:07:28.071] Finished.
+
+[13:07:28.071] Moving to: [-0.600 -2.400 -5.400]
+[13:07:29.038] Arrived at: [-0.600 -2.400 -5.400]
+[13:07:29.038] Deliver: 1 FLASH shots
+[13:07:29.372] Finished.
+
+[13:07:29.372] Moving to: [-3.000 -0.600 -5.400]
+[13:07:33.034] Arrived at: [-3.000 -0.600 -5.400]
+[13:07:33.035] Deliver: 2 FLASH shots
+[13:07:33.672] Finished.
+
+[13:07:33.672] Moving to: [-3.000 -1.200 -5.400]
+[13:07:34.632] Arrived at: [-3.000 -1.200 -5.400]
+[13:07:34.632] Deliver: 2 FLASH shots
+[13:07:35.291] Finished.
+
+[13:07:35.291] Moving to: [-2.400 -1.200 -5.400]
+[13:07:36.253] Arrived at: [-2.400 -1.200 -5.400]
+[13:07:36.253] Deliver: 2 FLASH shots
+[13:07:36.899] Finished.
+
+[13:07:36.900] Moving to: [-2.400 -0.600 -5.400]
+[13:07:37.870] Arrived at: [-2.400 -0.600 -5.400]
+[13:07:37.870] Deliver: 2 FLASH shots
+[13:07:38.527] Finished.
+
+[13:07:38.527] Moving to: [-3.000 -2.400 -5.400]
+[13:07:41.011] Arrived at: [-3.000 -2.400 -5.400]
+[13:07:41.012] Deliver: 4 FLASH shots
+[13:07:42.322] Finished.
+
+[13:07:42.322] Moving to: [-3.000 -3.000 -5.400]
+[13:07:43.282] Arrived at: [-3.000 -3.000 -5.400]
+[13:07:43.283] Deliver: 4 FLASH shots
+[13:07:44.600] Finished.
+
+[13:07:44.600] Moving to: [-2.400 -3.000 -5.400]
+[13:07:45.574] Arrived at: [-2.400 -3.000 -5.400]
+[13:07:45.575] Deliver: 4 FLASH shots
+[13:07:46.897] Finished.
+
+[13:07:46.897] Moving to: [-2.400 -2.400 -5.400]
+[13:07:47.841] Arrived at: [-2.400 -2.400 -5.400]
+[13:07:47.841] Deliver: 4 FLASH shots
+[13:07:49.157] Finished.
+
+[13:07:49.157] Moving to: [-4.800 -0.600 -5.400]
