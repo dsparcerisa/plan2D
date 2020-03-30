@@ -1,4 +1,4 @@
-function [tbl_Datos] = tipos_logs(filename)
+function [tbl_Datos,j] = tipos_logs(filename)
 
 filetext = fileread(filename);
 
@@ -17,12 +17,14 @@ r = length(regexp(Toma_text2,'r'));
 
 
 if r == 5;
+    j=0;
     if v == 1;
         tbl_Datos = importar_log(filename);
     elseif v == 2;
         tbl_Datos = importar_log2(filename);
     end
 elseif r == 3;
+    j=1;
         if v == 1;
         tbl_Datos = importar_log_FLASH(filename);
     elseif v == 2;
