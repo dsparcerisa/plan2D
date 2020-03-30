@@ -3,11 +3,13 @@ MyFolderInfo = dir('Logs');
 for i = 4:160;
     filename = MyFolderInfo(i).name;
     filename2 = ['Logs/',filename];
-    tbl_Datos = tipos_logs(filename2);
+    [tbl_Datos,j] = tipos_logs(filename2);
+    if j == 0  %Set 1 for FLASH and 0 for non_FLASH
     filename3 = ['tabl_',filename(1:26)];
-    str=[filename3,'=tbl_Datos;'];
+    str = [filename3,'=tbl_Datos;'];
     eval(str);
-    
+    end
+        
 end
 
-clear i filename filename2 filename3 MyFolderInfo str tbl_Datos
+clear i j filename filename2 filename3 MyFolderInfo str tbl_Datos
