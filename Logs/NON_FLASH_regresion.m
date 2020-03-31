@@ -9,12 +9,17 @@ for i = 1:length(TABLA)
      Time = [Time;tbl.Cierre_s-tbl.Apertura_s];
 end
 
+validPoints = ~isoutlier(Time,'percentiles', [1 99]);
+validShots = shots(validPoints);
+validTime = Time(validPoints);
 
-lin = polyfit(shots,Time,1)
+lin = polyfit(validShots,validTime,1)
 F = 0:0.01:50;
 FF = polyval(lin,F);
 
-plot(shots,Time,'+',F,FF)
+plot(validShots,validTime,'+',F,FF)
 xlabel('Number of Flash Shots')
 ylabel('Time (s)')
-    
+grid on
+
+%% Ahora habría que usar de nuevo isoutlier (o un threshold en el residuo) para seleccionar los que se alejan de la curva
