@@ -1,4 +1,4 @@
-function [SEdep,NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY] = loadEdep(energy,SimulationNumber)
+function [SEdep,NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY,energy,N_histories] = loadEdep(SimulationNumber)
 % Creates polinomial fit for sigma based on fluence and deposited energy
 % in files within folder
 
@@ -8,7 +8,7 @@ Edep_STDFileName = 'Edep_STD.csv';
 SDFileName = 'SIN_DIFUSOR.txt';
 
 %% Import length and bin number 
-[NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY] = readData(EdepFileName,SDFileName);
+[NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY,energy,N_histories] = readData(EdepFileName,SDFileName);
 %% Setup the Import Options
 opts = delimitedTextImportOptions("NumVariables", 4);
 

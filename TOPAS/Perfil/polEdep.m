@@ -1,8 +1,8 @@
 clear all
 close all
-energy = 4; %
+
 SimulationNumber = input('Máquina qué simulacion es esta?') ; %Ir cambiando
-[SEdep,NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY] = loadEdep(energy,SimulationNumber);
+[SEdep,NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY,energy,N_histories] = loadEdep(SimulationNumber);
 RMaxValues = dR * (1:NR);
 RMinValues = RMaxValues - dR;
 RValues = RMaxValues - dR/2;
@@ -41,7 +41,7 @@ ZValues = ZValues; %Para difusor
     %%Save data and results
     Directory = sprintf('%iMeV/Sim%i',energy,SimulationNumber);
     savefig([Directory,'/SEdep.fig'])
-    save([Directory,'/Data.mat'],'NR','NZ','dR','dZ','energy','SimulationNumber','spreadX','spreadY','angularspreadX','angularspreadY')
+    save([Directory,'/Data.mat'],'NR','NZ','dR','dZ','energy','N_histories','SimulationNumber','spreadX','spreadY','angularspreadX','angularspreadY')
     save([Directory,'/Results.mat'],'polyEdep','polyF','ZValues','RValues','SEdep')
     copyfile('SIN_DIFUSOR.txt',Directory);
     copyfile('Edep.csv',Directory);

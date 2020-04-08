@@ -1,6 +1,19 @@
-function [NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY] = readData(EdepFileName,SDFileName)
+function [NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY,energy,N_histories] = readData(EdepFileName,SDFileName)
 filetext = fileread(EdepFileName);
 filetext2 = fileread(SDFileName);
+%Energy
+[Delimiter_energy1,Delimiter_energy2] = regexp(filetext2, 'BeamEnergy  ');
+toma_energy = filetext2(Delimiter_energy2(1):Delimiter_energy2(1)+30);
+Delimiter_equal = regexp(toma_energy,'=');
+Delimiter_MeV= regexp(toma_energy,' MeV');
+energy = str2num(toma_energy(Delimiter_equal+2:Delimiter_MeV-1));
+
+%Histories
+[Delimiter_histories1,Delimiter_histories2] = regexp(filetext2, 'HistoriesInRun  ');
+toma_histories = filetext2(Delimiter_histories2(1):Delimiter_histories2(1)+30);
+Delimiter_equal = regexp(toma_histories,'=');
+Delimiter_Ts = regexp(toma_histories,'i:Ts/Show');
+N_histories = str2num(toma_histories(Delimiter_equal+2:Delimiter_Ts-3));
 
 %Spreads
 [Delimiter_spread1,Delimiter_spread2] = regexp(filetext2, 'onSpread');
