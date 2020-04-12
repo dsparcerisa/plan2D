@@ -44,10 +44,10 @@ for i = 1:length(TABLA);
     Time = [tbl.Cierre_s-tbl.Apertura_s];
     residue = (Time - polyval(lin, shots_i)).^2;
     outlier = residue>stdResidue_FLASH;
-    R = [tbl.Numero_exposiciones,Time,residue,outlier];
+    Numero_exposiciones = tbl.Numero_exposiciones;
+    R = table(tbl.Numero_exposiciones,Time,residue,outlier);
     Failed_Exposure = tbl.Numero_exposiciones(outlier);
-    Percentage_Deviation = abs(1-residue(outlier)./stdResidue_FLASH).*100; %Mirar
-    F = table(Failed_Exposure,Percentage_Deviation);
+    F = table(Failed_Exposure);
     eval([['res_',TABLA{i}],'=R;']);
     eval([['failed_exposures_',TABLA{i}],'=F;']);
 end
@@ -94,4 +94,5 @@ plot([1 15], [stdResidue_AX_FLASH stdResidue_AX_FLASH], 'k:');
 subplot(2,1,1);
 hold on
 plot(validAX(outlierMask), validTime_AX(outlierMask), 'rx')
+
    
