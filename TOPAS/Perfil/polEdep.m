@@ -39,7 +39,22 @@ ZValues = ZMaxValues - dZ/2;
     plot(ZValues(1:maxVal), modelFun(polyF,ZValues(1:maxVal)), 'r-');
     plot(ZValues(1:maxVal), modelFun(polyW,ZValues(1:maxVal)), 'g-');
     
-    %%
+    %% Comparison polynomials
+    
+    [nlm_exp] = polExp;
+    poly_exp = [nlm_exp.Coefficients.Estimate,nlm_exp.Coefficients.SE];
+    poly_sim = [nlm.Coefficients.Estimate,nlm.Coefficients.SE];
+    ZZ = 4:0.02:15;
+    SEdep_exp = polyval(poly_exp(:,1)',ZZ);
+    SEdep_exp_error = polyval(poly_exp(:,2)',ZZ);
+    SEdep_sim = polyval(poly_sim(:,1)',ZZ);
+    SEdep_sim_error = polyval(poly_sim(:,2)',ZZ);   
+    
+    figure
+    errorbar(ZZ,SEdep_exp,SEdep_exp_error);
+    hold on
+    errorbar(ZZ,SEdep_sim,SEdep_sim_error);
+    grid on
     
     %% Save data and results
     Directory = sprintf('%iMeV/Sim%i',energy,SimulationNumber);
