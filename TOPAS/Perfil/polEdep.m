@@ -41,19 +41,24 @@ ZValues = ZMaxValues - dZ/2;
     
     %% Comparison polynomials
     
-    [nlm_exp] = polExp;
+    [nlm_exp,Z_exp,Sigma_exp] = polExp;
     poly_exp = [nlm_exp.Coefficients.Estimate,nlm_exp.Coefficients.SE];
     poly_sim = [nlm.Coefficients.Estimate,nlm.Coefficients.SE];
     ZZ = 4:0.02:15;
     SEdep_exp = polyval(poly_exp(:,1)',ZZ);
-    SEdep_exp_error = polyval(poly_exp(:,2)',ZZ);
+    SEdep_exp_error = sqrt(((ZZ.^2)*poly_exp(1,2)).^2+(ZZ.*poly_exp(2,2)).^2+(poly_exp(3,2)).^2+((2*poly_exp(1,1).*ZZ+poly_exp(2,1)).*(0.1)).^2);
     SEdep_sim = polyval(poly_sim(:,1)',ZZ);
-    SEdep_sim_error = polyval(poly_sim(:,2)',ZZ);   
+    SEdep_sim_error = sqrt(((ZZ.^2)*poly_sim(1,2)).^2+(ZZ.*poly_sim(2,2)).^2+(poly_sim(3,2)).^2); 
     
     figure
-    errorbar(ZZ,SEdep_exp,SEdep_exp_error);
+    errorbar(ZZ,SEdep_exp,SEdep_exp_error,'g');
     hold on
-    errorbar(ZZ,SEdep_sim,SEdep_sim_error);
+    plot(ZZ,SEdep_exp)
+    plot(Z_exp,Sigma_exp,'rx','MarkerSize',20)
+    ylabel('\sigma (cm)','FontSize',20)
+    xlabel('Z (cm)','FontSize',20)
+    hold on
+    errorbar(ZZ,SEdep_sim,SEdep_sim_error,'k');
     grid on
     
     %% Save data and results

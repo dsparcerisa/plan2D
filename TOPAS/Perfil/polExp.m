@@ -1,4 +1,4 @@
-function [nlm_exp] = polExp;
+function [nlm_exp,Z,Sigma] = polExp;
 %Medidas experimentales para sigma en funcion de Z de para el cañon de
 %protones del CMMA a una energia de 8 MeV
 Z = [4.4 5.9 7.4 8.9 10.4 11.9]; %cm

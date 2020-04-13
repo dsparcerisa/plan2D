@@ -25,3 +25,5 @@ errorbar(RValues,FValues,Errorvalues)
 hold on
 plot(RValues,F1(RValues),'r')
 plot(RValues,FValues_weighted,'g')
+xlabel('R (cm)', 'FontSize',20 )
+ylabel('E ', 'FontSize',20 )

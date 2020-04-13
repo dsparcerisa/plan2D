@@ -63,12 +63,12 @@ subplot(2,1,1);
 errorbar(ZValues,EdepZ,EdepSTDZ);
 hold on
 plot(x_Vertical,Vertical);
-xlabel('Z (cm)')
-ylabel('Edep MeV')
+xlabel('Z (cm)','FontSize',20)
+ylabel('E (MeV)','FontSize',20)
 subplot(2,1,2);
 imagesc(ZValues,RValues,Edep_matrix)
-xlabel('Z (cm)')
-ylabel('R (cm)')
+xlabel('Z (cm)','FontSize',20)
+ylabel('R (cm)','FontSize',20)
 Directory = sprintf('%iMeV/Sim%i/',energy,SimulationNumber);
 figname = [Directory,'Range.fig'];
 savefig(figname)
@@ -103,10 +103,10 @@ for i=1:rangeIndex
 end
 
 figure
-subplot(2,1,1)
+
 plot(ZValues,SEdep,'+')
-xlabel('Z (cm)')
-ylabel('Sigm (cm)')
+xlabel('Z (cm)','FontSize',20)
+ylabel('\sigma (cm)','FontSize',20)
 
 [~, maxPos] = max(SEdep);
 maxValidIndex = min(maxPos, rangeIndex);
@@ -119,7 +119,7 @@ SEdep(maxValidIndex:NZ) = nan;
 SEdep_weighted(:,1:minValidIndex) = nan;
 SEdep_weighted(:,maxValidIndex:NZ) = nan;
 
-subplot(2,1,2)
+figure
 plot(ZValues,SEdep,'b',ZValues,SEdep_weighted(1,:),'g',ZValues,SEdep_weighted(1,:)+SEdep_weighted(2,:),'r',ZValues,SEdep_weighted(1,:)-SEdep_weighted(2,:),'r')
-xlabel('Z (cm)')
-ylabel('Sigm (cm)')
+xlabel('Z (cm)','FontSize',20)
+ylabel('\sigma (cm)','FontSize',20)
