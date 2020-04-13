@@ -1,4 +1,4 @@
-function [SEdep,NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY,energy,N_histories] = loadEdep(SimulationNumber)
+function [SEdep,SEdep_weighted,NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY,energy,N_histories] = loadEdep(SimulationNumber)
 % Creates polinomial fit for sigma based on fluence and deposited energy
 % in files within folder
 
@@ -83,13 +83,19 @@ end
 
 %% Sigma for the Fluence
 SEdep = nan(1, NZ);
-F1_coefficients = nan(NZ,3);
+SEdep_weighted = nan(2, NZ);
+modelFun = @(b,x) b(1)*exp(-((x-b(2))/(b(3))).^2);
 for i=1:rangeIndex
     try
-        Fvalues = Edep_matrix_normalized(i,:);
-        F1 = fit(RValues', Fvalues', 'gauss1');
-        F1_coefficients(i,:) = [F1.a1 F1.b1 F1.c1]; 
+        FValues = Edep_matrix_normalized(i,:);
+        F1 = fit(RValues', FValues', 'gauss1');
+        F1_coefficients = [F1.a1 F1.b1 F1.c1]; 
         SEdep(i) = F1.c1 / sqrt(2);
+        Errorvalues = EdepSTD_matrix_normalized(i,:);
+        w = (Errorvalues).^(-2);
+        Non_inf_w = find(w ~= inf); %Hay valores que de STD que son nulos y que al calcular w dan inf. Los he eliminado del ajuste
+        nlm = fitnlm(RValues(Non_inf_w),FValues(Non_inf_w),modelFun,F1_coefficients,'Weight',w(Non_inf_w));
+        SEdep_weighted(:,i) = [nlm.Coefficients.Estimate(3);nlm.Coefficients.SE(3)]./sqrt(2);
     catch
         % minValidIndex = i;
     end
@@ -110,8 +116,10 @@ minValidIndex = minPos+9;
 
 SEdep(1:minValidIndex) = nan;
 SEdep(maxValidIndex:NZ) = nan;
+SEdep_weighted(:,1:minValidIndex) = nan;
+SEdep_weighted(:,maxValidIndex:NZ) = nan;
 
 subplot(2,1,2)
-plot(ZValues,SEdep,'+')
+plot(ZValues,SEdep,'b',ZValues,SEdep_weighted(1,:),'g',ZValues,SEdep_weighted(1,:)+SEdep_weighted(2,:),'r',ZValues,SEdep_weighted(1,:)-SEdep_weighted(2,:),'r')
 xlabel('Z (cm)')
 ylabel('Sigm (cm)')
