@@ -115,11 +115,10 @@ minValidIndex = minPos+9;
 
 SEdep(1:minValidIndex) = nan;
 SEdep(maxValidIndex:NZ) = nan;
+SEdep_weighted(:,1:minValidIndex) = nan;
+SEdep_weighted(:,maxValidIndex:NZ) = nan;
 
 subplot(2,1,2)
-plot(ZValues,SEdep,'+')
+plot(ZValues,SEdep,'b',ZValues,SEdep_weighted(1,:),'g',ZValues,SEdep_weighted(1,:)+SEdep_weighted(2,:),'r',ZValues,SEdep_weighted(1,:)-SEdep_weighted(2,:),'r')
 xlabel('Z (cm)')
 ylabel('Sigm (cm)')
-
-figure
-plot(ZValues,SEdep,'b',ZValues,SEdep_weighted(1,:),'g',ZValues,SEdep_weighted(1,:)+SEdep_weighted(2,:),'r',ZValues,SEdep_weighted(1,:)-SEdep_weighted(2,:),'r')
