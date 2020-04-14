@@ -60,6 +60,20 @@ ZValues = ZMaxValues - dZ/2;
     hold on
     errorbar(ZZ,SEdep_sim,SEdep_sim_error,'k');
     grid on
+    %% Residue and interval error
+    residue = (SEdep_exp-SEdep_sim).^2;
+    stdResidue = std(residue);
+    figure
+    plot(ZZ, residue, 'o');
+    outlierMask = residue>stdResidue;
+    hold on
+    plot(ZZ(outlierMask), residue(outlierMask), 'rx')
+    plot([1 15], [stdResidue stdResidue], 'k:');
+    
+    [inliers] = interval_error(SEdep_exp', SEdep_exp_error', SEdep_sim', SEdep_sim_error');
+    IN = (length(find(inliers==1)))/length(inliers)*100;
+    OUT = 100-IN;
+    Percentage_error = table(IN,OUT);
     
     %% Save data and results
     Directory = sprintf('%iMeV/Sim%i',energy,SimulationNumber);
