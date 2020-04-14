@@ -80,4 +80,4 @@ for i = 1:n;
         
 end
 tbl_Datos = table([1:n]',Numero_flash,Tiempo_apertura,Tiempo_cierre,Posicion_inicial,Tiempo_posicion_inicial,Posicion_final,Tiempo_posicion_final);
-tbl_Datos.Properties.VariableNames = {'Numero_exposiciones','FLASH_shots','Apertura_s','Cierre_s','XYZ_inicial_cm','Tiempo_posicion_inicial_s','XYZ_final_cm','Tiempo_posicion_final_s'};    
+tbl_Datos.Properties.VariableNames = {'Numero_exposiciones','FLASH_shots','Apertura_s','Cierre_s','Moving_to_cm','Moving_to_s','Arrived_at_cm','Arrived_at_s'};    
