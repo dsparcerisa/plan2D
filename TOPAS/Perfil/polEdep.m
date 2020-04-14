@@ -65,9 +65,11 @@ ZValues = ZMaxValues - dZ/2;
     stdResidue = std(residue);
     figure
     plot(ZZ, residue, 'o');
-    outlierMask = residue>stdResidue;
+    outlierMask = residue>2*stdResidue;
     hold on
     plot(ZZ(outlierMask), residue(outlierMask), 'rx')
+    xlabel('Z (cm)','FontSize',20)
+    ylabel('chi^2 (cm^2)','FontSize',20)
     plot([1 15], [stdResidue stdResidue], 'k:');
     
     [inliers] = interval_error(SEdep_exp', SEdep_exp_error', SEdep_sim', SEdep_sim_error');
