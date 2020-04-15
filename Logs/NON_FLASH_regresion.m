@@ -7,12 +7,12 @@ TABLA = who;
 %% Time-shots
 shots = [];
 Time = [];
-for i = 1:length(TABLA)
+for i = [1:37,39:length(TABLA)];
      tbl = evalin('base',TABLA{i});
      shots = [shots;tbl.Tiempo_apertura_teorico_s];
      Time = [Time;tbl.Cierre_s-tbl.Apertura_s];     
 end
-figure
+figure (1)
 validPoints = ~isoutlier(Time,'percentiles', [1 99]);
 validShots = shots(validPoints);
 validTime = Time(validPoints);
@@ -21,36 +21,37 @@ lin = polyfit(validShots,validTime,1)
 F = 0:0.01:50;
 FF = polyval(lin,F);
 
-subplot(2,1,1);
 plot(validShots,validTime,'+',F,FF)
-xlabel('Number of Flash Shots')
-ylabel('Time (s)')
+xlabel('Teo Time (s)','FontSize',20)
+ylabel('Time (s)','FontSize',20)
 grid on
 
 %% Residue
 
-subplot(2,1,2);
+figure (2)
 residue = (validTime - polyval(lin, validShots)).^2; 
-stdResidue_NON_FLASH = std(residue);
+stdResidue_NON_FLASH = std(residue)
 hold off;
 plot(validShots, residue, 'o');
 outlierMask = residue>2*stdResidue_NON_FLASH;
 hold on
 plot(validShots(outlierMask), residue(outlierMask), 'rx')
 plot([1 50], [stdResidue_NON_FLASH stdResidue_NON_FLASH], 'k:');
-subplot(2,1,1);
+xlabel('Teo Time (s)','FontSize',20)
+ylabel('chi^2','FontSize',20)
+figure (1)
 hold on
 plot(validShots(outlierMask), validTime(outlierMask), 'rx')
 %% Ahora habría que usar de nuevo isoutlier (o un threshold en el residuo) para seleccionar los que se alejan de la curva
 
-for i = 1:length(TABLA);
+for i = [1:37,39:length(TABLA)];
     tbl = evalin('base',TABLA{i});
-    shots_i = [tbl.Tiempo_apertura_teorico_s];
+    Teo_Time = [tbl.Tiempo_apertura_teorico_s];
     Time = [tbl.Cierre_s-tbl.Apertura_s];
-    residue = (Time - polyval(lin, shots_i)).^2;
-    outlier = residue>stdResidue_NON_FLASH;
+    residue = (Time - polyval(lin, Teo_Time)).^2;
+    outlier = residue>2*stdResidue_NON_FLASH;
     Numero_exposiciones = tbl.Numero_exposiciones;
-    R = table(tbl.Numero_exposiciones,Time,residue,outlier);
+    R = table(Numero_exposiciones,Time,Teo_Time,residue,outlier);
     Failed_Exposure = tbl.Numero_exposiciones(outlier);
     F = table(Failed_Exposure);
     eval([['res_',TABLA{i}],'=R;']);

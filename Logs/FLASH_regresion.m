@@ -12,40 +12,49 @@ for i = 1:length(TABLA)
      shots = [shots;tbl.FLASH_shots];
      Time = [Time;tbl.Cierre_s-tbl.Apertura_s];
 end
-plot(shots, Time, '+');
-grid on
 
-%% Fit
-subplot(2,1,1)
-lin = polyfit(shots, Time,1);
+
+
+%% Fit Time
+figure (1)
+grid on
+validPoints = ~isoutlier(Time,'percentiles', [1 99]);
+validShots = shots(validPoints);
+validTime = Time(validPoints);
+lin = polyfit(validShots, validTime,1)
 F = 0:0.01:50;
 FF = polyval(lin,F);
 
 plot(shots,Time,'+',F,FF)
-xlabel('Number of Flash Shots')
-ylabel('Time (s)')
+xlabel('Number of Flash Shots','FontSize',20)
+ylabel('Time (s)','FontSize',20)
     
-%% Residue
+%% Residue Time
 
-subplot(2,1,2);
-residue = (Time - polyval(lin, shots)).^2; 
-stdResidue_FLASH = std(residue);
+figure (2)
+residue = (validTime - polyval(lin, validShots)).^2; 
+stdResidue_FLASH = std(residue)
 hold off;
-plot(shots, residue, 'o');
+plot(validShots, residue, 'o');
 outlierMask = residue>2*stdResidue_FLASH;
 hold on
-plot(shots(outlierMask), residue(outlierMask), 'rx')
+plot(validShots(outlierMask), residue(outlierMask), 'rx')
 plot([1 50], [stdResidue_FLASH stdResidue_FLASH], 'k:');
+xlabel('Number of Flash shots','FontSize',20)
+ylabel('chi^2','FontSize',20)
+figure (1)
+hold on
+plot(validShots(outlierMask), validTime(outlierMask), 'rx')
 
-%%  
+%%  Save Time residues
 for i = 1:length(TABLA);
     tbl = evalin('base',TABLA{i});
     shots_i = [tbl.FLASH_shots];
     Time = [tbl.Cierre_s-tbl.Apertura_s];
     residue = (Time - polyval(lin, shots_i)).^2;
-    outlier = residue>stdResidue_FLASH;
+    outlier = residue>2*stdResidue_FLASH;
     Numero_exposiciones = tbl.Numero_exposiciones;
-    R = table(tbl.Numero_exposiciones,Time,residue,outlier);
+    R = table(Numero_exposiciones,Time,shots_i,residue,outlier);
     Failed_Exposure = tbl.Numero_exposiciones(outlier);
     F = table(Failed_Exposure);
     eval([['res_',TABLA{i}],'=R;']);
