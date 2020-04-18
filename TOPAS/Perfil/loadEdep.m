@@ -81,6 +81,7 @@ figure(1)
 imagesc(ZValues,RValues,Edep_matrix)
 xlabel('Z (cm)','FontSize',20)
 ylabel('R (cm)','FontSize',20)
+grid on
 set((1),'Position', [0 0 800 600]);
 saveas(gcf,[Direction,'2D_Edep',etiqueta,'.png'])
 
@@ -89,6 +90,7 @@ plot(ZValues,SEdep,'+')
 xlabel('Z (cm)','FontSize',20)
 ylabel('\sigma (cm)','FontSize',20)
 legend('\sigma Unweighted','Location','NorthWest','FontSize',15)
+grid on
 set((2),'Position', [0 0 800 600]);
 saveas(gcf,[Direction,'SEdep_unweighted',etiqueta,'.png'])
 
@@ -116,5 +118,6 @@ plot(ZValues,SEdep_weighted(1,:),'g',ZValues,SEdep_weighted(1,:)+SEdep_weighted(
 xlabel('Z (cm)','FontSize',20)
 ylabel('\sigma (cm)','FontSize',20)
 legend('\sigma Weighted','\sigma Weighted + error','\sigma Weighted - error', 'Location','NorthWest','FontSize',15)
+grid on
 set((3),'Position', [0 0 800 600]);
 saveas(gcf,[Direction,'SEdep_weighted',etiqueta,'.png'])

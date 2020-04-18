@@ -20,10 +20,11 @@ x_Vertical = R80D.*ones(1,length(Vertical));
 figure (7)
 errorbar(ZValues,EdepZ,EdepSTDZ);
 hold on
-plot(x_Vertical,Vertical);
+plot(x_Vertical,Vertical,'LineWidth',2);
 xlabel('Z (cm)','FontSize',20)
 ylabel('E (MeV)','FontSize',20)
 legend('Simulated Energy Deposition','R80D','Location','NorthWest','FontSize',15)
+grid on
 set((7),'Position', [0 0 800 600]);
 saveas(gcf,[Direction,'Range',etiqueta,'.png'])
 

@@ -72,5 +72,6 @@ plot(RValues,FValues_weighted,'g','LineWidth',2)
 xlabel('R (cm)', 'FontSize',20 )
 ylabel('E ', 'FontSize',20 )
 legend('Simulated Energy Deposition','Unwieghted Gaussian Fit','Weighted Gaussian Fit','Location','NorthEast','FontSize',15)
+grid on
 set((10),'Position', [0 0 800 600]);
 saveas(gcf,[Direction,'gauss',Zplane,etiqueta,'.png'])

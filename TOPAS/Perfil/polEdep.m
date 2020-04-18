@@ -42,6 +42,7 @@ ZValues = ZMaxValues - dZ/2;
     xlabel('Z (cm)','FontSize',20)
     ylabel('\sigma (cm)','FontSize',20)
     legend('Unweighted Simulated Polynomial','Weighted Simulated Polynomial','Location','NorthWest','FontSize',15)
+    grid on
     set((4),'Position', [0 0 800 600]);
     saveas(gcf,[Direction,'polynomials_weighted_unweighted',etiqueta,'.png'])
     %% Comparison polynomials
@@ -57,6 +58,7 @@ ZValues = ZMaxValues - dZ/2;
     plot(Z_exp,Sigma_exp,'rx','MarkerSize',15)
     ylabel('\sigma (cm)','FontSize',20)
     xlabel('Z (cm)','FontSize',20)
+    grid on
     set((5),'Position', [0 0 800 600]);
 
     hold on
