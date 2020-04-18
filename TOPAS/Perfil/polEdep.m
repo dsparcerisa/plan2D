@@ -3,6 +3,8 @@ close all
 
 SimulationNumber = input('Máquina qué simulacion es esta?') ; %Ir cambiando
 [SEdep,SEdep_weighted,NR,NZ,dR,dZ,spreadX,spreadY,angularspreadX,angularspreadY,energy,N_histories] = loadEdep(SimulationNumber);
+Direction = sprintf('%iMeV/Sim%i/Images/',energy,SimulationNumber);
+etiqueta = sprintf('_%iMeV_Sim%i',energy,SimulationNumber);
 SEdep_weighted_error = SEdep_weighted(2,:);
 SEdep_weighted = SEdep_weighted(1,:);
 RMaxValues = dR * (1:NR);
@@ -20,9 +22,7 @@ ZValues = ZMaxValues - dZ/2;
     minVal = find(~isnan(SEdep_weighted),1);
     maxVal = find(~isnan(SEdep),1,'last');
     
-    % Probar el peso como (1 + x - minVal).^(-2);
     w = (SEdep_weighted_error).^(-2);
-    % plot(w)
     
     % Fit
     X = (ZValues(minVal:maxVal))';
@@ -35,53 +35,46 @@ ZValues = ZMaxValues - dZ/2;
     
     % Plot
 
-    hold on
+    figure (4)
     plot(ZValues(1:maxVal), modelFun(polyF,ZValues(1:maxVal)), 'r-');
+    hold on
     plot(ZValues(1:maxVal), modelFun(polyW,ZValues(1:maxVal)), 'g-');
-    
+    xlabel('Z (cm)','FontSize',20)
+    ylabel('\sigma (cm)','FontSize',20)
+    legend('Unweighted Simulated Polynomial','Weighted Simulated Polynomial','Location','NorthWest','FontSize',15)
+    set((4),'Position', [0 0 800 600]);
+    saveas(gcf,[Direction,'polynomials_weighted_unweighted',etiqueta,'.png'])
     %% Comparison polynomials
     
     [nlm_exp,Z_exp,Sigma_exp] = polExp;
     poly_exp = [nlm_exp.Coefficients.Estimate,nlm_exp.Coefficients.SE];
     poly_sim = [nlm.Coefficients.Estimate,nlm.Coefficients.SE];
     ZZ = 4:0.02:15;
-    SEdep_exp = polyval(poly_exp(:,1)',ZZ);
-    SEdep_exp_error = sqrt(((ZZ.^2)*poly_exp(1,2)).^2+(ZZ.*poly_exp(2,2)).^2+(poly_exp(3,2)).^2+((2*poly_exp(1,1).*ZZ+poly_exp(2,1)).*(0.1)).^2);
-    SEdep_sim = polyval(poly_sim(:,1)',ZZ);
-    SEdep_sim_error = sqrt(((ZZ.^2)*poly_sim(1,2)).^2+(ZZ.*poly_sim(2,2)).^2+(poly_sim(3,2)).^2); 
-    
-    figure
-    errorbar(ZZ,SEdep_exp,SEdep_exp_error,'g');
+    figure (5)
+    plot(ZZ,polyval(poly_exp(:,1)',ZZ),'g');
     hold on
-    plot(ZZ,SEdep_exp)
-    plot(Z_exp,Sigma_exp,'rx','MarkerSize',20)
+    plot(ZZ,polyval(poly_sim(:,1)',ZZ),'r')
+    plot(Z_exp,Sigma_exp,'rx','MarkerSize',15)
     ylabel('\sigma (cm)','FontSize',20)
     xlabel('Z (cm)','FontSize',20)
+    set((5),'Position', [0 0 800 600]);
+
     hold on
-    errorbar(ZZ,SEdep_sim,SEdep_sim_error,'k');
-    grid on
-    %% Residue and interval error
-    residue = (SEdep_exp-SEdep_sim).^2;
-    stdResidue = std(residue);
-    figure
-    plot(ZZ, residue, 'o');
-    outlierMask = residue>2*stdResidue;
+    plot(Z_exp,polyval(poly_sim(:,1)',Z_exp),'bx','MarkerSize',15)
     hold on
-    plot(ZZ(outlierMask), residue(outlierMask), 'rx')
-    xlabel('Z (cm)','FontSize',20)
-    ylabel('chi^2 (cm^2)','FontSize',20)
-    plot([1 15], [stdResidue stdResidue], 'k:');
+    legend('Experimental Polynomial','Simulated Polynomial','Experimental Data','Interpolated Data','Location','NorthWest','FontSize',15)
+    saveas(gcf,[Direction,'residues',etiqueta,'.png'])
+    residue_i = (Sigma_exp-polyval(poly_sim(:,1)',Z_exp)).^2;
+    residue = sum(residue_i);
     
-    [inliers] = interval_error(SEdep_exp', SEdep_exp_error', SEdep_sim', SEdep_sim_error');
-    IN = (length(find(inliers==1)))/length(inliers)*100;
-    OUT = 100-IN;
-    Percentage_error = table(IN,OUT);
+    
+    %[inliers] = interval_error(SEdep_exp', SEdep_exp_error', SEdep_sim', SEdep_sim_error')
+    
     
     %% Save data and results
     Directory = sprintf('%iMeV/Sim%i',energy,SimulationNumber);
-    savefig([Directory,'/SEdep.fig'])
     save([Directory,'/Data.mat'],'NR','NZ','dR','dZ','energy','N_histories','SimulationNumber','spreadX','spreadY','angularspreadX','angularspreadY')
-    save([Directory,'/Results.mat'],'polyEdep','polyF','ZValues','RValues','SEdep')
+    save([Directory,'/Results.mat'],'polyEdep','nlm','nlm_exp','ZValues','RValues','SEdep','SEdep_weighted','SEdep_weighted_error','residue_i','residue')
     copyfile('SIN_DIFUSOR.txt',Directory);
     copyfile('Edep.csv',Directory);
     copyfile('Edep_STD.csv',Directory);

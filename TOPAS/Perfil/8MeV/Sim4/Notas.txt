@@ -1,1 +1,0 @@
-Falla xq se ha puesto spreads angulares de 0.03 rad, pero no estoy seguro
