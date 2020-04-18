@@ -60,13 +60,13 @@ s:So/Example/BeamPositionDistribution = "Gaussian"
 s:So/Example/BeamPositionCutoffShape  = "Ellipse"
 d:So/Example/BeamPositionCutoffX      = 10. cm
 d:So/Example/BeamPositionCutoffY      = 10. cm
-d:So/Example/BeamPositionSpreadX      = 0.05 cm
-d:So/Example/BeamPositionSpreadY      = 0.05 cm
+d:So/Example/BeamPositionSpreadX      = 0.01 cm
+d:So/Example/BeamPositionSpreadY      = 0.01 cm
 s:So/Example/BeamAngularDistribution  = "Gaussian"
 d:So/Example/BeamAngularCutoffX       = 90. deg
 d:So/Example/BeamAngularCutoffY       = 90. deg
-d:So/Example/BeamAngularSpreadX       = 0.015 rad
-d:So/Example/BeamAngularSpreadY       = 0.015 rad
+d:So/Example/BeamAngularSpreadX       = 0.025 rad
+d:So/Example/BeamAngularSpreadY       = 0.025 rad
 i:So/Example/NumberOfHistoriesInRun   = 1000000
 
 i:Ts/ShowHistoryCountAtInterval = 10000
