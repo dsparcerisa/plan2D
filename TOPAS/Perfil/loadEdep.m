@@ -103,7 +103,7 @@ saveas(gcf,[Direction,'SEdep_unweighted',etiqueta,'.png'])
     %minValidIndex = minPos+9;
     
 %Manually
-    zmax = 28.01;
+    zmax = 70.01;
     maxValidIndex = find(abs(ZValues-zmax)<0.01); 
     zmin = 2.01;
     minValidIndex = find(abs(ZValues-zmin)<0.01); 
