@@ -1,0 +1,92 @@
+s:Ge/World/Material  = "Air"
+d:Ge/World/HLX       = 1.0 m
+d:Ge/World/HLY       = 1.0 m
+d:Ge/World/HLZ       = 1.0 m
+b:Ge/World/Invisible = "True"
+
+
+s:Ge/PhantomXY_Q/Type       = "TsBox"
+s:Ge/PhantomXY_Q/Parent     = "World"
+s:Ge/PhantomXY_Q/Material   = "Air"
+d:Ge/PhantomXY_Q/HLX        = 0.5 cm
+d:Ge/PhantomXY_Q/HLY        = 0.5 cm
+d:Ge/PhantomXY_Q/HLZ        = 0.5 cm
+d:Ge/PhantomXY_Q/TransX     = 0. cm
+d:Ge/PhantomXY_Q/TransY     = 0. cm
+d:Ge/PhantomXY_Q/TransZ     = 99.5 cm
+d:Ge/PhantomXY_Q/RotX       = 0. deg
+d:Ge/PhantomXY_Q/RotY       = 0. deg
+d:Ge/PhantomXY_Q/RotZ       = 0. deg
+i:Ge/PhantomXY_Q/XBins      = 100
+i:Ge/PhantomXY_Q/YBins      = 100
+i:Ge/PhantomXY_Q/ZBins      = 50
+#s:Ge/PhantomXY_Q/Field = "QuadrupoleMagnet"
+#d:Ge/PhantomXY_Q/MagneticFieldGradientX     = 40 tesla/cm
+#d:Ge/PhantomXY_Q/MagneticFieldGradientY     = -40 tesla/cm
+
+s:Ge/PhantomXY/Type       = "TsBox"
+s:Ge/PhantomXY/Parent     = "World"
+s:Ge/PhantomXY/Material   = "Air"
+d:Ge/PhantomXY/HLX        = 0.5 cm
+d:Ge/PhantomXY/HLY        = 0.5 cm
+d:Ge/PhantomXY/HLZ        = 2.5 cm
+d:Ge/PhantomXY/TransX     = 0. cm
+d:Ge/PhantomXY/TransY     = 0. cm
+d:Ge/PhantomXY/TransZ     = 96.5 cm
+d:Ge/PhantomXY/RotX       = 0. deg
+d:Ge/PhantomXY/RotY       = 0. deg
+d:Ge/PhantomXY/RotZ       = 0. deg
+i:Ge/PhantomXY/XBins      = 100
+i:Ge/PhantomXY/YBins      = 100
+i:Ge/PhantomXY/ZBins      = 250
+
+
+
+s:Sc/Edep_PhantomXY/Quantity                  = "EnergyDeposit"
+s:Sc/Edep_PhantomXY/Material                  = "Air"
+s:Sc/Edep_PhantomXY/Component                 = "PhantomXY"
+b:Sc/Edep_PhantomXY/OutputToConsole           = "TRUE"
+s:Sc/Edep_PhantomXY/IfOutputFileAlreadyExists = "Overwrite"
+
+s:Sc/Edep_STD_PhantomXY/Quantity                  = "EnergyDeposit"
+sv:Sc/Edep_STD_PhantomXY/Report                   = 1 "Standard_Deviation"
+s:Sc/Edep_STD_PhantomXY/Material                  = "Air"
+s:Sc/Edep_STD_PhantomXY/Component                 = "PhantomXY"
+b:Sc/Edep_STD_PhantomXY/OutputToConsole           = "TRUE"
+s:Sc/Edep_STD_PhantomXY/IfOutputFileAlreadyExists = "Overwrite"
+
+s:Sc/Edep_PhantomXY_Q/Quantity                  = "EnergyDeposit"
+s:Sc/Edep_PhantomXY_Q/Material                  = "Air"
+s:Sc/Edep_PhantomXY_Q/Component                 = "PhantomXY_Q"
+b:Sc/Edep_PhantomXY_Q/OutputToConsole           = "TRUE"
+s:Sc/Edep_PhantomXY_Q/IfOutputFileAlreadyExists = "Overwrite"
+
+s:Sc/Edep_STD_PhantomXY_Q/Quantity                  = "EnergyDeposit"
+sv:Sc/Edep_STD_PhantomXY_Q/Report                   = 1 "Standard_Deviation"
+s:Sc/Edep_STD_PhantomXY_Q/Material                  = "Air"
+s:Sc/Edep_STD_PhantomXY_Q/Component                 = "PhantomXY_Q"
+b:Sc/Edep_STD_PhantomXY_Q/OutputToConsole           = "TRUE"
+s:Sc/Edep_STD_PhantomXY_Q/IfOutputFileAlreadyExists = "Overwrite"
+
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "proton"
+d:So/Example/BeamEnergy               = 8 MeV
+u:So/Example/BeamEnergySpread         = 0
+s:So/Example/BeamPositionDistribution = "Gaussian"
+s:So/Example/BeamPositionCutoffShape  = "Ellipse"
+d:So/Example/BeamPositionCutoffX      = 10. cm
+d:So/Example/BeamPositionCutoffY      = 10. cm
+d:So/Example/BeamPositionSpreadX      = 0.000001 cm
+d:So/Example/BeamPositionSpreadY      = 0.000001 cm
+s:So/Example/BeamAngularDistribution  = "Gaussian"
+d:So/Example/BeamAngularCutoffX       = 90. deg
+d:So/Example/BeamAngularCutoffY       = 90. deg
+d:So/Example/BeamAngularSpreadX       = 0.021 rad
+d:So/Example/BeamAngularSpreadY       = 0.021 rad
+i:So/Example/NumberOfHistoriesInRun   = 50000
+
+i:Ts/ShowHistoryCountAtInterval = 10000
+i:Ts/NumberOfThreads = 10
+b:Ts/PauseBeforeQuit = "True"
+
