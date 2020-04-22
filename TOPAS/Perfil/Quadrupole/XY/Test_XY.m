@@ -1,15 +1,9 @@
 clear all
 close all
 
-%% Prepare file names
-EdepFileName = 'Edep_Phantom.csv';
-Edep_STDFileName = 'Edep_STD_Phantom.csv';
-EdepXYFileName = 'Edep_PhantomXY.csv';
-EdepXY_STDFileName = 'Edep_STD_PhantomXY.csv';
-SDFileName = 'QUADRUPOLE.txt';
 
-%% Import length and bin number 
-[NR,NZ,dR,dZ] = readData(EdepFileName,SDFileName);
+%Hay que cargar NXY y la matriz XY del plano a nalizar, con su
+%respectiva matriz de error
 %% Setup the Import Options
 opts = delimitedTextImportOptions("NumVariables", 4);
 
@@ -32,7 +26,7 @@ EdepXY_matrix = flipud(reshape(tblEdepXY.D, [NR NR]));
 EdepXYSTD_matrix = flipud(reshape(tblEdepXY_STD.D, [NR NR]));
 
 %%
-XYValues = -1.495:0.01:1.495;
+XYValues = -0.495:0.01:0.495;
 EdepX = sum(EdepXY_matrix,2);
 EdepX_normalized = EdepX./sum(EdepX);
 EdepX_STD = sum(EdepXYSTD_matrix,2);
@@ -68,16 +62,19 @@ SEdep
 figure (8) 
 subplot(2,2,[1,2])
 imagesc(XYValues,XYValues,EdepXY_matrix)
+grid on
 xlabel('X (cm)')
 ylabel('Y (cm)')
 subplot(2,2,3)
 errorbar(XYValues,EdepXY_normalized(1,:),EdepXYSTD_normalized(1,:))
+grid on
 xlabel('X (cm)')
 ylabel('E')
 hold on
 plot(XYValues,FValues_weighted(1,:))
 subplot(2,2,4)
 errorbar(XYValues,EdepXY_normalized(2,:),EdepXYSTD_normalized(2,:))
+grid on
 hold on
 plot(XYValues,FValues_weighted(2,:))
 xlabel('Y (cm)')

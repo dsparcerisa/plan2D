@@ -10,19 +10,39 @@ s:Ge/PhantomXY_Q/Parent     = "World"
 s:Ge/PhantomXY_Q/Material   = "Air"
 d:Ge/PhantomXY_Q/HLX        = 0.5 cm
 d:Ge/PhantomXY_Q/HLY        = 0.5 cm
-d:Ge/PhantomXY_Q/HLZ        = 0.5 cm
+d:Ge/PhantomXY_Q/HLZ        = 0.25 cm
 d:Ge/PhantomXY_Q/TransX     = 0. cm
 d:Ge/PhantomXY_Q/TransY     = 0. cm
-d:Ge/PhantomXY_Q/TransZ     = 99.5 cm
+d:Ge/PhantomXY_Q/TransZ     = 99.75 cm
 d:Ge/PhantomXY_Q/RotX       = 0. deg
 d:Ge/PhantomXY_Q/RotY       = 0. deg
 d:Ge/PhantomXY_Q/RotZ       = 0. deg
 i:Ge/PhantomXY_Q/XBins      = 100
 i:Ge/PhantomXY_Q/YBins      = 100
-i:Ge/PhantomXY_Q/ZBins      = 50
+i:Ge/PhantomXY_Q/ZBins      = 25
 s:Ge/PhantomXY_Q/Field = "QuadrupoleMagnet"
-d:Ge/PhantomXY_Q/MagneticFieldGradientX     = 0.1 tesla/cm
-d:Ge/PhantomXY_Q/MagneticFieldGradientY     = 0.1 tesla/cm
+d:Ge/PhantomXY_Q/MagneticFieldGradientX     = 0.001 tesla/cm
+d:Ge/PhantomXY_Q/MagneticFieldGradientY     = 0.001 tesla/cm
+
+s:Ge/PhantomXY_Q2/Type       = "TsBox"
+s:Ge/PhantomXY_Q2/Parent     = "World"
+s:Ge/PhantomXY_Q2/Material   = "Air"
+d:Ge/PhantomXY_Q2/HLX        = 0.5 cm
+d:Ge/PhantomXY_Q2/HLY        = 0.5 cm
+d:Ge/PhantomXY_Q2/HLZ        = 0.25 cm
+d:Ge/PhantomXY_Q2/TransX     = 0. cm
+d:Ge/PhantomXY_Q2/TransY     = 0. cm
+d:Ge/PhantomXY_Q2/TransZ     = 99.25 cm
+d:Ge/PhantomXY_Q2/RotX       = 0. deg
+d:Ge/PhantomXY_Q2/RotY       = 0. deg
+d:Ge/PhantomXY_Q2/RotZ       = 0. deg
+i:Ge/PhantomXY_Q2/XBins      = 100
+i:Ge/PhantomXY_Q2/YBins      = 100
+i:Ge/PhantomXY_Q2/ZBins      = 25
+s:Ge/PhantomXY_Q2/Field = "QuadrupoleMagnet"
+d:Ge/PhantomXY_Q2/MagneticFieldGradientX     = 0.001 tesla/cm
+d:Ge/PhantomXY_Q2/MagneticFieldGradientY     = 0.001 tesla/cm
+
 
 s:Ge/PhantomXY/Type       = "TsBox"
 s:Ge/PhantomXY/Parent     = "World"
@@ -67,6 +87,20 @@ s:Sc/Edep_STD_PhantomXY_Q/Material                  = "Air"
 s:Sc/Edep_STD_PhantomXY_Q/Component                 = "PhantomXY_Q"
 b:Sc/Edep_STD_PhantomXY_Q/OutputToConsole           = "TRUE"
 s:Sc/Edep_STD_PhantomXY_Q/IfOutputFileAlreadyExists = "Overwrite"
+
+s:Sc/Edep_PhantomXY_Q2/Quantity                  = "EnergyDeposit"
+s:Sc/Edep_PhantomXY_Q2/Material                  = "Air"
+s:Sc/Edep_PhantomXY_Q2/Component                 = "PhantomXY_Q2"
+b:Sc/Edep_PhantomXY_Q2/OutputToConsole           = "TRUE"
+s:Sc/Edep_PhantomXY_Q2/IfOutputFileAlreadyExists = "Overwrite"
+
+s:Sc/Edep_STD_PhantomXY_Q2/Quantity                  = "EnergyDeposit"
+sv:Sc/Edep_STD_PhantomXY_Q2/Report                   = 1 "Standard_Deviation"
+s:Sc/Edep_STD_PhantomXY_Q2/Material                  = "Air"
+s:Sc/Edep_STD_PhantomXY_Q2/Component                 = "PhantomXY_Q2"
+b:Sc/Edep_STD_PhantomXY_Q2/OutputToConsole           = "TRUE"
+s:Sc/Edep_STD_PhantomXY_Q2/IfOutputFileAlreadyExists = "Overwrite"
+
 
 s:So/Example/Type                     = "Beam"
 s:So/Example/Component                = "BeamPosition"
