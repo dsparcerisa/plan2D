@@ -1,4 +1,4 @@
-function [Edep, Edep_STD, NX, NY, NZ, dx, dy, dz, Spread, AngularSpread, MagneticGradient, energy, N_histories] = importData(EdepFileName,Edep_STDFileName,CodeFileName)
+function [Edep, Edep_STD, NX, NY, NZ, dx, dy, dz, Spread, AngularSpread, MagneticGradient1, MagneticGradient2, energy] = importData(EdepFileName,Edep_STDFileName,CodeFileName)
 %% Setup the Import Options
 opts = delimitedTextImportOptions("NumVariables", 4);
 
@@ -34,7 +34,7 @@ NX = str2num(str_NX);
 NY = str2num(str_NY);
 NZ = str2num(str_NZ);
 
-%Bin length 
+%% Bin length 
 [Delimiter_of1, Delimiter_of2] = regexp(filetext,'of ');
 Delimiter_cm = regexp(filetext,' cm');
 
@@ -79,26 +79,42 @@ Delimiter_equal = regexp(toma_energy,'=');
 Delimiter_MeV= regexp(toma_energy,' MeV');
 energy = str2num(toma_energy(Delimiter_equal+2:Delimiter_MeV-1));
 
-%Histories
-[Delimiter_histories1,Delimiter_histories2] = regexp(filetext2, 'HistoriesInRun  ');
-toma_histories = filetext2(Delimiter_histories2(1):Delimiter_histories2(1)+30);
-Delimiter_equal = regexp(toma_histories,'=');
-Delimiter_Ts = regexp(toma_histories,'i:Ts/Show');
-N_histories = str2num(toma_histories(Delimiter_equal+2:Delimiter_Ts-3));
+%% Histories
+%[Delimiter_histories1,Delimiter_histories2] = regexp(filetext2, 'HistoriesInRun  ');
+%toma_histories = filetext2(Delimiter_histories2(1):Delimiter_histories2(1)+40);
+%Delimiter_equal = regexp(toma_histories,'=');
+%Delimiter_Ts = regexp(toma_histories,'1#');
+%N_histories = str2num(toma_histories(Delimiter_equal+2:Delimiter_Ts-2));
 
-%% Magnetic Gradient
-[Delimiter_gradient1,Delimiter_gradient2] = regexp(filetext2, 'Gradient');
+%% Magnetic Gradient 1
+[Delimiter_gradient1,Delimiter_gradient2] = regexp(filetext2, '1/Magnetic');
 [Delimiter_tesla1,Delimiter_tesla2] = regexp(filetext2, 'tesla');
 
 toma_gradientX = filetext2(Delimiter_gradient2(1)+1:Delimiter_tesla1(1));
 Delimiter_equal = regexp(toma_gradientX,'=');
 Delimiter_t = regexp(toma_gradientX,'t');
-MagneticGradientX = str2num(toma_gradientX(Delimiter_equal+2:Delimiter_t-2));
+MagneticGradientX1 = str2num(toma_gradientX(Delimiter_equal+1:Delimiter_t(2)-1));
 
 toma_gradientY = filetext2(Delimiter_gradient2(2)+1:Delimiter_tesla1(2));
 Delimiter_equal = regexp(toma_gradientY,'=');
 Delimiter_t = regexp(toma_gradientY,'t');
-MagneticGradientY = str2num(toma_gradientY(Delimiter_equal+2:Delimiter_t-2));
+MagneticGradientY1 = str2num(toma_gradientY(Delimiter_equal+2:Delimiter_t(2)-2));
 
-MagneticGradient = [MagneticGradientX; MagneticGradientY];
+MagneticGradient1 = [MagneticGradientX1; MagneticGradientY1];
+
+%% Magnetic Gradient 2
+[Delimiter_gradient1,Delimiter_gradient2] = regexp(filetext2, '2/Magnetic');
+[Delimiter_tesla1,Delimiter_tesla2] = regexp(filetext2, 'tesla');
+
+toma_gradientX = filetext2(Delimiter_gradient2(1)+1:Delimiter_tesla1(3));
+Delimiter_equal = regexp(toma_gradientX,'=');
+Delimiter_t = regexp(toma_gradientX,'t');
+MagneticGradientX2 = str2num(toma_gradientX(Delimiter_equal+1:Delimiter_t(2)-1));
+
+toma_gradientY = filetext2(Delimiter_gradient2(2)+1:Delimiter_tesla1(4));
+Delimiter_equal = regexp(toma_gradientY,'=');
+Delimiter_t = regexp(toma_gradientY,'t');
+MagneticGradientY2 = str2num(toma_gradientY(Delimiter_equal+2:Delimiter_t(2)-2));
+
+MagneticGradient2 = [MagneticGradientX2; MagneticGradientY2];
 

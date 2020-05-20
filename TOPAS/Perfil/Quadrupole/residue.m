@@ -1,5 +1,5 @@
 function [residue] = residue(z_exp,sigmaX_exp,sigmaY_exp,nlm_exp_X,nlm_exp_Y,nlmX,nlmY)
-
+%%
 sigmaX_inter = feval(nlmX,z_exp);
 sigmaX_STD_inter = sqrt((nlmX.Coefficients.SE(1).*(sigmaX_inter.^2)).^2+(nlmX.Coefficients.SE(2).*sigmaX_inter).^2+(nlmX.Coefficients.SE(3)).^2);
 sigmaY_inter = feval(nlmY,z_exp);

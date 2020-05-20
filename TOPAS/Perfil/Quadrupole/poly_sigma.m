@@ -17,4 +17,4 @@ nlmX = fitnlm(z,sigmaX(:,1),modelFun,polyFX,'Weight',wx);
 wy = (sigmaY(:,2)).^(-2);
 polyFY = fit(z', sigmaY(:,1),'poly2');
 polyFY = [polyFY.p1 polyFY.p2 polyFY.p3];
-nlmY = fitnlm(z,sigmaY(:,1),modelFun,polyFY,'Weight',wx);
+nlmY = fitnlm(z,sigmaY(:,1),modelFun,polyFY,'Weight',wy);
