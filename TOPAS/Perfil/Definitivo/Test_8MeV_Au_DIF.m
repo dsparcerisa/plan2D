@@ -5,7 +5,7 @@ Edep_STDFileName = 'Edep_STD_8MeV_Au_DIF.csv';
 CodeFileName = 'Test_8MeV_Au_DIF.txt';
 
 %% Import Data
-[Edep, Edep_STD, NX, NY, NZ, dx, dy, dz, Spread, AngularSpread, MagneticGradient1,MagneticGradien2, energy] = importData(EdepFileName,Edep_STDFileName,CodeFileName);
+[Edep, Edep_STD, NX, NY, NZ, dx, dy, dz, Spread, AngularSpread, MagneticGradient1,MagneticGradient2, energy] = importData(EdepFileName,Edep_STDFileName,CodeFileName);
 
 %% Reshape 
 Edep = permute(reshape(Edep, [NZ NY NX]), [3 2 1]);
@@ -22,9 +22,8 @@ z = dz * [NZ-1/2:-1:1/2];
 %% Polynomial Fit
 z_Cannon = 66.2008; %z_Cannon is the length of the Cannon
 z_Air = 3.5; %z_Air is the the distance between the nozzle and the point from where the polynomial interpolation will be executed
-z0 = z_Cannon + 3.5;  %z0 is the point form where the polynomial interpolation will be executed 
 
-[nlmX,nlmY] = poly_sigma(z ,sigmaX ,sigmaY ,z0);
+[nlmX,nlmY] = poly_sigma(z ,sigmaX ,sigmaY , z_Cannon,z_Air);
 
 %% Figure
 figure_sigma(sigmaX,sigmaY,z)

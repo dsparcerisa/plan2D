@@ -1,12 +1,12 @@
-function [nlmX,nlmY] = poly_sigma(z ,sigmaX ,sigmaY,z0)
+function [nlmX,nlmY] = poly_sigma(z ,sigmaX ,sigmaY,z_Cannon,z_Air)
 
-%Acotar límites de interpolacion (despues del cuadrupolo)
+%% Acotar límites de interpolacion (despues del cuadrupolo)
+z0 = z_Cannon + z_Air;
 NZ0 = find(abs(z-z0)<0.01);
-z = z(1:NZ0);
+z = z(1:NZ0) - z_Cannon;
 sigmaX = sigmaX(1:NZ0,:);
-sigmaY = sigmaY(1:NZ0,:);
-
-
+sigmaY = sigmaY(1:NZ0,:); 
+%%
 modelFun = @(b,x) b(1)*x.^2 + b(2)*x + b(3); 
 
 wx = (sigmaX(:,2)).^(-2);
