@@ -7,7 +7,7 @@ CodeFileName = 'Test_8MeV_NO_DIF.txt';
 %% Import Data
 [Edep, Edep_STD, NX, NY, NZ, dx, dy, dz, Spread, AngularSpread, MagneticGradient1,MagneticGradient2, energy] = importData(EdepFileName,Edep_STDFileName,CodeFileName);
 
-%% Reshape 
+ %Reshape 
 Edep = permute(reshape(Edep, [NZ NY NX]), [3 2 1]);
 Edep_STD = permute(reshape(Edep_STD, [NZ NY NX]), [3 2 1]);
 
