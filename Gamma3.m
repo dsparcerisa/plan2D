@@ -8,8 +8,8 @@ function [G] = Gamma3(DcProfile,DmProfile)
 %%
 Dc = DcProfile.data;
 Dm = DmProfile.data;
-ADm = 3; % Percentage
-Adm = 3; % mm
+ADm = 1; % Percentage
+Adm = 1; % mm
 G = nan(DmProfile.NY,DmProfile.NX);
 %%
 for i = 1:numel(G);
