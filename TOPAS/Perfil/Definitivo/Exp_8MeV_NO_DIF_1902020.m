@@ -1,9 +1,9 @@
-function [ZValues_exp,SEdepX_exp,SEdepY_exp,nlm_exp_X,nlm_exp_Y] = Exp_8MeV_SinDif
+function [ZValues_exp,SEdepX_exp,SEdepY_exp,nlm_exp_X,nlm_exp_Y] = Exp_8MeV_NO_DIF_1902020
 
 %% Experimental data
-ZValues_exp = [ 4.4 5.9 7.4 8.9 10.4 11.9];
-SEdepX_exp = [0.474 0.637 0.881 1.11 1.254 1.434; 0.014 0.022 0.021 0.02 0.01 0.039];
-SEdepY_exp = [0.58 0.731 0.948 1.149 1.308 1.426; 0.016 0.022 0.023 0.024 0.021 0.036];
+ZValues_exp = [5.1 6.6 8.1 9.6 11.1 12.6];
+SEdepX_exp = [0.4751 0.6395 0.8991 1.0751 1.2551 1.4783; 0.0143 0.0220 0.0239 0.0165 0.0087 0.0255];
+SEdepY_exp = [0.5826 0.7317 0.9592 1.1505 1.3370 1.5052; 0.0156 0.0208 0.0220 0.0179 0.0235 0.0309];
 
 poly_exp_X = polyfit(ZValues_exp,SEdepX_exp(1,:),2);
 w_X = ones(size(ZValues_exp)).*(SEdepX_exp(2,:).^-2);
