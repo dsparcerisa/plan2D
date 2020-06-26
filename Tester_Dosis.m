@@ -7,7 +7,7 @@ NX=100;
 NY=100;
 dxy=sizeX/NX;
 squareHalfSize = dxy/2;
-D = createEmptyCG2D(dxy, sizeX, sizeY);
+D = createEmptyCG2D(dxy, dxy, sizeX, sizeY);
 Xvalues = D.getAxisValues('X');
 Yvalues = D.getAxisValues('Y');
 Nprot=1e7;
@@ -16,7 +16,7 @@ Nprot=1e7;
 z = 10;
 dz = 0.001;
 targetSPR = 1;
-N0 = createEmptyCG2D(dxy, sizeX, sizeY);
+N0 = createEmptyCG2D(dxy, dxy, sizeX, sizeY);
 N0.data( (N0.getXindex(-squareHalfSize)):(N0.getXindex(squareHalfSize)), (N0.getYindex(-squareHalfSize)):(N0.getYindex(squareHalfSize))) = 1;
 N0.data = N0.data ./ sum(N0.data(:));
 
