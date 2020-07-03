@@ -1,35 +1,35 @@
 function [sigmaX, sigmaY] = getSigmaGauss(Dose, Dose_STD, x, y)
 % Fit the distribution to gaussiana
 
-
-modelFun = @(b,x) b(1)*exp(-((x-b(2))/(b(3))).^2);
 %%
-
-% Normalization
+sigmaX = nan(1, 2);
+sigmaY = nan(1, 2);
+modelFun = @(b,x) b(1)*exp(-((x-b(2))/(b(3))).^2);
+% %% Normalization (para qué?)
 X = sum(Dose,2);
-X_STD = sum(Dose_STD,2);
-X_norm = X./sum(X);
-X_STD_norm = X_STD./sum(X_STD);
+X_STD = rssq(Dose_STD,2);
+% normX = 1/sum(X);
+% X_norm = X.*normX;
+% X_STD_norm = X_STD.*normX;
 Y = sum(Dose,1);
-Y_STD = sum(Dose_STD,1);
-Y_norm = Y./sum(Y);
-Y_STD_norm = Y_STD./sum(Y_STD);
-    
+Y_STD = rssq(Dose_STD,1);
+% normY = 1/sum(Y);
+% Y_norm = Y .* normY;
+% Y_STD_norm = Y_STD .* normY;
+    %%
 % x fit
-Fx = fit(x', X_norm, 'gauss1');
-%sigmaX = Fx.c1/sqrt(2);
-Fx_coefficients = [Fx.a1 Fx.b1 Fx.c1];    
-wx = (X_STD_norm).^(-2);
-Non_inf_wx = find(wx ~= inf); 
-nlmx = fitnlm(x(Non_inf_wx),X_norm(Non_inf_wx),modelFun,Fx_coefficients,'Weight',wx(Non_inf_wx));
-sigmaX(1,:) = [nlmx.Coefficients.Estimate(3),nlmx.Coefficients.SE(3)]./sqrt(2);
+wx = (X_STD).^(-2);
+maskX = ~isinf(wx);
+Fx = fit(x(maskX)', X(maskX), 'gauss1', 'Weight', wx(maskX));
+sigmaX(1)= Fx.c1/sqrt(2);
+CI = confint(Fx);
+sigmaX(2)= max(abs(CI(:,3) - Fx.c1));
     
 % y fit
-Fy = fit(y', Y_norm', 'gauss1');
-%sigmaY = Fy.c1/sqrt(2);
-Fy_coefficients = [Fy.a1 Fy.b1 Fy.c1];    
-wy = (Y_STD_norm).^(-2);
-Non_inf_wy = find(wy ~= inf); 
-nlmy = fitnlm(y(Non_inf_wy),Y_norm(Non_inf_wy),modelFun,Fy_coefficients,'Weight',wy(Non_inf_wy));
-sigmaY(1,:) = [nlmy.Coefficients.Estimate(3),nlmy.Coefficients.SE(3)]./sqrt(2);   
+wy = (Y_STD).^(-2);
+maskY = ~isinf(wy);
+Fy = fit(y(maskY)', Y(maskY)', 'gauss1', 'Weight', wy(maskY));
+sigmaY(1)= Fy.c1/sqrt(2);
+CI = confint(Fy);
+sigmaY(2)= max(abs(CI(:,3) - Fy.c1));   
 
