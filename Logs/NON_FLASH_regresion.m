@@ -72,7 +72,7 @@ for i = 1:length(TABLA)
      Time_AX = [Time_AX;Time_AX1(2:length(Time_AX1))];
      
 end
-figure
+figure (3)
 validPoints = ~isoutlier(Time_AX,'percentiles', [1 99]);
 validAX = AX(validPoints);
 validTime_AX = Time_AX(validPoints);
