@@ -1,0 +1,17 @@
+####################################################
+#######      PHANTOM SCORER     ####################
+####################################################
+
+s:Sc/Dose/Quantity                  = "DoseToMedium"
+sv:Sc/Dose/Report                   = 2 "Mean" "Standard_Deviation"
+s:Sc/Dose/Component                 = "Film"
+b:Sc/Dose/OutputToConsole           = "False"
+s:Sc/Dose/IfOutputFileAlreadyExists = "Overwrite"
+i:Sc/Dose/XBins                     = 400
+i:Sc/Dose/YBins                     = 400
+i:Sc/Dose/ZBins                     = 1
+
+
+
+
+

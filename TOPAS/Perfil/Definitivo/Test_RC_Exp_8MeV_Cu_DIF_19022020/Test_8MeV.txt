@@ -1,0 +1,68 @@
+
+####################################################
+#######    GEOMETRY       ##########################
+####################################################
+
+includeFile = Geometry.txt
+
+d:Ge/Film/DepthZ     = 5.0 cm
+
+# Magnetic Fiel Gradient Quadrupole 1
+
+d:Ge/Quadrupole1/MagneticFieldGradientX     = 0.17 tesla/cm
+d:Ge/Quadrupole1/MagneticFieldGradientY     = -0.17 tesla/cm
+
+# Magnetic Fiel Gradient Quadrupole 2
+
+d:Ge/Quadrupole2/MagneticFieldGradientX     = -0.55 tesla/cm
+d:Ge/Quadrupole2/MagneticFieldGradientY     = 0.45 tesla/cm
+
+
+####################################################
+#######    SCORER        ###########################
+####################################################
+
+includeFile = Scorer.txt
+
+s:Sc/Dose/OutputFile                         = "Dose_3MeV_NO_PP"
+
+
+####################################################
+##################  WORLD  #########################
+####################################################
+
+s:Ge/World/Material  = "Vacuum"
+s:Ge/World/Type     = "TsBox"
+d:Ge/World/HLX       = 2.0 m
+d:Ge/World/HLY       = 2.0 m
+d:Ge/World/HLZ       = 2.0 m
+b:Ge/World/Invisible = "True"
+
+####################################################
+#######    BEAM PROPERTIES       ###################
+####################################################
+
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "proton"
+d:So/Example/BeamEnergy               = 8 MeV
+u:So/Example/BeamEnergySpread         = 0
+s:So/Example/BeamPositionDistribution = "Flat"
+s:So/Example/BeamPositionCutoffShape  = "Rectangle"
+d:So/Example/BeamPositionCutoffX      = 1. mm
+d:So/Example/BeamPositionCutoffY      = 1. mm
+s:So/Example/BeamAngularDistribution  = "None"
+d:So/Example/BeamAngularCutoffX       = 90. deg
+d:So/Example/BeamAngularCutoffY       = 90. deg
+i:So/Example/NumberOfHistoriesInRun   = 50000
+
+####################################################
+#######    PHYSICS PROPERTIES       ################
+####################################################
+
+d:Ph/Default/CutForAllParticles = 0.01 mm
+i:Ph/Default/EMBinsPerDecade = 35
+
+i:Ts/ShowHistoryCountAtInterval = 10000
+i:Ts/NumberOfThreads = 0
+b:Ts/PauseBeforeQuit = "False"
