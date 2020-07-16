@@ -1,0 +1,45 @@
+[15:42:05.838] Starting plan irradiation...
+	Plan name: FLASH Cubeta
+	Plan type: FLASH
+	Expected slit time: 4.500000e-01
+	Air depth at stage position Z=0: 4.60 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 6.900 nA (planned for 7.100 nA)
+
+[15:42:43.880] Moving to: [0.000 -1.120 -5.400]
+[15:42:47.025] Moving to: [0.000 -1.120 -5.400]
+[15:42:47.268] Arrived at: [0.000 -1.120 -5.400]
+[15:42:47.268] Deliver: 3 FLASH shots
+[15:42:48.255] Finished.
+
+[15:42:48.256] Moving to: [0.000 -2.250 -5.400]
+[15:42:49.575] Arrived at: [0.000 -2.250 -5.400]
+[15:42:49.576] Deliver: 10 FLASH shots
+[15:42:52.859] Finished.
+
+[15:42:52.860] Moving to: [0.000 -3.380 -5.400]
+[15:42:54.190] Arrived at: [0.000 -3.380 -5.400]
+[15:42:54.190] Deliver: 17 FLASH shots
+[15:42:59.715] Finished.
+
+[15:42:59.715] Moving to: [-1.120 0.000 -5.400]
+[15:43:03.568] Arrived at: [-1.120 0.000 -5.400]
+[15:43:03.569] Deliver: 2 FLASH shots
+[15:43:04.229] Finished.
+
+[15:43:04.229] Moving to: [-1.120 -1.120 -5.400]
+[15:43:05.539] Arrived at: [-1.120 -1.120 -5.400]
+[15:43:05.539] Deliver: 7 FLASH shots
+[15:43:07.837] Finished.
+
+[15:43:07.838] Moving to: [-1.120 -2.250 -5.400]
+[15:43:09.148] Arrived at: [-1.120 -2.250 -5.400]
+[15:43:09.149] Deliver: 13 FLASH shots
+[15:43:13.384] Finished.
+
+[15:43:13.384] Moving to: [-1.120 -3.380 -5.400]
+[15:43:14.671] Arrived at: [-1.120 -3.380 -5.400]
+[15:43:14.671] Deliver: 20 FLASH shots
+[15:43:21.214] Finished.
+
+[15:43:21.214] Plan irradiation finished.

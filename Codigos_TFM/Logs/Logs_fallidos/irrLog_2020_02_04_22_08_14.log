@@ -1,0 +1,9 @@
+[22:08:14.911] Starting plan irradiation...
+	Plan name: Plan de commissioning para CONV
+	Plan type: CONV
+	PepperPot code: PP100
+	Air depth at stage position Z=0: 4.40 cm
+	Absolut shift from X to (0,0) well: [-4.944 -3.147 0.000]
+	Current intensity: 0.043 nA (planned for 1.000 nA)
+
+[22:08:20.856] Moving to: [-1.944 -1.147 0.000]

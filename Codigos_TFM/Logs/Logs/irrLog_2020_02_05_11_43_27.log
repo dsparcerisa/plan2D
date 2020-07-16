@@ -1,0 +1,39 @@
+[11:43:27.611] Starting plan irradiation...
+	Plan name: Plan de calibración
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 4.40 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.000 nA (planned for 0.050 nA)
+
+[11:43:31.101] Moving to: [-1.360 -1.360 -5.600]
+[11:43:37.857] Arrived at: [-1.360 -1.360 -5.600]
+[11:43:38.428] Open shutter for 0.030s
+[11:43:38.491] Shutter closed.
+
+[11:43:38.494] Moving to: [-1.360 -0.900 -5.600]
+[11:43:39.610] Arrived at: [-1.360 -0.900 -5.600]
+[11:43:39.679] Open shutter for 0.030s
+[11:43:39.758] Shutter closed.
+
+[11:43:39.759] Moving to: [-1.360 -0.430 -5.600]
+[11:43:40.891] Arrived at: [-1.360 -0.430 -5.600]
+[11:43:41.444] Open shutter for 0.030s
+[11:43:41.505] Shutter closed.
+
+[11:43:41.505] Moving to: [-0.900 -0.430 -5.600]
+[11:43:42.595] Arrived at: [-0.900 -0.430 -5.600]
+[11:43:43.159] Open shutter for 0.030s
+[11:43:43.227] Shutter closed.
+
+[11:43:43.229] Moving to: [-0.900 -0.900 -5.600]
+[11:43:44.338] Arrived at: [-0.900 -0.900 -5.600]
+[11:43:45.002] Open shutter for 0.027s
+[11:43:45.057] Shutter closed.
+
+[11:43:45.058] Moving to: [-0.900 -1.360 -5.600]
+[11:43:46.131] Arrived at: [-0.900 -1.360 -5.600]
+[11:43:46.679] Open shutter for 0.030s
+[11:43:46.749] Shutter closed.
+
+[11:43:46.750] Moving to: [-0.430 -1.360 -5.600]

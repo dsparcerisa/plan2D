@@ -1,0 +1,41 @@
+[21:37:29.209] Starting plan irradiation...
+	Plan name: Plan de commissioning para FLASH
+	Plan comment: Medida perfiles difusor oro
+	Plan type: FLASH
+	Expected slit time: 7.500000e-01
+	Air depth at stage position Z=0: 5.10 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 5.950 nA (planned for 7.000 nA)
+
+[21:37:41.805] Moving to: [0.000 0.000 0.000]
+[21:37:49.484] Moving to: [0.000 0.000 0.000]
+[21:37:49.701] Arrived at: [0.000 0.000 0.000]
+[21:37:49.706] Deliver: 4 FLASH shots
+[21:37:51.168] Finished.
+
+[21:37:51.168] Moving to: [-1.800 0.000 -1.500]
+[21:37:54.153] Arrived at: [-1.800 0.000 -1.500]
+[21:37:54.154] Deliver: 4 FLASH shots
+[21:37:55.612] Finished.
+
+[21:37:55.613] Moving to: [-3.600 0.000 -3.000]
+[21:37:58.635] Arrived at: [-3.600 0.000 -3.000]
+[21:37:58.635] Deliver: 4 FLASH shots
+[21:38:00.083] Finished.
+
+[21:38:00.084] Moving to: [-3.600 -2.000 -4.500]
+[21:38:03.248] Arrived at: [-3.600 -2.000 -4.500]
+[21:38:03.249] Deliver: 4 FLASH shots
+[21:38:04.699] Finished.
+
+[21:38:04.699] Moving to: [-1.800 -2.000 -6.000]
+[21:38:07.685] Arrived at: [-1.800 -2.000 -6.000]
+[21:38:07.685] Deliver: 4 FLASH shots
+[21:38:09.149] Finished.
+
+[21:38:09.150] Moving to: [1.000 -2.000 -7.500]
+[21:38:12.598] Arrived at: [1.000 -2.000 -7.500]
+[21:38:12.599] Deliver: 4 FLASH shots
+[21:38:14.047] Finished.
+
+[21:38:14.048] Plan irradiation finished.

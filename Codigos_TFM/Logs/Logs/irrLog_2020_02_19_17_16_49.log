@@ -1,0 +1,56 @@
+[17:16:49.820] Starting plan irradiation...
+	Plan name: Prueba para RC
+	Plan comment: H18 con w18 para detector local
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 0.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 6.400 nA (planned for 10.000 nA)
+
+[17:17:36.288] Moving to: [-0.120 0.120 0.000]
+[17:17:37.229] Moving to: [-0.120 0.120 0.000]
+[17:17:37.452] Arrived at: [-0.120 0.120 0.000]
+[17:17:38.344] Open shutter for 10.000s
+[17:17:48.423] Shutter closed.
+
+[17:17:48.423] Moving to: [-0.120 0.000 0.000]
+[17:17:49.028] Arrived at: [-0.120 0.000 0.000]
+[17:17:49.902] Open shutter for 10.000s
+[17:17:59.978] Shutter closed.
+
+[17:17:59.979] Moving to: [-0.120 -0.120 0.000]
+[17:18:00.555] Arrived at: [-0.120 -0.120 0.000]
+[17:18:01.431] Open shutter for 10.000s
+[17:18:11.502] Shutter closed.
+
+[17:18:11.503] Moving to: [0.000 0.120 0.000]
+[17:18:12.530] Arrived at: [0.000 0.120 0.000]
+[17:18:13.415] Open shutter for 10.000s
+[17:18:23.489] Shutter closed.
+
+[17:18:23.490] Moving to: [0.000 0.000 0.000]
+[17:18:24.068] Arrived at: [0.000 0.000 0.000]
+[17:18:24.943] Open shutter for 10.000s
+[17:18:35.011] Shutter closed.
+
+[17:18:35.011] Moving to: [0.000 -0.120 0.000]
+[17:18:35.582] Arrived at: [0.000 -0.120 0.000]
+[17:18:36.461] Open shutter for 10.000s
+[17:18:46.540] Shutter closed.
+
+[17:18:46.540] Moving to: [0.120 0.120 0.000]
+[17:18:47.546] Arrived at: [0.120 0.120 0.000]
+[17:18:48.420] Open shutter for 10.000s
+[17:18:58.480] Shutter closed.
+
+[17:18:58.481] Moving to: [0.120 0.000 0.000]
+[17:18:59.042] Arrived at: [0.120 0.000 0.000]
+[17:18:59.922] Open shutter for 10.000s
+[17:19:09.979] Shutter closed.
+
+[17:19:09.979] Moving to: [0.120 -0.120 0.000]
+[17:19:10.545] Arrived at: [0.120 -0.120 0.000]
+[17:19:11.418] Open shutter for 10.000s
+[17:19:21.489] Shutter closed.
+
+[17:19:21.490] Plan irradiation finished.

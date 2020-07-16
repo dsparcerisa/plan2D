@@ -1,0 +1,31 @@
+[18:10:16.344] Starting plan irradiation...
+	Plan name: Prueba para RC
+	Plan comment: prueba movimiento
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 0.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.000 nA (planned for 7.000 nA)
+
+[18:10:25.127] Moving to: [-0.060 0.060 0.000]
+[18:10:25.971] Moving to: [-0.060 0.060 0.000]
+[18:10:26.201] Arrived at: [-0.060 0.060 0.000]
+[18:10:27.083] Open shutter for 10.000s
+[18:10:37.165] Shutter closed.
+
+[18:10:37.165] Moving to: [-0.060 -0.060 0.000]
+[18:10:37.751] Arrived at: [-0.060 -0.060 0.000]
+[18:10:38.628] Open shutter for 10.000s
+[18:10:48.707] Shutter closed.
+
+[18:10:48.708] Moving to: [0.060 -0.060 0.000]
+[18:10:49.301] Arrived at: [0.060 -0.060 0.000]
+[18:10:49.855] Open shutter for 10.000s
+[18:10:59.921] Shutter closed.
+
+[18:10:59.929] Moving to: [0.060 0.060 0.000]
+[18:11:00.514] Arrived at: [0.060 0.060 0.000]
+[18:11:01.382] Open shutter for 10.000s
+[18:11:11.459] Shutter closed.
+
+[18:11:11.460] Plan irradiation finished.

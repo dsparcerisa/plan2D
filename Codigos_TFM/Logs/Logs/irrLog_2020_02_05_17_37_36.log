@@ -1,0 +1,110 @@
+[17:37:36.655] Starting plan irradiation...
+	Plan name: CONV Placa
+	Plan type: CONV
+	PepperPot code: PP2capas
+	Air depth at stage position Z=0: 4.40 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.132 nA (planned for 0.100 nA)
+
+[17:37:46.369] Moving to: [-1.180 -2.410 -5.600]
+[17:37:48.018] Moving to: [-1.180 -2.410 -5.600]
+[17:37:51.618] Arrived at: [-1.180 -2.410 -5.600]
+[17:37:52.276] Open shutter for 0.642s
+[17:37:52.938] Shutter closed.
+
+[17:37:52.939] Moving to: [-1.180 -2.980 -5.600]
+[17:37:54.116] Arrived at: [-1.180 -2.980 -5.600]
+[17:37:54.777] Open shutter for 0.642s
+[17:37:55.460] Shutter closed.
+
+[17:37:55.461] Moving to: [-0.610 -2.980 -5.600]
+[17:37:56.639] Arrived at: [-0.610 -2.980 -5.600]
+[17:37:57.305] Open shutter for 0.642s
+[17:37:57.987] Shutter closed.
+
+[17:37:57.988] Moving to: [-0.610 -2.410 -5.600]
+[17:37:59.152] Arrived at: [-0.610 -2.410 -5.600]
+[17:37:59.819] Open shutter for 0.642s
+[17:38:00.499] Shutter closed.
+
+[17:38:00.499] Moving to: [-2.980 -0.610 -5.600]
+[17:38:04.389] Arrived at: [-2.980 -0.610 -5.600]
+[17:38:05.044] Open shutter for 1.284s
+[17:38:06.362] Shutter closed.
+
+[17:38:06.362] Moving to: [-2.980 -1.180 -5.600]
+[17:38:07.555] Arrived at: [-2.980 -1.180 -5.600]
+[17:38:08.203] Open shutter for 1.284s
+[17:38:09.517] Shutter closed.
+
+[17:38:09.518] Moving to: [-2.410 -1.180 -5.600]
+[17:38:10.703] Arrived at: [-2.410 -1.180 -5.600]
+[17:38:11.354] Open shutter for 1.284s
+[17:38:12.658] Shutter closed.
+
+[17:38:12.659] Moving to: [-2.410 -0.610 -5.600]
+[17:38:13.833] Arrived at: [-2.410 -0.610 -5.600]
+[17:38:14.485] Open shutter for 1.284s
+[17:38:15.793] Shutter closed.
+
+[17:38:15.794] Moving to: [-2.980 -2.410 -5.600]
+[17:38:18.471] Arrived at: [-2.980 -2.410 -5.600]
+[17:38:19.126] Open shutter for 2.567s
+[17:38:21.720] Shutter closed.
+
+[17:38:21.721] Moving to: [-2.980 -2.980 -5.600]
+[17:38:22.891] Arrived at: [-2.980 -2.980 -5.600]
+[17:38:23.548] Open shutter for 2.567s
+[17:38:26.156] Shutter closed.
+
+[17:38:26.156] Moving to: [-2.410 -2.980 -5.600]
+[17:38:27.336] Arrived at: [-2.410 -2.980 -5.600]
+[17:38:27.991] Open shutter for 2.567s
+[17:38:30.583] Shutter closed.
+
+[17:38:30.583] Moving to: [-2.410 -2.410 -5.600]
+[17:38:31.770] Arrived at: [-2.410 -2.410 -5.600]
+[17:38:32.428] Open shutter for 2.567s
+[17:38:35.034] Shutter closed.
+
+[17:38:35.035] Moving to: [-4.780 -0.610 -5.600]
+[17:38:38.929] Arrived at: [-4.780 -0.610 -5.600]
+[17:38:39.586] Open shutter for 5.134s
+[17:38:44.753] Shutter closed.
+
+[17:38:44.754] Moving to: [-4.780 -1.180 -5.600]
+[17:38:45.926] Arrived at: [-4.780 -1.180 -5.600]
+[17:38:46.586] Open shutter for 5.134s
+[17:38:51.754] Shutter closed.
+
+[17:38:51.754] Moving to: [-4.210 -1.180 -5.600]
+[17:38:52.938] Arrived at: [-4.210 -1.180 -5.600]
+[17:38:53.603] Open shutter for 5.134s
+[17:38:58.772] Shutter closed.
+
+[17:38:58.772] Moving to: [-4.210 -0.610 -5.600]
+[17:38:59.953] Arrived at: [-4.210 -0.610 -5.600]
+[17:39:00.618] Open shutter for 5.134s
+[17:39:05.789] Shutter closed.
+
+[17:39:05.789] Moving to: [-4.780 -2.410 -5.600]
+[17:39:08.490] Arrived at: [-4.780 -2.410 -5.600]
+[17:39:09.147] Open shutter for 7.702s
+[17:39:16.877] Shutter closed.
+
+[17:39:16.877] Moving to: [-4.780 -2.980 -5.600]
+[17:39:18.067] Arrived at: [-4.780 -2.980 -5.600]
+[17:39:18.724] Open shutter for 7.702s
+[17:39:26.476] Shutter closed.
+
+[17:39:26.476] Moving to: [-4.210 -2.980 -5.600]
+[17:39:27.651] Arrived at: [-4.210 -2.980 -5.600]
+[17:39:28.297] Open shutter for 7.702s
+[17:39:36.033] Shutter closed.
+
+[17:39:36.033] Moving to: [-4.210 -2.410 -5.600]
+[17:39:37.210] Arrived at: [-4.210 -2.410 -5.600]
+[17:39:37.875] Open shutter for 7.702s
+[17:39:45.617] Shutter closed.
+
+[17:39:45.617] Plan irradiation finished.

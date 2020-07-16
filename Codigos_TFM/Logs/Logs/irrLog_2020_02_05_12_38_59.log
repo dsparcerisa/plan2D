@@ -1,0 +1,279 @@
+[12:38:59.902] Starting plan irradiation...
+	Plan name: Plan de calibración
+	Plan type: CONV
+	PepperPot code: 1
+	Air depth at stage position Z=0: 4.40 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.040 nA (planned for 0.050 nA)
+
+[12:39:17.575] Moving to: [-6.760 -1.360 -5.600]
+[12:39:22.246] Arrived at: [-6.760 -1.360 -5.600]
+[12:39:22.907] Open shutter for 0.091s
+[12:39:23.040] Shutter closed.
+
+[12:39:23.040] Moving to: [-6.760 -0.900 -5.600]
+[12:39:24.140] Arrived at: [-6.760 -0.900 -5.600]
+[12:39:24.798] Open shutter for 0.091s
+[12:39:24.932] Shutter closed.
+
+[12:39:24.932] Moving to: [-6.760 -0.430 -5.600]
+[12:39:26.040] Arrived at: [-6.760 -0.430 -5.600]
+[12:39:26.697] Open shutter for 0.091s
+[12:39:26.827] Shutter closed.
+
+[12:39:26.827] Moving to: [-6.290 -0.430 -5.600]
+[12:39:27.941] Arrived at: [-6.290 -0.430 -5.600]
+[12:39:28.612] Open shutter for 0.091s
+[12:39:28.729] Shutter closed.
+
+[12:39:28.729] Moving to: [-6.290 -0.900 -5.600]
+[12:39:29.840] Arrived at: [-6.290 -0.900 -5.600]
+[12:39:30.504] Open shutter for 0.082s
+[12:39:30.622] Shutter closed.
+
+[12:39:30.623] Moving to: [-6.290 -1.360 -5.600]
+[12:39:31.722] Arrived at: [-6.290 -1.360 -5.600]
+[12:39:32.379] Open shutter for 0.091s
+[12:39:32.491] Shutter closed.
+
+[12:39:32.491] Moving to: [-5.830 -1.360 -5.600]
+[12:39:33.579] Arrived at: [-5.830 -1.360 -5.600]
+[12:39:34.234] Open shutter for 0.091s
+[12:39:34.350] Shutter closed.
+
+[12:39:34.351] Moving to: [-5.830 -0.900 -5.600]
+[12:39:35.458] Arrived at: [-5.830 -0.900 -5.600]
+[12:39:36.107] Open shutter for 0.091s
+[12:39:36.221] Shutter closed.
+
+[12:39:36.222] Moving to: [-5.830 -0.430 -5.600]
+[12:39:37.328] Arrived at: [-5.830 -0.430 -5.600]
+[12:39:37.984] Open shutter for 0.091s
+[12:39:38.098] Shutter closed.
+
+[12:39:38.099] Moving to: [-6.760 -4.060 -5.600]
+[12:39:42.242] Arrived at: [-6.760 -4.060 -5.600]
+[12:39:42.896] Open shutter for 0.212s
+[12:39:43.149] Shutter closed.
+
+[12:39:43.150] Moving to: [-6.760 -3.600 -5.600]
+[12:39:44.254] Arrived at: [-6.760 -3.600 -5.600]
+[12:39:44.910] Open shutter for 0.212s
+[12:39:45.146] Shutter closed.
+
+[12:39:45.146] Moving to: [-6.760 -3.130 -5.600]
+[12:39:46.255] Arrived at: [-6.760 -3.130 -5.600]
+[12:39:46.907] Open shutter for 0.212s
+[12:39:47.149] Shutter closed.
+
+[12:39:47.150] Moving to: [-6.290 -3.130 -5.600]
+[12:39:48.282] Arrived at: [-6.290 -3.130 -5.600]
+[12:39:48.934] Open shutter for 0.212s
+[12:39:49.185] Shutter closed.
+
+[12:39:49.185] Moving to: [-6.290 -3.600 -5.600]
+[12:39:50.299] Arrived at: [-6.290 -3.600 -5.600]
+[12:39:50.966] Open shutter for 0.191s
+[12:39:51.192] Shutter closed.
+
+[12:39:51.193] Moving to: [-6.290 -4.060 -5.600]
+[12:39:52.271] Arrived at: [-6.290 -4.060 -5.600]
+[12:39:52.929] Open shutter for 0.212s
+[12:39:53.168] Shutter closed.
+
+[12:39:53.168] Moving to: [-5.830 -4.060 -5.600]
+[12:39:54.508] Arrived at: [-5.830 -4.060 -5.600]
+[12:39:55.157] Open shutter for 0.212s
+[12:39:55.386] Shutter closed.
+
+[12:39:55.386] Moving to: [-5.830 -3.600 -5.600]
+[12:39:56.499] Arrived at: [-5.830 -3.600 -5.600]
+[12:39:57.158] Open shutter for 0.212s
+[12:39:57.403] Shutter closed.
+
+[12:39:57.403] Moving to: [-5.830 -3.130 -5.600]
+[12:39:58.521] Arrived at: [-5.830 -3.130 -5.600]
+[12:39:59.189] Open shutter for 0.212s
+[12:39:59.440] Shutter closed.
+
+[12:39:59.440] Moving to: [-6.760 -6.760 -5.600]
+[12:40:03.582] Arrived at: [-6.760 -6.760 -5.600]
+[12:40:04.244] Open shutter for 0.333s
+[12:40:04.611] Shutter closed.
+
+[12:40:04.611] Moving to: [-6.760 -6.290 -5.600]
+[12:40:05.717] Arrived at: [-6.760 -6.290 -5.600]
+[12:40:06.368] Open shutter for 0.333s
+[12:40:06.735] Shutter closed.
+
+[12:40:06.736] Moving to: [-6.760 -5.830 -5.600]
+[12:40:07.831] Arrived at: [-6.760 -5.830 -5.600]
+[12:40:08.490] Open shutter for 0.333s
+[12:40:08.850] Shutter closed.
+
+[12:40:08.850] Moving to: [-6.290 -5.830 -5.600]
+[12:40:09.960] Arrived at: [-6.290 -5.830 -5.600]
+[12:40:10.627] Open shutter for 0.333s
+[12:40:10.982] Shutter closed.
+
+[12:40:10.982] Moving to: [-6.290 -6.290 -5.600]
+[12:40:12.107] Arrived at: [-6.290 -6.290 -5.600]
+[12:40:12.574] Open shutter for 0.300s
+[12:40:12.911] Shutter closed.
+
+[12:40:12.911] Moving to: [-6.290 -6.760 -5.600]
+[12:40:14.005] Arrived at: [-6.290 -6.760 -5.600]
+[12:40:14.667] Open shutter for 0.333s
+[12:40:15.035] Shutter closed.
+
+[12:40:15.035] Moving to: [-5.830 -6.760 -5.600]
+[12:40:16.135] Arrived at: [-5.830 -6.760 -5.600]
+[12:40:16.184] Open shutter for 0.333s
+[12:40:16.558] Shutter closed.
+
+[12:40:16.559] Moving to: [-5.830 -6.290 -5.600]
+[12:40:17.675] Arrived at: [-5.830 -6.290 -5.600]
+[12:40:18.337] Open shutter for 0.333s
+[12:40:18.702] Shutter closed.
+
+[12:40:18.703] Moving to: [-5.830 -5.830 -5.600]
+[12:40:19.820] Arrived at: [-5.830 -5.830 -5.600]
+[12:40:20.491] Open shutter for 0.333s
+[12:40:20.841] Shutter closed.
+
+[12:40:20.841] Moving to: [-9.460 -1.360 -5.600]
+[12:40:27.376] Arrived at: [-9.460 -1.360 -5.600]
+[12:40:28.051] Open shutter for 0.121s
+[12:40:28.190] Shutter closed.
+
+[12:40:28.190] Moving to: [-9.460 -0.900 -5.600]
+[12:40:29.316] Arrived at: [-9.460 -0.900 -5.600]
+[12:40:29.978] Open shutter for 0.121s
+[12:40:30.119] Shutter closed.
+
+[12:40:30.119] Moving to: [-9.460 -0.430 -5.600]
+[12:40:31.223] Arrived at: [-9.460 -0.430 -5.600]
+[12:40:31.883] Open shutter for 0.121s
+[12:40:32.023] Shutter closed.
+
+[12:40:32.023] Moving to: [-8.990 -0.430 -5.600]
+[12:40:33.130] Arrived at: [-8.990 -0.430 -5.600]
+[12:40:33.782] Open shutter for 0.121s
+[12:40:33.922] Shutter closed.
+
+[12:40:33.922] Moving to: [-8.990 -0.900 -5.600]
+[12:40:35.022] Arrived at: [-8.990 -0.900 -5.600]
+[12:40:35.691] Open shutter for 0.109s
+[12:40:35.834] Shutter closed.
+
+[12:40:35.834] Moving to: [-8.990 -1.360 -5.600]
+[12:40:36.945] Arrived at: [-8.990 -1.360 -5.600]
+[12:40:37.602] Open shutter for 0.121s
+[12:40:37.759] Shutter closed.
+
+[12:40:37.759] Moving to: [-8.520 -1.360 -5.600]
+[12:40:38.868] Arrived at: [-8.520 -1.360 -5.600]
+[12:40:38.918] Open shutter for 0.121s
+[12:40:39.077] Shutter closed.
+
+[12:40:39.077] Moving to: [-8.520 -0.900 -5.600]
+[12:40:40.179] Arrived at: [-8.520 -0.900 -5.600]
+[12:40:40.836] Open shutter for 0.121s
+[12:40:40.988] Shutter closed.
+
+[12:40:40.988] Moving to: [-8.520 -0.430 -5.600]
+[12:40:42.079] Arrived at: [-8.520 -0.430 -5.600]
+[12:40:42.749] Open shutter for 0.121s
+[12:40:42.910] Shutter closed.
+
+[12:40:42.911] Moving to: [-9.460 -4.060 -5.600]
+[12:40:47.071] Arrived at: [-9.460 -4.060 -5.600]
+[12:40:47.727] Open shutter for 0.243s
+[12:40:47.998] Shutter closed.
+
+[12:40:47.999] Moving to: [-9.460 -3.600 -5.600]
+[12:40:49.092] Arrived at: [-9.460 -3.600 -5.600]
+[12:40:49.754] Open shutter for 0.243s
+[12:40:50.023] Shutter closed.
+
+[12:40:50.023] Moving to: [-9.460 -3.130 -5.600]
+[12:40:51.130] Arrived at: [-9.460 -3.130 -5.600]
+[12:40:51.782] Open shutter for 0.243s
+[12:40:52.064] Shutter closed.
+
+[12:40:52.065] Moving to: [-8.990 -3.130 -5.600]
+[12:40:53.207] Arrived at: [-8.990 -3.130 -5.600]
+[12:40:53.255] Open shutter for 0.243s
+[12:40:53.548] Shutter closed.
+
+[12:40:53.548] Moving to: [-8.990 -3.600 -5.600]
+[12:40:54.673] Arrived at: [-8.990 -3.600 -5.600]
+[12:40:55.333] Open shutter for 0.218s
+[12:40:55.587] Shutter closed.
+
+[12:40:55.587] Moving to: [-8.990 -4.060 -5.600]
+[12:40:56.728] Arrived at: [-8.990 -4.060 -5.600]
+[12:40:57.396] Open shutter for 0.243s
+[12:40:57.684] Shutter closed.
+
+[12:40:57.685] Moving to: [-8.520 -4.060 -5.600]
+[12:40:59.053] Arrived at: [-8.520 -4.060 -5.600]
+[12:40:59.710] Open shutter for 0.243s
+[12:40:59.981] Shutter closed.
+
+[12:40:59.981] Moving to: [-8.520 -3.600 -5.600]
+[12:41:01.083] Arrived at: [-8.520 -3.600 -5.600]
+[12:41:01.743] Open shutter for 0.243s
+[12:41:02.017] Shutter closed.
+
+[12:41:02.017] Moving to: [-8.520 -3.130 -5.600]
+[12:41:03.145] Arrived at: [-8.520 -3.130 -5.600]
+[12:41:03.816] Open shutter for 0.243s
+[12:41:04.086] Shutter closed.
+
+[12:41:04.086] Moving to: [-9.460 -6.760 -5.600]
+[12:41:08.240] Arrived at: [-9.460 -6.760 -5.600]
+[12:41:08.902] Open shutter for 0.364s
+[12:41:09.290] Shutter closed.
+
+[12:41:09.290] Moving to: [-9.460 -6.290 -5.600]
+[12:41:10.405] Arrived at: [-9.460 -6.290 -5.600]
+[12:41:11.059] Open shutter for 0.364s
+[12:41:11.453] Shutter closed.
+
+[12:41:11.453] Moving to: [-9.460 -5.830 -5.600]
+[12:41:12.567] Arrived at: [-9.460 -5.830 -5.600]
+[12:41:13.215] Open shutter for 0.364s
+[12:41:13.618] Shutter closed.
+
+[12:41:13.619] Moving to: [-8.990 -5.830 -5.600]
+[12:41:14.718] Arrived at: [-8.990 -5.830 -5.600]
+[12:41:15.378] Open shutter for 0.364s
+[12:41:15.771] Shutter closed.
+
+[12:41:15.771] Moving to: [-8.990 -6.290 -5.600]
+[12:41:16.887] Arrived at: [-8.990 -6.290 -5.600]
+[12:41:17.556] Open shutter for 0.327s
+[12:41:17.901] Shutter closed.
+
+[12:41:17.901] Moving to: [-8.990 -6.760 -5.600]
+[12:41:19.009] Arrived at: [-8.990 -6.760 -5.600]
+[12:41:19.664] Open shutter for 0.364s
+[12:41:20.065] Shutter closed.
+
+[12:41:20.065] Moving to: [-8.520 -6.760 -5.600]
+[12:41:21.188] Arrived at: [-8.520 -6.760 -5.600]
+[12:41:21.856] Open shutter for 0.364s
+[12:41:22.255] Shutter closed.
+
+[12:41:22.256] Moving to: [-8.520 -6.290 -5.600]
+[12:41:23.373] Arrived at: [-8.520 -6.290 -5.600]
+[12:41:24.022] Open shutter for 0.364s
+[12:41:24.405] Shutter closed.
+
+[12:41:24.405] Moving to: [-8.520 -5.830 -5.600]
+[12:41:25.517] Arrived at: [-8.520 -5.830 -5.600]
+[12:41:26.172] Open shutter for 0.364s
+[12:41:26.558] Shutter closed.
+
+[12:41:26.559] Plan irradiation finished.

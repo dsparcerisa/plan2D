@@ -1,0 +1,70 @@
+[11:27:09.746] Starting plan irradiation...
+	Plan name: Plan de commissioning para FLASH
+	Plan type: FLASH
+	Expected slit time: 4.500000e-01
+	Air depth at stage position Z=0: 4.40 cm
+	Absolut shift from X to (0,0) well: [-4.944 -3.147 0.000]
+	Current intensity: 6.400 nA (planned for 8.000 nA)
+
+[11:27:13.224] Moving to: [-1.944 -1.147 0.000]
+[11:27:26.056] Moving to: [-1.944 -1.147 0.000]
+[11:27:26.547] Arrived at: [-1.944 -1.147 0.000]
+[11:27:26.547] Deliver: 2 FLASH shots
+[11:27:27.190] Finished.
+
+[11:27:27.191] Moving to: [-1.944 -3.147 -1.500]
+[11:27:30.665] Arrived at: [-1.944 -3.147 -1.500]
+[11:27:30.666] Deliver: 2 FLASH shots
+[11:27:31.330] Finished.
+
+[11:27:31.330] Moving to: [-1.944 -5.146 -3.000]
+[11:27:34.778] Arrived at: [-1.944 -5.146 -3.000]
+[11:27:34.778] Deliver: 2 FLASH shots
+[11:27:35.426] Finished.
+
+[11:27:35.427] Moving to: [-3.944 -1.147 -4.500]
+[11:27:41.598] Arrived at: [-3.944 -1.147 -4.500]
+[11:27:41.599] Deliver: 2 FLASH shots
+[11:27:42.251] Finished.
+
+[11:27:42.251] Moving to: [-3.944 -3.147 -6.000]
+[11:27:45.710] Arrived at: [-3.944 -3.147 -6.000]
+[11:27:45.710] Deliver: 2 FLASH shots
+[11:27:46.355] Finished.
+
+[11:27:46.356] Moving to: [-3.944 -5.146 -7.500]
+[11:27:49.790] Arrived at: [-3.944 -5.146 -7.500]
+[11:27:49.790] Deliver: 2 FLASH shots
+[11:27:50.441] Finished.
+
+[11:27:50.441] Moving to: [-5.944 -1.147 0.000]
+[11:28:00.649] Arrived at: [-5.944 -1.147 0.000]
+[11:28:00.649] Deliver: 6 FLASH shots
+[11:28:02.610] Finished.
+
+[11:28:02.610] Moving to: [-5.944 -3.147 -1.500]
+[11:28:06.069] Arrived at: [-5.944 -3.147 -1.500]
+[11:28:06.069] Deliver: 6 FLASH shots
+[11:28:08.045] Finished.
+
+[11:28:08.046] Moving to: [-5.944 -5.146 -3.000]
+[11:28:11.488] Arrived at: [-5.944 -5.146 -3.000]
+[11:28:11.488] Deliver: 6 FLASH shots
+[11:28:13.437] Finished.
+
+[11:28:13.437] Moving to: [-7.944 -1.147 -4.500]
+[11:28:19.644] Arrived at: [-7.944 -1.147 -4.500]
+[11:28:19.645] Deliver: 6 FLASH shots
+[11:28:21.589] Finished.
+
+[11:28:21.589] Moving to: [-7.944 -3.147 -6.000]
+[11:28:25.044] Arrived at: [-7.944 -3.147 -6.000]
+[11:28:25.045] Deliver: 6 FLASH shots
+[11:28:27.014] Finished.
+
+[11:28:27.014] Moving to: [-7.944 -5.146 -7.500]
+[11:28:30.503] Arrived at: [-7.944 -5.146 -7.500]
+[11:28:30.504] Deliver: 6 FLASH shots
+[11:28:32.471] Finished.
+
+[11:28:32.471] Plan irradiation finished.

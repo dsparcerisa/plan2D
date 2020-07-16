@@ -1,0 +1,22 @@
+[17:39:32.622] Starting plan irradiation...
+	Plan name: CONV Cubeta
+	Plan type: CONV
+	PepperPot code: PP2capas
+	Air depth at stage position Z=0: 4.60 cm
+	Absolut shift from X to (0,0) well: [0.000 -0.300 0.000]
+	Current intensity: 0.090 nA (planned for 0.092 nA)
+
+[17:39:37.863] Moving to: [0.000 -1.420 -5.400]
+[17:39:40.989] Moving to: [0.000 -1.420 -5.400]
+[17:39:41.479] Arrived at: [0.000 -1.420 -5.400]
+[17:39:42.136] Open shutter for 2.873s
+[17:39:45.026] Shutter closed.
+
+[17:39:45.026] Moving to: [0.000 -2.550 -5.400]
+[17:39:46.344] Arrived at: [0.000 -2.550 -5.400]
+[17:39:47.017] Open shutter for 8.618s
+[17:39:55.672] Shutter closed.
+
+[17:39:55.672] Moving to: [0.000 -3.680 -5.400]
+[17:39:56.999] Arrived at: [0.000 -3.680 -5.400]
+[17:39:57.760] Open shutter for 14.364s

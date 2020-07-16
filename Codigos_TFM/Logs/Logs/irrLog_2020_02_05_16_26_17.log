@@ -1,0 +1,126 @@
+[16:26:17.547] Starting plan irradiation...
+	Plan name: FLASH Placa 3 duplicados
+	Plan type: FLASH
+	Expected slit time: 7.500000e-01
+	Air depth at stage position Z=0: 4.00 cm
+	Absolut shift from X to (0,0) well: [0.000 0.000 0.000]
+	Current intensity: 0.000 nA (planned for 1.000 nA)
+
+[16:26:19.526] Moving to: [-1.220 -2.380 -6.000]
+[16:26:23.631] Arrived at: [-1.220 -2.380 -6.000]
+[16:26:23.634] Deliver: 4 FLASH shots
+[16:26:24.972] Finished.
+
+[16:26:24.978] Moving to: [-1.220 -3.010 -6.000]
+[16:26:25.971] Arrived at: [-1.220 -3.010 -6.000]
+[16:26:25.972] Deliver: 4 FLASH shots
+[16:26:27.278] Finished.
+
+[16:26:27.279] Moving to: [-0.580 -3.010 -6.000]
+[16:26:28.517] Arrived at: [-0.580 -3.010 -6.000]
+[16:26:28.518] Deliver: 4 FLASH shots
+[16:26:29.835] Finished.
+
+[16:26:29.835] Moving to: [-0.580 -2.380 -6.000]
+[16:26:30.844] Arrived at: [-0.580 -2.380 -6.000]
+[16:26:30.845] Deliver: 4 FLASH shots
+[16:26:32.176] Finished.
+
+[16:26:32.179] Moving to: [-1.220 -5.980 -6.000]
+[16:26:35.911] Arrived at: [-1.220 -5.980 -6.000]
+[16:26:35.912] Deliver: 4 FLASH shots
+[16:26:37.223] Finished.
+
+[16:26:37.224] Moving to: [-1.220 -6.610 -6.000]
+[16:26:38.191] Arrived at: [-1.220 -6.610 -6.000]
+[16:26:38.192] Deliver: 4 FLASH shots
+[16:26:39.496] Finished.
+
+[16:26:39.497] Moving to: [-0.580 -6.610 -6.000]
+[16:26:40.477] Arrived at: [-0.580 -6.610 -6.000]
+[16:26:40.477] Deliver: 4 FLASH shots
+[16:26:41.784] Finished.
+
+[16:26:41.784] Moving to: [-0.580 -5.980 -6.000]
+[16:26:42.748] Arrived at: [-0.580 -5.980 -6.000]
+[16:26:42.749] Deliver: 4 FLASH shots
+[16:26:44.066] Finished.
+
+[16:26:44.066] Moving to: [-3.010 -0.580 -6.000]
+[16:26:50.158] Arrived at: [-3.010 -0.580 -6.000]
+[16:26:50.158] Deliver: 8 FLASH shots
+[16:26:52.792] Finished.
+
+[16:26:52.792] Moving to: [-3.010 -1.220 -6.000]
+[16:26:54.024] Arrived at: [-3.010 -1.220 -6.000]
+[16:26:54.025] Deliver: 8 FLASH shots
+[16:26:56.636] Finished.
+
+[16:26:56.636] Moving to: [-2.380 -1.220 -6.000]
+[16:26:57.590] Arrived at: [-2.380 -1.220 -6.000]
+[16:26:57.590] Deliver: 8 FLASH shots
+[16:27:00.217] Finished.
+
+[16:27:00.217] Moving to: [-2.380 -0.580 -6.000]
+[16:27:01.199] Arrived at: [-2.380 -0.580 -6.000]
+[16:27:01.200] Deliver: 8 FLASH shots
+[16:27:03.790] Finished.
+
+[16:27:03.790] Moving to: [-3.010 -2.380 -6.000]
+[16:27:06.277] Arrived at: [-3.010 -2.380 -6.000]
+[16:27:06.277] Deliver: 16 FLASH shots
+[16:27:11.487] Finished.
+
+[16:27:11.487] Moving to: [-3.010 -3.010 -6.000]
+[16:27:12.698] Arrived at: [-3.010 -3.010 -6.000]
+[16:27:12.698] Deliver: 16 FLASH shots
+[16:27:17.943] Finished.
+
+[16:27:17.944] Moving to: [-2.380 -3.010 -6.000]
+[16:27:19.172] Arrived at: [-2.380 -3.010 -6.000]
+[16:27:19.172] Deliver: 16 FLASH shots
+[16:27:24.403] Finished.
+
+[16:27:24.404] Moving to: [-2.380 -2.380 -6.000]
+[16:27:25.380] Arrived at: [-2.380 -2.380 -6.000]
+[16:27:25.380] Deliver: 16 FLASH shots
+[16:27:30.553] Finished.
+
+[16:27:30.553] Moving to: [-3.010 -4.180 -6.000]
+[16:27:33.030] Arrived at: [-3.010 -4.180 -6.000]
+[16:27:33.030] Deliver: 8 FLASH shots
+[16:27:35.677] Finished.
+
+[16:27:35.677] Moving to: [-3.010 -4.810 -6.000]
+[16:27:36.897] Arrived at: [-3.010 -4.810 -6.000]
+[16:27:36.897] Deliver: 8 FLASH shots
+[16:27:39.526] Finished.
+
+[16:27:39.527] Moving to: [-2.380 -4.810 -6.000]
+[16:27:40.756] Arrived at: [-2.380 -4.810 -6.000]
+[16:27:40.757] Deliver: 8 FLASH shots
+[16:27:43.343] Finished.
+
+[16:27:43.344] Moving to: [-2.380 -4.180 -6.000]
+[16:27:44.323] Arrived at: [-2.380 -4.180 -6.000]
+[16:27:44.323] Deliver: 8 FLASH shots
+[16:27:46.935] Finished.
+
+[16:27:46.935] Moving to: [-3.010 -5.980 -6.000]
+[16:27:49.407] Arrived at: [-3.010 -5.980 -6.000]
+[16:27:49.408] Deliver: 16 FLASH shots
+[16:27:54.594] Finished.
+
+[16:27:54.595] Moving to: [-3.010 -6.610 -6.000]
+[16:27:55.801] Arrived at: [-3.010 -6.610 -6.000]
+[16:27:55.801] Deliver: 16 FLASH shots
+[16:28:01.045] Finished.
+
+[16:28:01.046] Moving to: [-2.380 -6.610 -6.000]
+[16:28:02.015] Arrived at: [-2.380 -6.610 -6.000]
+[16:28:02.015] Deliver: 16 FLASH shots
+[16:28:07.234] Finished.
+
+[16:28:07.234] Moving to: [-2.380 -5.980 -6.000]
+[16:28:08.201] Arrived at: [-2.380 -5.980 -6.000]
+[16:28:08.202] Deliver: 16 FLASH shots

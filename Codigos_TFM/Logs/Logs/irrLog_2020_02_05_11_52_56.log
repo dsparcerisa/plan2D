@@ -1,0 +1,59 @@
+[11:52:56.518] Starting plan irradiation...
+	Plan name: Plan de commissioning para CONV
+	Plan type: CONV
+	PepperPot code: PP100
+	Air depth at stage position Z=0: 4.40 cm
+	Absolut shift from X to (0,0) well: [-4.944 -3.147 0.000]
+	Current intensity: 0.000 nA (planned for 1.000 nA)
+
+[11:52:58.927] Moving to: [-1.944 -1.147 0.000]
+[11:53:01.865] Arrived at: [-1.944 -1.147 0.000]
+[11:53:02.145] Open shutter for 1.000s
+[11:53:03.176] Shutter closed.
+
+[11:53:03.177] Moving to: [-1.944 -3.147 -1.500]
+[11:53:06.626] Arrived at: [-1.944 -3.147 -1.500]
+[11:53:06.879] Open shutter for 1.000s
+[11:53:07.897] Shutter closed.
+
+[11:53:07.897] Moving to: [-1.944 -5.146 -3.000]
+[11:53:11.260] Arrived at: [-1.944 -5.146 -3.000]
+[11:53:11.529] Open shutter for 1.000s
+[11:53:12.565] Shutter closed.
+
+[11:53:12.565] Moving to: [-3.944 -1.147 -4.500]
+[11:53:17.860] Arrived at: [-3.944 -1.147 -4.500]
+[11:53:18.126] Open shutter for 1.000s
+[11:53:19.166] Shutter closed.
+
+[11:53:19.168] Moving to: [-3.944 -3.147 -6.000]
+[11:53:21.749] Arrived at: [-3.944 -3.147 -6.000]
+[11:53:22.008] Open shutter for 1.000s
+[11:53:23.035] Shutter closed.
+
+[11:53:23.038] Moving to: [-3.944 -5.146 -7.500]
+[11:53:25.611] Arrived at: [-3.944 -5.146 -7.500]
+[11:53:25.881] Open shutter for 1.000s
+[11:53:26.913] Shutter closed.
+
+[11:53:26.913] Moving to: [-5.944 -1.147 0.000]
+[11:53:32.681] Arrived at: [-5.944 -1.147 0.000]
+[11:53:32.931] Open shutter for 3.000s
+[11:53:35.944] Shutter closed.
+
+[11:53:35.944] Moving to: [-5.944 -3.147 -1.500]
+[11:53:39.584] Arrived at: [-5.944 -3.147 -1.500]
+[11:53:39.632] Open shutter for 3.000s
+[11:53:42.673] Shutter closed.
+
+[11:53:42.673] Moving to: [-5.944 -5.146 -3.000]
+[11:53:46.191] Arrived at: [-5.944 -5.146 -3.000]
+[11:53:46.450] Open shutter for 3.000s
+[11:53:49.494] Shutter closed.
+
+[11:53:49.494] Moving to: [-7.944 -1.147 -4.500]
+[11:53:53.595] Arrived at: [-7.944 -1.147 -4.500]
+[11:53:53.849] Open shutter for 3.000s
+[11:53:56.884] Shutter closed.
+
+[11:53:56.884] Moving to: [-7.944 -3.147 -6.000]
