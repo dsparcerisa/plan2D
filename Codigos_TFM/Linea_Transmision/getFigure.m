@@ -19,8 +19,8 @@ hold on
 
 grid on
 xlabel('z (cm)','FontSize',15)
-ylabel('\sigma (mm)','FontSize',15)
-legend('\sigma_{X} Exp','P_{X} Exp','\sigma_{X} Sim','P_{Y} Sim','FontSize',10,'Location','northwest')
+ylabel('\sigma_{x} (mm)','FontSize',15)
+legend('\sigma_{x} Exp','P_{x} Exp','\sigma_{x} Sim','P_{x} Sim','FontSize',10,'Location','northwest')
 title('a)','FontSize',12)
 
 subplot(1,2,2)
@@ -38,8 +38,8 @@ hold on
 grid on
 title('b)','FontSize',12)
 xlabel('z (cm)','FontSize',15)
-ylabel('\sigma (mm)','FontSize',15)
-legend('\sigma_{Y} Exp','P_{X} Exp','\sigma_{Y} Sim','P_{Y} Sim','FontSize',10,'Location','northwest')
+ylabel('\sigma_{y} (mm)','FontSize',15)
+legend('\sigma_{y} Exp','P_{y} Exp','\sigma_{y} Sim','P_{y} Sim','FontSize',10,'Location','northwest')
 set((1),'Position', [0 0 800 600]);
 
 end

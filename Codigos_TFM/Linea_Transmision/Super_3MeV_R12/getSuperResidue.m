@@ -16,3 +16,6 @@ end
 %% Quadratic Fit
 [polyX,polyY] = getQuadraticFit(z,sigmaX,sigmaY);
 
+[polyX_exp,polyY_exp] = getQuadraticFit(z,sigmaX_exp,sigmaY_exp);
+getFigure(z,sigmaX_exp,sigmaY_exp,polyX_exp(:,:,1),polyY_exp(:,:,1),sigmaX,sigmaY,polyX(:,:,1),polyY(:,:,1))
+

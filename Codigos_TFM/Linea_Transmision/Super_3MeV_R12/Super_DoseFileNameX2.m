@@ -1,10 +1,10 @@
 function [DFN,COMGXFN] = Super_DoseFileNameX2
 %% Simulation Radiochromics
 z = [4.9:1.5:10.9];
-SX = [1:0.1:1.4];
+SX = [0.3:0.1:2.1];
 SY = 1;
 MG1 = [0.17];
-MG2 = [0.20:0.02:0.28];
+MG2 = [0.20:0.01:0.45];
 DFN = [];
 COMGXFN =[];
 

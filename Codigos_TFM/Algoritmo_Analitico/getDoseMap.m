@@ -3,7 +3,7 @@ function doseMap = getDoseMap(FluenceProfile, E0, z, Nprot, targetTh, targetSPR)
 % double targetTh, double targetDens, double targetSPR, CG2D N0)
 
 
-[energyA, stoppingPowerAir, stoppingPowerWater] = energyStoppingPower(E0, 0:0.01:z);
+[energyA, stoppingPowerAir, stoppingPowerWater] = energyStoppingPower(E0, 0:0.001:z);
 Sw_z = stoppingPowerWater(end); %MeV/cm
 rho_w = 1; %g/cm3
 

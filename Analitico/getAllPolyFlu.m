@@ -8,8 +8,8 @@ FluFileName = {'Resultados/Flu-1.csv','Resultados/Flu-2.csv','Resultados/Flu-3.c
 polyFluX = nan(length(EE),3,2);
 polyFluY = nan(length(EE),3,2);
 load('maxIndexEdep')
-%%
-for j = 1: length(EE);
+
+for j = 1%1: length(EE);
     maxIndex = maxIndexEdep(j);
     E = EE(j);
     [D, D_STD, x, y, z] = getData(FluFileName{j});
@@ -21,6 +21,7 @@ for j = 1: length(EE);
         DZ(i,:) = [sum(sum(D(:,:,i))), sum(sum(D_STD(:,:,i)))];
     end
     DZ_norm = [DZ(:,1)./sum(DZ(:,1)),DZ(:,2)./sum(DZ(:,2))];
+    DZ_max = DZ(:,1)./max(max(DZ(:,1)));
     DZV = DZ_norm(:,1);
 
     %% Index
@@ -46,11 +47,12 @@ for j = 1: length(EE);
     figure (E)
     subplot(1,2,1)
     %errorbar(z,DoseZ_norm(:,1),DoseZ_norm(:,2),'MarkerSize',15);
-    plot(z,DZ_norm(:,1),'LineWidth',2)
+    plot(z,DZ_max(:,1).*100,'LineWidth',2)
     hold on
     xlabel('z (cm)','FontSize',15)
     ylabel(YLabelD{Dtype},'FontSize',15)
     legend(LegendD{Dtype},'Location','NorthEast','FontSize',15)
+    title('a)','FontSize',12)
     grid on
 
     %% Plot Sigma Distribution
@@ -79,6 +81,7 @@ for j = 1: length(EE);
     xlabel('z (cm)','FontSize',15)
     ylabel('\sigma (mm)','FontSize',15)
     legend('\sigma _{X}','\sigma _{Y}','P_{X}','P_{Y}','FontSize',15,'Location','northwest')
+    title('b)','FontSize',12)
 
     set((E),'Position', [0 0 800 600]);
     

@@ -1,8 +1,8 @@
 clear all; close all
+%%
+DoseFileName = {'TOPAS/3MeV/Dose_49mm0.csv','TOPAS/3MeV/Dose_64mm0.csv','TOPAS/3MeV/Dose_79mm0.csv','TOPAS/3MeV/Dose_94mm0.csv','TOPAS/3MeV/Dose_109mm0.csv'};
 
-DoseFileName = {'TOPAS/3MeV/Dose_49mm.csv','TOPAS/3MeV/Dose_64mm.csv','TOPAS/3MeV/Dose_79mm.csv','TOPAS/3MeV/Dose_94mm.csv','TOPAS/3MeV/Dose_109mm.csv'};
-
-%% Sigma Calculation
+% Sigma Calculation
 sigmaX = nan(length(DoseFileName),2);
 sigmaY = nan(length(DoseFileName),2);
 for i = 1 : length(DoseFileName);
@@ -10,16 +10,16 @@ for i = 1 : length(DoseFileName);
     [sigmaX(i,:), sigmaY(i,:)] = getSigma(Dose, Dose_STD, x, y);
 end
 
-%% Load Experimental Data
+% Load Experimental Data
 [z,sigmaX_exp,sigmaY_exp] = getExperimentalData_3MeV_R12;
 [polyX_exp,polyY_exp] = getQuadraticFit(z,sigmaX_exp,sigmaY_exp);
 
-%% Residue
+% Residue
 [Res] = getResidue(sigmaX_exp, sigmaY_exp, sigmaX, sigmaY);
 
-%% Quadratic Fit
+% Quadratic Fit
 [polyX,polyY] = getQuadraticFit(z,sigmaX,sigmaY);
 
-%% Figure
+% Figure
 getFigure(z,sigmaX_exp,sigmaY_exp,polyX_exp(:,:,1),polyY_exp(:,:,1),sigmaX,sigmaY,polyX(:,:,1),polyY(:,:,1));
 

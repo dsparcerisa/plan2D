@@ -2,7 +2,7 @@ clear all
 close all
 
 %% Topas data
-[DT, DT_STD, x, y, HalfdTarget] = getTopasData('Resultados_Water/10millones/Dose-2-6.csv'); %%Cambiar
+[DT, DT_STD, x, y, HalfdTarget] = getTopasData('Resultados_Water/10millones/Dose-3-6.csv'); %%Cambiar
 
 dx = abs(x(1)-x(2)); %mm
 dy = abs(y(1)-y(2)); %mm
@@ -12,7 +12,7 @@ sizeY = abs(max(y))+abs(min(y)) + dy; %mm
 %% Input for the AA
 load('polyFlu'); %Polynomials
 % Tienen que coincidir con el de TOPAS
-E0 = 2; % MeV
+E0 = 3; % MeV
 z = 6; %cm
 Nprot = 1; %Protons
 
@@ -27,10 +27,10 @@ targetSPR = 1;
 
 
 %% getFluenceMap
-[FluenceProfile] = createFluenceProfile(dx,dy, sizeX, sizeY,sigmaXAA(1),sigmaYAA(1),0,0);
+[FluenceProfile] = createFluenceProfile(dx,dy, sizeX, sizeY,sigmaXT(1),sigmaYT(1),0,0);
 
 %% Dose Map
-doseMap = getDoseMap(FluenceProfile, E0, z, Nprot, targetTh, targetSPR);
+doseMap = getDoseMap(FluenceProfile, 2.877, z, Nprot, targetTh, targetSPR);
 
 DAA = doseMap.data;
 
@@ -44,14 +44,20 @@ mesh(X,Y,DT)
 xlabel('x (mm)','FontSize',15)
 ylabel('y(mm)','FontSize',15)
 zlabel('Dose (Gy/proton)','FontSize',15)
-title ('TOPAS','FontSize',15)
+title ('a)','FontSize',15)
+xlim([-5 5])
+ylim([-5 5])
+zlim([0 3*10^-7])
 
 subplot(1,2,2)
 mesh(X,Y,DAA)
 xlabel('x (mm)','FontSize',15)
 ylabel('y(mm)','FontSize',15)
 zlabel('Dose (Gy/proton)','FontSize',15)
-title ('Algoritmo Analítico','FontSize',15)
+title ('b)','FontSize',15)
+xlim([-5 5])
+ylim([-5 5])
+zlim([0 3*10^-7])
 
 set((1),'Position', [0 0 800 600]);
 
@@ -62,6 +68,8 @@ imagesc(x,y,DT')
 xlabel('x (mm)','FontSize',15)
 ylabel('y (mm)','FontSize',15)
 title('a)','FontSize',12)
+xlim([-5 5])
+ylim([-5 5])
 c1 = colorbar;
 c1.Label.String = 'Dose (Gy/proton)';
 c1.FontSize = 12;
@@ -73,6 +81,8 @@ imagesc(x,y,DAA')
 xlabel('x (mm)','FontSize',15)
 ylabel('y (mm)','FontSize',15)
 title('b)','FontSize',12)
+xlim([-5 5])
+ylim([-5 5])
 c2 = colorbar;
 c2.Label.String = 'Dose (Gy/proton)';
 c2.FontSize = 12;
@@ -87,6 +97,8 @@ xlabel('x (mm)','FontSize',15)
 ylabel('Dose (Gy/proton)','FontSize',15)
 legend('Dose T','Dose AA','FontSize',12)
 title('c)','FontSize',12)
+xlim([-5 5])
+ylim([0 0.5*10^-7])
 
 subplot(3,2,[4 6])
 plot(y,sum(DT,1)./length(y),'g','LineWidth',1)
@@ -95,13 +107,15 @@ plot(y,sum(DAA,1)./length(y),'r','LineWidth',1)
 xlabel('y (mm)','FontSize',15)
 ylabel('Dose (Gy/proton)','FontSize',15)
 legend('Dose T','Dose AA','FontSize',12)
-title('d)','FontSize',15)
+title('d)','FontSize',12)
+xlim([-5 5])
+ylim([0 0.5*10^-7])
 grid on
 set((2),'Position', [0 0 800 800]);
 
 %%
 D_Dif=abs(DT-DAA);
-DOSET = sum(sum(DT))./(length(x)*length(y))
+DOSET = [sum(sum(DT))./(length(x)*length(y)), sum(sum(DT_STD))./(length(x)*length(y))]
 DOSEAA = sum(sum(DAA))./(length(x)*length(y))
 D_Difper = abs(1-DOSET/DOSEAA)*100
 figure (3)
@@ -113,8 +127,8 @@ c1.Label.String = 'Dose (Gy/proton)';
 c1.FontSize = 12;
 grid on
 set((3),'Position', [0 0 800 600]);
-xlim([-8 8])
-ylim([-8 8])
+xlim([-5 5])
+ylim([-5 5])
 
 %% Gamma 3
 
