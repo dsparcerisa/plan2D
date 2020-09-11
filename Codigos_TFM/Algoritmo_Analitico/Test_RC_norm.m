@@ -14,12 +14,12 @@ rho_Target = 1.2; %g/cm3
 targetTh = dTarget*rho_Target; %g/cm2
 targetSPR = 1;
 % Activar High Dose
-%DOSE = allD_HD;
-%Title = {'6 Flash shots z = 4.9 cm','6 Flash shots z = 6.4 cm','6 Flash shots z = 7.9 cm','6 Flash shots z = 9.4 cm','6 Flash shots z = 10.9 cm'};
+DOSE = allD_HD;
+Title = {'6 Flash shots z = 4.9 cm','6 Flash shots z = 6.4 cm','6 Flash shots z = 7.9 cm','6 Flash shots z = 9.4 cm','6 Flash shots z = 10.9 cm'};
 
 % Activar Low Dose
-DOSE = allD_LD;   
-Title = {'2 Flash shots z = 4.9 cm','2 Flash shots z = 6.4 cm','2 Flash shots z = 7.9 cm','2 Flash shots z = 9.4 cm','2 Flash shots z = 10.9 cm'};
+%DOSE = allD_LD;   
+%Title = {'2 Flash shots z = 4.9 cm','2 Flash shots z = 6.4 cm','2 Flash shots z = 7.9 cm','2 Flash shots z = 9.4 cm','2 Flash shots z = 10.9 cm'};
 
 for i =1:5;
     % Poner a cero los puntos experimentales menores que cero
@@ -56,6 +56,10 @@ for i =1:5;
     DAA = doseMap.data;
     %DAA_norm = DAA./(sum(sum(DAA)));
     DAA_norm = DAA./max(max(DAA));
+    %% Diferencia en porcentaje de cada bin
+    DifN = abs(1-DAA_norm./Dose_norm)*100;
+    mask = (100*Dose_norm)>5;
+    Mean_Dif = mean(DifN(mask))
     %% Plot 
     figure (i)
     subplot(3,2,1)

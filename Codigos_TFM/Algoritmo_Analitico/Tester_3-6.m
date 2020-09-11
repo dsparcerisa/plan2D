@@ -114,10 +114,8 @@ grid on
 set((2),'Position', [0 0 800 800]);
 
 %%
-D_Dif=abs(DT-DAA);
-DOSET = [sum(sum(DT))./(length(x)*length(y)), sum(sum(DT_STD))./(length(x)*length(y))]
-DOSEAA = sum(sum(DAA))./(length(x)*length(y))
-D_Difper = abs(1-DOSET/DOSEAA)*100
+D_Dif = abs(DT-DAA);
+D_Difper = abs(1-DOSET./DOSEAA)*100
 figure (3)
 contourf(x,y,D_Dif')
 xlabel('x (mm)','FontSize',15)
@@ -129,10 +127,16 @@ grid on
 set((3),'Position', [0 0 800 600]);
 xlim([-5 5])
 ylim([-5 5])
+%% Diferencia en porcentaje de cada bin
+DOSETN=DT./max(max(DT))*100;
+DOSEAAN = DAA./max(max(DAA))*100;
+DifN = abs(1-DOSEAAN./DOSETN)*100;
+mask = DOSETN>5;
+Mean_Dif = mean(DifN(mask))
 
 %% Gamma 3
 
-percent = 0.5*max(max(DT)); % Gy/proton
+percent = max(max(DT)); % Gy/proton
 dta = 3 ; %mm
 
 reference.start = [x(1) y(1)];
@@ -143,4 +147,4 @@ target.start = [doseMap.minX doseMap.minY];
 target.width = [doseMap.dx doseMap.dy];
 target.data = [DAA];
 
-gamma = CalcGamma(reference, target, percent, dta, 'local', 0);
+gamma = CalcGamma(reference, target, percent, dta, 'local', 1);

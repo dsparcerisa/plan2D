@@ -115,9 +115,6 @@ set((2),'Position', [0 0 800 800]);
 
 %%
 D_Dif=abs(DT-DAA);
-DOSET = sum(sum(DT))./(length(x)*length(y))
-DOSEAA = sum(sum(DAA))./(length(x)*length(y))
-D_Difper = abs(1-DOSET/DOSEAA)*100
 figure (3)
 contourf(x,y,D_Dif')
 xlabel('x (mm)','FontSize',15)
@@ -129,7 +126,12 @@ grid on
 set((3),'Position', [0 0 800 600]);
 xlim([-3 3])
 ylim([-3 3])
-
+%%%% Diferencia en porcentaje de cada bin
+DOSETN=DT./max(max(DT))*100;
+DOSEAAN = DAA./max(max(DAA))*100;
+DifN = abs(1-DOSEAAN./DOSETN)*100;
+mask = DOSETN>5;
+Mean_Dif = mean(DifN(mask))
 %% Gamma 3
 
 percent = 0.5*max(max(DT)); % Gy/proton
