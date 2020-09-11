@@ -1,6 +1,7 @@
 clear all; close all
-%%
-DoseFileName = {'TOPAS/3MeV/Dose_49mm0.csv','TOPAS/3MeV/Dose_64mm0.csv','TOPAS/3MeV/Dose_79mm0.csv','TOPAS/3MeV/Dose_94mm0.csv','TOPAS/3MeV/Dose_109mm0.csv'};
+% 
+%DoseFileName = {'TOPAS/3MeV/Dose_49mm0.csv','TOPAS/3MeV/Dose_64mm0.csv','TOPAS/3MeV/Dose_79mm0.csv','TOPAS/3MeV/Dose_94mm0.csv','TOPAS/3MeV/Dose_109mm0.csv'};
+DoseFileName = {'TOPAS/3MeV/Dose_49mm.csv','TOPAS/3MeV/Dose_64mm.csv','TOPAS/3MeV/Dose_79mm.csv','TOPAS/3MeV/Dose_94mm.csv','TOPAS/3MeV/Dose_109mm.csv'};
 
 % Sigma Calculation
 sigmaX = nan(length(DoseFileName),2);

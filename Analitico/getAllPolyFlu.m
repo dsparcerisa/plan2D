@@ -1,8 +1,8 @@
 clear all
 close all
-
+ 
 %%
-EE = 1 : 8;
+EE = 1:8;
 Dtype = 2; %1:Energy Deposit 2:Fluence 3:Dose
 FluFileName = {'Resultados/Flu-1.csv','Resultados/Flu-2.csv','Resultados/Flu-3.csv','Resultados/Flu-4.csv','Resultados/Flu-5.csv','Resultados/Flu-6.csv','Resultados/Flu-7.csv','Resultados/Flu-8.csv'};
 polyFluX = nan(length(EE),3,2);
@@ -59,14 +59,83 @@ for j = 1%1: length(EE);
     %Algunos puntos se han ajustado con un error muy grande que afean las
     %gráficas
     if E == 1;
-        sigmaY(475,:)=nan; %Activar para Edep de 1 MeV
-    elseif E== 4;
-        sigmaX(448,:)=nan; %Activar para Edep de 4 MeV
-    elseif E == 5;
-        sigmaY(443:446,:) = nan; %Activar para Edep de 5 MeV
+       sigmaY(385,:)=nan;
+       sigmaX(491,:)=nan;
+       sigmaX(495:498,:)=nan;
+       sigmaX(278,:)=nan;
+        sigmaY(486:487,:)=nan;
+       sigmaY(475,:)=nan;
+       sigmaY(479,:)=nan;
+       sigmaY(491,:)=nan;
+    elseif E == 6;
+       sigmaX(231,:)=nan;
+       sigmaX(257,:)=nan;
+       sigmaX(259,:)=nan;
+       sigmaX(278,:)=nan;
+       sigmaY(222,:)=nan;
+       sigmaY(258,:)=nan;
+       sigmaY(286,:)=nan;
+       sigmaY(222,:)=nan;
+       sigmaY(259,:)=nan;
+       sigmaY(293,:)=nan;
+       sigmaY(299,:)=nan;
+       sigmaY(313,:)=nan;
+       sigmaX(392,:)=nan; %Activar para Edep de 6 MeV
+       sigmaX(382,:)=nan;
+       sigmaY(371,:)=nan; 
+    elseif E== 7;
+       sigmaX(186,:)=nan;
+       sigmaX(194,:)=nan;
+       sigmaX(195,:)=nan;
+       sigmaX(229,:)=nan;
+       sigmaX(252,:)=nan;
+       sigmaX(255,:)=nan;
+       sigmaY(208,:)=nan;
+       sigmaY(222,:)=nan;
+       sigmaY(237,:)=nan;
+       sigmaY(250,:)=nan;
+       sigmaY(269,:)=nan;
+       sigmaY(277,:)=nan;
+       sigmaY(281:282,:)=nan;
+       sigmaY(310,:)=nan;
+       sigmaY(326,:)=nan; %Activar para Edep de 4 MeV
+       sigmaY(340,:)=nan;
+       sigmaY(359,:)=nan;
+       sigmaY(383,:)=nan;
+    %elseif E == 5;
+    %    sigmaY(443:446,:) = nan; %Activar para Edep de 5 MeV
     elseif E == 8;
-        sigmaY(421,:) = nan;
-        sigmaY(449:450,:) = nan;%Activar para Edep de 8 MeV
+       sigmaX(145,:) = nan;
+       sigmaX(155,:) = nan;
+       sigmaX(159,:) = nan;
+       sigmaX(167,:) = nan;
+       sigmaX(192,:) = nan;
+       sigmaX(197,:) = nan;
+       sigmaX(198,:) = nan;
+       sigmaX(204,:) = nan;
+       sigmaX(211,:) = nan;
+       sigmaX(222,:) = nan;
+       sigmaX(375,:) = nan;
+       sigmaX(367,:) = nan;
+       sigmaX(380,:) = nan;
+       sigmaX(398,:) = nan;
+       sigmaY(378,:) = nan;
+       sigmaY(178,:) = nan;
+       sigmaY(182,:) = nan;
+       sigmaY(193,:) = nan;
+       sigmaY(206,:) = nan;
+       sigmaY(211,:) = nan;
+       sigmaY(217,:) = nan;
+       sigmaY(235,:) = nan;
+       sigmaY(243,:) = nan;
+       sigmaY(248,:) = nan;
+       sigmaY(255,:) = nan;
+       sigmaY(276,:) = nan;
+       sigmaY(378,:) = nan;
+       sigmaY(394,:) = nan;
+       % sigmaY(369,:) = nan;
+       % sigmaY(372,:) = nan;
+       % sigmaY(370,:) = nan;
     end
 
     subplot (1,2,2)
